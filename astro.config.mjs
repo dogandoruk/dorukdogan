@@ -3,6 +3,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://dogandoruk.github.io',
+  base: '/dorukdogan',
   integrations: [tailwind()],
   output: 'static',
   build: {
