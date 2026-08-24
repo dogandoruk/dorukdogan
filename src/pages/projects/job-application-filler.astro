@@ -1,0 +1,128 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Application Time Saved", value: "85%", sub: "Per application cycle" },
+  { label: "CV Generation", value: "Dynamic", sub: "Tailored PDF generator" },
+  { label: "Browser Extension", value: "1-Click", sub: "Form auto-population" },
+  { label: "Backend API", value: "Node.js", sub: "Express + Puppeteer" }
+];
+
+const tools = [
+  "JavaScript",
+  "Node.js",
+  "Express",
+  "Chrome Extension API",
+  "Puppeteer / PDF Engine",
+  "HTML5 & Tailwind CSS",
+  "Android Tablet UI"
+];
+
+const jobFlowSteps = [
+  { step: "01", title: "Job Description Ingestion", desc: "Chrome extension captures job posting details and role requirements." },
+  { step: "02", title: "Role-Profile Mapping", desc: "Backend maps requirements to matching skill blocks (SEO, Paid Media, or Omnichannel)." },
+  { step: "03", title: "PDF CV Compilation", desc: "Express server renders and compiles a pristine, tailored PDF CV in seconds." },
+  { step: "04", title: "Form Auto-Fill", desc: "Extension automatically injects verified career data into ATS portal fields." }
+];
+---
+
+<DetailLayout
+  title="Job Application Suite: Automated Form Filler & Tailored CV Engine"
+  subtitle="An end-to-end career automation system featuring a Chrome extension, Node.js PDF compiler, and tablet dashboard to eliminate job application friction."
+  category="Full-Stack & Browser Automation"
+  tag="AI & Builder Tool"
+  role="Full-Stack Developer & Product Owner"
+  timeline="2025 – 2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/projects"
+  backText="Back to AI & Builder Tools"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The High-Friction Job Application Process">
+    <p>
+      Modern job applications are notoriously repetitive. Candidates applying across multiple specialized disciplines (such as Performance Marketing, Technical SEO, and Digital Operations) are forced to manually copy-paste identical personal details, work histories, and portfolio links into hundreds of distinct Applicant Tracking System (ATS) portals (Greenhouse, Lever, Workday, LinkedIn).
+    </p>
+    <p>
+      Furthermore, submitting a generic CV reduces conversion rates, while manually editing bespoke PDFs for every single position is tedious and time-consuming.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Project Goals & Technical Requirements">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      Design and build an integrated productivity suite with three core capabilities:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>1-Click Browser Auto-Fill:</strong> A lightweight Chrome extension that detects ATS form inputs and populates verified career history instantly.</li>
+      <li><strong>On-Demand PDF CV Engine:</strong> A backend service that dynamically generates role-tailored PDF CVs matching the exact focus of the job posting.</li>
+      <li><strong>Cross-Platform Management:</strong> A responsive dashboard accessible via desktop and tablet to track application statuses and view generated documents.</li>
+    </ul>
+  </StarSection>
+
+  <!-- SYSTEM FLOW DIAGRAM -->
+  <FlowDiagram title="End-to-End Application Automation Pipeline" steps={jobFlowSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="System Architecture & Implementation">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Chrome Extension Architecture</h4>
+        <p>
+          Engineered a Manifest V3 browser extension using content scripts and background service workers. The extension parses DOM structures across popular job boards, identifies input fields (name, email, experience history, portfolio URLs), and populates them safely with one click.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Node.js & Express PDF Generation Service</h4>
+        <p>
+          Built a dedicated backend service that stores structured master career data in JSON. When requested, the engine dynamically selects the most relevant highlights (e.g. emphasizing Smartly.io and ROAS for Performance roles, or Screaming Frog and crawl health for SEO roles) and compiles an ATS-compliant PDF.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Tablet & Mobile Dashboard</h4>
+        <p>
+          Wrapped the management interface into a responsive dashboard that can be launched locally or accessed over a local network, enabling seamless monitoring on a secondary tablet display while working on desktop.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Results & Productivity Gains">
+    <p>
+      The automation suite transformed an otherwise exhausting multi-hour daily process into a fast, painless workflow:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Application Velocity</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">85% Faster Form Submission</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Complex multi-page ATS application forms that previously took 15 minutes are now completed in under 2 minutes.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Targeted Quality</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Zero-Manual Tailored CVs</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Generates role-specific PDF resumes on demand with perfect formatting and zero copy-paste typos.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Builder Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Repetitive problems are software opportunities. Building a custom browser extension and document compiler demonstrated how a small full-stack system can unlock massive compounding time savings.
+    </p>
+  </div>
+
+</DetailLayout>

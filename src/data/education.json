@@ -1,0 +1,44 @@
+[
+  {
+    "degree": "Master of Arts (M.A.) in New Media",
+    "institution": "Kadir Has University",
+    "year": "2021",
+    "location": "Istanbul, Turkey",
+    "highlight": "Master's Thesis presented as a conference paper at the prestigious International Communication Association (ICA) 2022 Conference in Paris, France.",
+    "description": "Focused on digital media ecosystems, computational communications, online community behavior, and data-driven media research. Developed rigorous quantitative and qualitative methodologies to analyze digital engagement and interaction patterns.",
+    "topics": [
+      "Computational Communication & New Media Theory",
+      "Quantitative & Qualitative Research Methods",
+      "Audience Dynamics & Platform Algorithms",
+      "Digital Culture & Platform Ecosystems"
+    ]
+  },
+  {
+    "degree": "Bachelor of Arts (B.A.) in Media and Visual Arts",
+    "institution": "Koç University",
+    "year": "2019",
+    "location": "Istanbul, Turkey",
+    "highlight": "Double Major Graduate at Turkey's leading research university.",
+    "description": "Comprehensive studies in digital visual storytelling, UX/UI design principles, creative direction, video production, and interactive media aesthetics.",
+    "topics": [
+      "Visual Design & Information Architecture",
+      "User Experience & Interface Design",
+      "Interactive Media & Digital Storytelling",
+      "Creative Strategy & Production"
+    ]
+  },
+  {
+    "degree": "Bachelor of Arts (B.A.) in Sociology",
+    "institution": "Koç University",
+    "year": "2019",
+    "location": "Istanbul, Turkey",
+    "highlight": "Double Major Graduate specializing in consumer behavior & cultural analysis.",
+    "description": "In-depth training in structural social theory, cultural consumption habits, behavioral psychology, and statistical research methods. Provides a strong sociological foundation for market segmentation and consumer intent analysis.",
+    "topics": [
+      "Consumer Behavior & Cultural Sociology",
+      "Statistical Analysis & Survey Design",
+      "Social Stratification & Market Segmentation",
+      "Qualitative Fieldwork & Behavioral Insights"
+    ]
+  }
+]

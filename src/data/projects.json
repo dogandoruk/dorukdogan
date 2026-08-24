@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "job-application-filler",
+    "title": "Job Application Suite: Automated Form Filler & Tailored CV Engine",
+    "type": "Productivity & Career Automation",
+    "tag": "AI & Builder Tool",
+    "category": "Full-Stack & Extension",
+    "summary": "Engineered an end-to-end automation suite featuring a Chrome extension, Node.js backend, and PDF generation engine that generates tailored CVs and auto-populates complex job applications.",
+    "kpis": [
+      { "label": "Time Saved", "value": "85%", "sub": "Per job application cycle" },
+      { "label": "CV Engine", "value": "Dynamic", "sub": "Role-tailored PDF generation" },
+      { "label": "Browser Integration", "value": "Chrome Ext", "sub": "1-click form auto-fill" },
+      { "label": "Architecture", "value": "Full Stack", "sub": "Node.js, Express & Extension" }
+    ],
+    "tools": ["JavaScript", "Node.js", "Express", "Chrome Extension API", "PDF Generation", "HTML5/CSS3"],
+    "featured": true,
+    "url": "/projects/job-application-filler"
+  },
+  {
+    "slug": "la-by-night",
+    "title": "LA by Night: Storyteller GM Dashboard & Knowledge Base",
+    "type": "Data Pipeline & Game Master Suite",
+    "tag": "AI & Builder Tool",
+    "category": "FastAPI & AI Pipeline",
+    "summary": "Built a comprehensive campaign manager for tabletop storytelling featuring a local GPU OCR pipeline, 800+ node structured JSON lore database, interactive map pins, and DeepSeek LLM character concept generation.",
+    "kpis": [
+      { "label": "Lore Entities", "value": "800+", "sub": "Structured JSON knowledge graph" },
+      { "label": "Local OCR", "value": "PyTorch GPU", "sub": "Automated PDF-to-Markdown" },
+      { "label": "LLM Integration", "value": "DeepSeek API", "sub": "Prompt-engineered character gen" },
+      { "label": "Backend Speed", "value": "<50ms", "sub": "FastAPI & lightweight JSON store" }
+    ],
+    "tools": ["Python", "FastAPI", "PyTorch", "Baidu Unlimited-OCR", "DeepSeek API", "Jinja2", "Vanilla JS"],
+    "featured": true,
+    "url": "/projects/la-by-night"
+  },
+  {
+    "slug": "monday-mage",
+    "title": "Monday Mage: Rulebook OCR Extractor & Spellbook Dashboard",
+    "type": "Computer Vision & Offline Catalog",
+    "tag": "AI & Builder Tool",
+    "category": "Python & ETL",
+    "summary": "Developed an automated ETL pipeline that processes multi-volume TTRPG rulebooks via computer vision and regex heuristics into a structured, mobile-responsive offline spellbook database.",
+    "kpis": [
+      { "label": "Rulebook Parsing", "value": "Automated", "sub": "Multi-volume PDF extraction" },
+      { "label": "Search Speed", "value": "Instant", "sub": "Zero-latency offline lookups" },
+      { "label": "Mobile Access", "value": "Responsive", "sub": "Tablet & phone optimized UI" },
+      { "label": "ETL Pipeline", "value": "Python", "sub": "Custom regex & post-processing" }
+    ],
+    "tools": ["Python", "PyMuPDF", "Computer Vision OCR", "JSON Data Schemas", "Vanilla JS", "HTML5"],
+    "featured": false,
+    "url": "/projects/monday-mage"
+  },
+  {
+    "slug": "catspotting",
+    "title": "Catspotting: Native Android Cat Logging & Map App",
+    "type": "Mobile Application",
+    "tag": "AI & Builder Tool",
+    "category": "Android & Kotlin",
+    "summary": "Designed and built a native Android app in Kotlin that allows users to photograph, geo-tag, catalog, and record notes on local neighborhood cats with clean Material Design UI.",
+    "kpis": [
+      { "label": "Platform", "value": "Native Android", "sub": "Kotlin & Jetpack" },
+      { "label": "Geo-Tagging", "value": "GPS Maps", "sub": "Precise sighting location" },
+      { "label": "Media Capture", "value": "Camera API", "sub": "Local photo storage & gallery" },
+      { "label": "UI Design", "value": "Material 3", "sub": "Smooth, modern mobile UX" }
+    ],
+    "tools": ["Android SDK", "Kotlin", "Gradle", "Camera API", "Location Services", "Material Design"],
+    "featured": false,
+    "url": "/projects/catspotting"
+  }
+]

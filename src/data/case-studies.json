@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "rituals-performance-marketing",
+    "title": "Rituals: Multi-Market Paid Media & Creator Pipeline Automation",
+    "client": "Rituals Cosmetics (via NMQ Digital)",
+    "role": "Performance Marketing Specialist & Campaign Manager",
+    "timeline": "2024 – 2025",
+    "tag": "Enterprise Growth",
+    "category": "Paid Media & API",
+    "summary": "Managed high-budget seasonal campaigns across 16 EU countries on TikTok, Meta, and Pinterest, and built an automated API pipeline to solve creator story tracking rate limits.",
+    "kpis": [
+      { "label": "EU Markets", "value": "16", "sub": "NL, DE, FR, UK, Nordics..." },
+      { "label": "Seasonal Flights", "value": "12+", "sub": "Sakura, Karma, 3 Kings..." },
+      { "label": "Feed Precision", "value": "100%", "sub": "Smartly.io catalog sync" },
+      { "label": "Pipeline Automation", "value": "0 API Errors", "sub": "Bypassed platform rate limits" }
+    ],
+    "tools": ["Smartly.io", "TikTok Ads Manager", "Meta Business Manager", "Pinterest Ads", "Custom API Pipeline"],
+    "featured": true,
+    "url": "/case-studies/rituals-performance-marketing"
+  },
+  {
+    "slug": "philips-ab-testing",
+    "title": "Philips: AEM Web Localization & Adobe Target A/B Testing",
+    "client": "Philips (via NMQ Digital)",
+    "role": "Web Services & Omnichannel Operations Specialist",
+    "timeline": "2022 – 2024",
+    "tag": "Enterprise Growth",
+    "category": "A/B Testing & CMS",
+    "summary": "Coordinated global page localization across international consumer markets in Adobe Experience Manager (AEM) and ran data-driven A/B experimentation via Adobe Target.",
+    "kpis": [
+      { "label": "Global Markets", "value": "Multi-Region", "sub": "EMEA, Americas, APAC" },
+      { "label": "Experimentation", "value": "Adobe Target", "sub": "A/B growth validation" },
+      { "label": "Analytics Rigor", "value": "Dual Track", "sub": "Adobe Analytics & GA" },
+      { "label": "Rollout Speed", "value": "Zero Downtime", "sub": "Enterprise AEM releases" }
+    ],
+    "tools": ["Adobe Experience Manager (AEM)", "Adobe Target", "Adobe Analytics", "Google Analytics"],
+    "featured": true,
+    "url": "/case-studies/philips-ab-testing"
+  },
+  {
+    "slug": "enterprise-seo-audits",
+    "title": "Enterprise SEO: Technical Audits, Crawl Health & Keyword Clustering",
+    "client": "Eurowings, Lineage, C&F, Wolters Kluwer (via NMQ Digital)",
+    "role": "SEO Specialist",
+    "timeline": "2022 – 2025",
+    "tag": "Enterprise Growth",
+    "category": "Technical SEO",
+    "summary": "Conducted deep technical health audits, fixed 4xx crawl errors and oversized asset payloads, and engineered high-intent semantic keyword clusters for Fortune 500 & European leaders.",
+    "kpis": [
+      { "label": "Brands Audited", "value": "7+", "sub": "Eurowings, Lineage, C&F..." },
+      { "label": "Crawl Health", "value": "95%+", "sub": "Eliminated 4xx error chains" },
+      { "label": "Asset Optimization", "value": "-65%", "sub": "Page payload reduction" },
+      { "label": "Keyword Clusters", "value": "1000s", "sub": "Search intent mapped" }
+    ],
+    "tools": ["Screaming Frog", "Semrush", "Google Search Console", "Technical Auditing", "AEM"],
+    "featured": false,
+    "url": "/case-studies/enterprise-seo-audits"
+  }
+]

@@ -1,0 +1,41 @@
+---
+interface Step {
+  step: string;
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  title?: string;
+  steps: Step[];
+}
+
+const { title = "Architecture & Process Flow", steps } = Astro.props;
+---
+
+<div class="my-8 p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-lg">
+  <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+    <div class="flex items-center gap-2">
+      <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+      <h4 class="text-sm font-semibold tracking-wide uppercase text-slate-300">{title}</h4>
+    </div>
+    <span class="text-xs text-slate-400 code-font">System Pipeline</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+    {steps.map((item, idx) => (
+      <div class="relative flex flex-col p-4 bg-slate-800/80 rounded-xl border border-slate-700/60 hover:border-slate-600 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950/60 rounded border border-emerald-800/50">
+            {item.step || `0${idx + 1}`}
+          </span>
+          {idx < steps.length - 1 && (
+            <span class="hidden md:inline-block text-slate-500">→</span>
+          )}
+        </div>
+        <div class="font-bold text-slate-200 text-sm mb-1">{item.title}</div>
+        <div class="text-xs text-slate-400 leading-relaxed">{item.desc}</div>
+      </div>
+    ))}
+  </div>
+</div>

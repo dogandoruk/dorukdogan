@@ -1,0 +1,112 @@
+{
+  "basics": {
+    "name": "Doruk Doğan",
+    "title": "Digital Marketing & Growth Specialist",
+    "email": "dorukdogan95@gmail.com",
+    "phone": "+90 532 270 9723",
+    "location": "Kadıköy, Istanbul",
+    "linkedin": "https://www.linkedin.com/in/dorukdogan",
+    "summary": "Versatile Digital Marketing Professional with 3+ years of enterprise experience driving commercial growth across international markets. Expert in Performance Media campaign management, Technical SEO site health optimizations, and Omnichannel web operations for global brands including Rituals, Philips, and Haleon. A high-agency problem solver who builds custom AI tools and automation pipelines to streamline complex workflows."
+  },
+  "metrics": [
+    { "label": "EU Markets Managed", "value": "16+", "subtext": "Rituals Paid Media campaigns" },
+    { "label": "Enterprise SEO Audits", "value": "100+", "subtext": "Technical health & crawl optimizations" },
+    { "label": "Custom AI Tools Built", "value": "4", "subtext": "Full-stack apps & local pipelines" },
+    { "label": "Academic Publication", "value": "ICA '22", "subtext": "Presented research in Paris, France" }
+  ],
+  "pillars": [
+    {
+      "id": "performance",
+      "title": "Performance Marketing & Paid Social",
+      "subtitle": "ROAS-driven ad operations across EU markets",
+      "description": "Designed and executed high-impact performance media plans on TikTok, Meta, Pinterest, and Snapchat. Managed complex product catalogs and dynamic ad feeds via Smartly.io.",
+      "tools": ["Smartly.io", "Meta Business Manager", "TikTok Ads Manager", "Pinterest Ads", "Snapchat Ads"],
+      "caseStudyUrl": "/case-studies/rituals-performance-marketing"
+    },
+    {
+      "id": "seo",
+      "title": "Technical SEO & Search Strategy",
+      "subtitle": "Data-led site health, architecture & keyword clusters",
+      "description": "Led in-depth technical SEO audits, crawl budget optimizations, and semantic keyword cluster analyses for major enterprise brands including Eurowings, Lineage Logistics, and Wolters Kluwer.",
+      "tools": ["Screaming Frog", "Semrush", "Google Search Console", "Google Analytics", "Technical Audits"],
+      "caseStudyUrl": "/case-studies/enterprise-seo-audits"
+    },
+    {
+      "id": "operations",
+      "title": "Omnichannel Web Operations & A/B Testing",
+      "subtitle": "Enterprise CMS localization & experimentation",
+      "description": "Managed multi-market page rollouts in Adobe Experience Manager (AEM), executed A/B experimentation programs via Adobe Target, and handled Amazon digital shelf operations.",
+      "tools": ["Adobe Experience Manager (AEM)", "Adobe Target", "Adobe Analytics", "Amazon Vendor Central", "ProductsUp"],
+      "caseStudyUrl": "/case-studies/philips-ab-testing"
+    }
+  ],
+  "experience": [
+    {
+      "company": "NMQ Digital",
+      "role": "Digital Specialist",
+      "period": "2022-10 – 2025-12",
+      "location": "Istanbul",
+      "summary": "Embedded within world-class brand teams to lead performance media operations, SEO technical health, and omnichannel web localization.",
+      "highlights": [
+        "Managed end-to-end SEO strategies and technical optimizations for a diverse portfolio of international clients.",
+        "Delivered multi-market digital marketing initiatives across consumer electronics, retail, and healthcare brands."
+      ]
+    },
+    {
+      "company": "Rituals (at NMQ Digital)",
+      "role": "Performance Marketing Specialist",
+      "period": "2025-01 – 2025-09",
+      "location": "Global / Remote",
+      "summary": "Executed high-impact performance media campaigns across 16+ European markets.",
+      "highlights": [
+        "Managed performance campaigns on TikTok, Meta, and Pinterest driving commercial conversion and measurable ROAS.",
+        "Operated complex product catalogs and feeds via Smartly.io and Meta Business Manager.",
+        "Managed major retail campaigns including Dream, Sakura, Karma, Advent, Christmas, Easter, Mother's Day, and Summer Gifting across NL, BE, DE, FR, UK, IE, DK, NO, SE, FI, ES, PT, IT, PL, RO, AT, CH."
+      ]
+    },
+    {
+      "company": "Rituals (at NMQ Digital)",
+      "role": "Campaign & Creator Ecosystem Manager",
+      "period": "2024-08 – 2024-12",
+      "location": "Global / Remote",
+      "summary": "Led strategic oversight of User-Generated Content (UGC) across TikTok and Instagram.",
+      "highlights": [
+        "Architected an API-based content pipeline to automate tracking and sorting of creator stories, overcoming platform rate limits during peak retail volume.",
+        "Monitored real-time brand safety and community sentiment for creator integrations."
+      ]
+    },
+    {
+      "company": "Philips (at NMQ Digital)",
+      "role": "Web Services & Omnichannel Operations Specialist",
+      "period": "2022-10 – 2024-07",
+      "location": "Global / Remote",
+      "summary": "Delivered enterprise web localization and conversion rate experimentation.",
+      "highlights": [
+        "Implemented and localized enterprise web pages in Adobe Experience Manager (AEM) supporting global multi-market launches.",
+        "Led A/B testing in Adobe Target to identify growth levers; analyzed data in Adobe Analytics and Google Analytics to guide site optimizations."
+      ]
+    },
+    {
+      "company": "Haleon (at NMQ Digital)",
+      "role": "Amazon Digital Shelf Liaison",
+      "period": "2025-11 – 2025-12",
+      "location": "Global / Remote",
+      "summary": "Managed and optimized digital retail content on Amazon Vendor Central.",
+      "highlights": [
+        "Tracked digital shelf KPIs, aligned product content to shopper intent, and managed catalog feeds via ProductsUp."
+      ]
+    },
+    {
+      "company": "NMQ Digital",
+      "role": "SEO Specialist",
+      "period": "2022-10 – 2025-12",
+      "location": "Istanbul",
+      "summary": "Conducted technical audits and search strategy for enterprise clients.",
+      "highlights": [
+        "Audited search performance for Eurowings, Crum & Forster, BailUSA, Lineage Logistics, Redwoods, Wolters Kluwer, and TP Vision.",
+        "Conducted deep keyword research, topic clustering, crawl budget error fixes, and on-page optimizations.",
+        "Led UX/UI redesign and optimization for the company internal intranet in Figma and AEM."
+      ]
+    }
+  ]
+}

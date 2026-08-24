@@ -1,0 +1,128 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "European Markets", value: "16+", sub: "Managed simultaneously" },
+  { label: "Seasonal Flights", value: "12+", sub: "Flawlessly deployed" },
+  { label: "Feed Precision", value: "100%", sub: "Zero feed downtime" },
+  { label: "API Error Rate", value: "0%", sub: "Bypassed rate limits" }
+];
+
+const tools = [
+  "Smartly.io",
+  "Meta Business Manager",
+  "TikTok Ads Manager",
+  "Pinterest Ads",
+  "Snapchat Ads",
+  "Custom API Pipeline",
+  "Feed Management"
+];
+
+const pipelineSteps = [
+  { step: "01", title: "Feed Ingestion", desc: "Catalog SKU sync & localization across 16 country product feeds." },
+  { step: "02", title: "Smartly Automation", desc: "Dynamic creative rules, automated bid pacing, and flight scheduling." },
+  { step: "03", title: "UGC Story API", desc: "Automated tracking & sorting of influencer mentions bypassing rate limits." },
+  { step: "04", title: "ROAS Optimization", desc: "Continuous conversion tracking, creative fatigue detection, and audience re-targeting." }
+];
+---
+
+<DetailLayout
+  title="Rituals: Multi-Market Paid Media & Creator Pipeline"
+  subtitle="Managing multi-million impression seasonal retail campaigns across 16 European countries and automating creator content pipelines."
+  category="Paid Media & API Automation"
+  tag="Enterprise Growth"
+  role="Performance Marketing Specialist & Campaign Manager"
+  timeline="2024 – 2025"
+  tools={tools}
+  kpis={kpis}
+  backLink="/case-studies"
+  backText="Back to Enterprise Case Studies"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Enterprise Landscape">
+    <p>
+      Rituals Cosmetics is a premier European luxury home and body cosmetics brand operating across dozens of international retail markets. During major seasonal shopping peaks (such as Advent, Christmas, Three Kings, Sakura, and Summer Gifting), the brand requires simultaneous paid media deployment across multiple ad channels (Meta, TikTok, Pinterest, Snapchat) in over 16 European markets (including Netherlands, Germany, France, United Kingdom, Nordics, Spain, Italy, and Poland).
+    </p>
+    <p>
+      In parallel, during high-volume seasonal campaigns, the brand's creator ecosystem generates hundreds of User-Generated Content (UGC) stories and mentions that must be tracked, verified for brand safety, and sorted in real-time.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Core Objectives & Operational Bottlenecks">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      The dual mandate encompassed commercial performance media excellence and workflow automation:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Complex Ad Operations at Scale:</strong> Build, localize, and manage dynamic product feeds across 16 different languages, currencies, and inventory rules via Smartly.io and native ad managers without manual errors.</li>
+      <li><strong>Commercial ROAS Delivery:</strong> Drive efficient conversion rates, lower Cost Per Acquisition (CPA), and maximize return on ad spend during tight holiday conversion windows.</li>
+      <li><strong>Influencer Tracking Rate Limits:</strong> Social media platform API rate limits created severe bottlenecks when trying to monitor, record, and sort influencer story posts during peak promotional surges.</li>
+    </ul>
+  </StarSection>
+
+  <!-- ARCHITECTURE DIAGRAM -->
+  <FlowDiagram title="Multi-Market Campaign & UGC Pipeline" steps={pipelineSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Strategic Execution & Technical Automation">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Precision Feed Management & Smartly.io Operations</h4>
+        <p>
+          Architected structured product catalog feeds that mapped thousands of SKU variations to localized language assets and regional promotional tiers. Configured automated campaign flighting rules to transition seamlessly between awareness, consideration sampling, and peak commercial conversion windows.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Multi-Channel Performance Media Execution</h4>
+        <p>
+          Executed media plans on TikTok Ads Manager, Meta Business Manager, and Pinterest Ads. Managed campaigns for flagship lines including <em>The Ritual of Sakura</em>, <em>Karma</em>, <em>Dream</em>, <em>Homme</em>, and <em>Yozakura</em>. Optimized creative asset rotations to mitigate ad fatigue and maintained tight bid caps during competitive retail auctions.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Automated Creator Content Story Pipeline</h4>
+        <p>
+          To solve the platform rate-limiting bottleneck, designed an API-based workflow that intelligently queued, scheduled, and batched influencer story tracking requests. This automated the continuous capture and organization of UGC mentions without triggering platform throttling, providing real-time visibility into creator compliance and community sentiment.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Commercial & Operational Impact">
+    <p>
+      The integrated approach delivered continuous stability and high commercial efficiency across all 16 European markets:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Campaign Execution</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Zero Downtime Across 16 Markets</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          12+ seasonal campaign flights deployed on time with 100% feed sync accuracy across all EU retail regions.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Workflow Efficiency</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Eliminated Rate-Limiting Delays</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          API batching pipeline automated story tracking, saving hours of manual logging during peak retail spikes.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Strategic Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Scale is about systems. By combining commercial performance media discipline with custom automation pipelines, high-volume retail campaigns can be executed across 16 distinct markets with zero operational friction.
+    </p>
+  </div>
+
+</DetailLayout>

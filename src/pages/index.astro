@@ -1,0 +1,330 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MetricCard from '../components/MetricCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import TechBadge from '../components/TechBadge.astro';
+import cvData from '../data/cv.json';
+import caseStudies from '../data/case-studies.json';
+import projects from '../data/projects.json';
+import education from '../data/education.json';
+import certifications from '../data/certifications.json';
+
+// Curated Top 4 Highlights for Tiered Homepage
+const featuredWork = [
+  caseStudies.find(c => c.slug === 'rituals-performance-marketing')!,
+  caseStudies.find(c => c.slug === 'philips-ab-testing')!,
+  projects.find(p => p.slug === 'job-application-filler')!,
+  projects.find(p => p.slug === 'la-by-night')!,
+];
+---
+
+<Layout
+  title="Doruk Doğan | Digital Marketing & Growth Specialist"
+  description="Personal portfolio of Doruk Doğan — Enterprise Performance Marketing, Technical SEO, Omnichannel Operations, and AI Tooling Builder."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-24">
+
+    <!-- HERO SECTION -->
+    <section class="space-y-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Open to Growth, Performance Marketing & SEO Roles</span>
+      </div>
+
+      <div class="space-y-4 max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+          Digital Marketing Strategist & AI Tooling Builder.
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+          I combine 3+ years of enterprise growth execution (<span class="font-semibold text-slate-900 dark:text-white">Rituals, Philips, Haleon</span>) across 16+ European markets with a builder mindset—creating custom AI pipelines, full-stack dashboards, and automation tools to solve real operational challenges.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a
+          href="mailto:dorukdogan95@gmail.com"
+          class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 font-semibold text-sm shadow-md transition-all flex items-center gap-2"
+        >
+          <span>Get in Touch</span>
+          <span>→</span>
+        </a>
+
+        <button
+          id="copy-email-btn"
+          type="button"
+          class="px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all flex items-center gap-2"
+        >
+          <span id="copy-btn-text">Copy Email</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+        </button>
+
+        <a
+          href="https://www.linkedin.com/in/dorukdogan"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all flex items-center gap-2"
+        >
+          <span>LinkedIn</span>
+          <span>↗</span>
+        </a>
+      </div>
+
+      <!-- Impact Metrics Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+        {cvData.metrics.map((m) => (
+          <MetricCard value={m.value} label={m.label} subtext={m.subtext} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 3 CORE PILLARS -->
+    <section class="space-y-8">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+          Areas of Focus
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+          Three Core Pillars of Expertise
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {cvData.pillars.map((pillar) => (
+          <div class="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-900 dark:text-white mb-4">
+                {pillar.id === 'performance' ? '📈' : pillar.id === 'seo' ? '🔍' : '⚙️'}
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                {pillar.title}
+              </h3>
+              <div class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mb-3">
+                {pillar.subtitle}
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                {pillar.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                {pillar.tools.map((t) => (
+                  <TechBadge name={t} />
+                ))}
+              </div>
+              <a
+                href={pillar.caseStudyUrl}
+                class="inline-flex items-center gap-1 text-xs font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              >
+                <span>View Relevant Case Study</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SELECTED FEATURED WORK (Tiered 4 Highlights) -->
+    <section class="space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+            Featured Highlights
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+            Enterprise Impact & AI Tooling
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+            A curated look at high-scale marketing campaigns and custom-built software.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="/case-studies"
+            class="text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white underline"
+          >
+            All Case Studies →
+          </a>
+          <a
+            href="/projects"
+            class="text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white underline"
+          >
+            All AI Tools →
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {featuredWork.map((item) => (
+          <ProjectCard
+            title={item.title}
+            summary={item.summary}
+            category={item.category}
+            tag={item.tag}
+            tools={item.tools}
+            kpis={item.kpis}
+            url={item.url}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- MASTER EXPERIENCE TIMELINE -->
+    <section class="space-y-8">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+          Career Timeline
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+          Professional Experience
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        {cvData.experience.map((exp) => (
+          <div class="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <div class="text-lg font-bold text-slate-900 dark:text-white">
+                {exp.role} <span class="text-slate-400 dark:text-slate-500 font-normal">· {exp.company}</span>
+              </div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 code-font">
+                {exp.period}
+              </div>
+            </div>
+            
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+              {exp.summary}
+            </p>
+
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              {exp.highlights.map((h) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 mt-1">✓</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- EDUCATION & CREDENTIALS TEASER -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Education Card -->
+      <div class="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+            Academic Rigor
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Education & Research
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+            M.A. in New Media from Kadir Has University (with thesis presented at the International Communication Association 2022 in Paris) and Double Major B.A. in Media & Visual Arts and Sociology from Koç University.
+          </p>
+          <div class="text-xs text-slate-500 dark:text-slate-400 space-y-1 mb-6">
+            <div>🎓 Kadir Has University — M.A. New Media (2021)</div>
+            <div>🎓 Koç University — B.A. Media & Visual Arts (2019)</div>
+            <div>🎓 Koç University — B.A. Sociology (2019)</div>
+          </div>
+        </div>
+
+        <a
+          href="/education"
+          class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+        >
+          <span>Explore Academic Background & Publications</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- Certifications Card -->
+      <div class="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+            Verified Credentials
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Industry Certifications
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+            Certified expertise spanning Apple Search Ads, Google Ads Search, Technical SEO (Blue Array & Mangools), and UX/UI Design (Mindset Academy & Coursera).
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            {certifications.slice(0, 5).map((cert) => (
+              <TechBadge name={cert.badge || cert.issuer} variant="primary" />
+            ))}
+            <span class="text-xs text-slate-500 dark:text-slate-400 self-center">+{certifications.length - 5} more</span>
+          </div>
+        </div>
+
+        <a
+          href="/certifications"
+          class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+        >
+          <span>View All Verified Certifications</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- CONTACT & CTA SECTION -->
+    <section class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 text-center space-y-6">
+      <div class="max-w-2xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          Let's Build Something High Impact Together
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Whether you're looking for a Performance Marketing Lead, an SEO Strategist, or a Product Owner who leverages AI to solve complex operational challenges, I'd love to connect.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+        <a
+          href="mailto:dorukdogan95@gmail.com"
+          class="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg hover:scale-105"
+        >
+          Email Me: dorukdogan95@gmail.com
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/dorukdogan"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm border border-slate-700 transition-all"
+        >
+          Connect on LinkedIn ↗
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Quick Email Copy Toast Script -->
+  <script is:inline>
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-btn-text');
+
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText('dorukdogan95@gmail.com').then(() => {
+          const original = copyText.textContent;
+          copyText.textContent = 'Copied!';
+          copyBtn.classList.add('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
+          setTimeout(() => {
+            copyText.textContent = original;
+            copyBtn.classList.remove('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
+          }, 2000);
+        });
+      });
+    }
+  </script>
+</Layout>

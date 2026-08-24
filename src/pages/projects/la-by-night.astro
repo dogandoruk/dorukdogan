@@ -1,0 +1,130 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Lore Knowledge Graph", value: "800+", sub: "Structured JSON entities" },
+  { label: "Local GPU OCR", value: "PyTorch", sub: "Automated PDF-to-Markdown" },
+  { label: "LLM Character Gen", value: "DeepSeek", sub: "Prompt-engineered concepts" },
+  { label: "Backend Response", value: "<50ms", sub: "Lightweight FastAPI server" }
+];
+
+const tools = [
+  "Python 3.10",
+  "FastAPI",
+  "PyTorch",
+  "Baidu Unlimited-OCR",
+  "DeepSeek LLM API",
+  "PyMuPDF",
+  "Jinja2 & Vanilla JS",
+  "Leaflet Map"
+];
+
+const laFlowSteps = [
+  { step: "01", title: "PDF Rulebook Ingestion", desc: "PyMuPDF splits multi-hundred page scanned rulebooks into image slices." },
+  { step: "02", title: "Local GPU OCR", desc: "PyTorch model (Baidu Unlimited-OCR) parses multi-column text into clean Markdown." },
+  { step: "03", title: "JSON Knowledge Store", desc: "Structured extraction maps 800+ lore entries, NPCs, disciplines, and factions." },
+  { step: "04", title: "Interactive GM Hub", desc: "FastAPI serves interactive LA map, relationship graph, and DeepSeek character generator." }
+];
+---
+
+<DetailLayout
+  title="LA by Night: Storyteller GM Dashboard & Knowledge Base"
+  subtitle="A high-performance campaign management system featuring local GPU OCR extraction, an 800+ node structured lore database, and LLM-assisted character generation."
+  category="Python, FastAPI & AI Pipeline"
+  tag="AI & Builder Tool"
+  role="Software Architect & Developer"
+  timeline="2025 – 2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/projects"
+  backText="Back to AI & Builder Tools"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Complexity of Tabletop Worldbuilding">
+    <p>
+      Running a complex tabletop roleplaying game (TTRPG) chronicle—specifically <em>Vampire: The Masquerade 20th Anniversary Edition</em>—requires managing dozens of interconnected NPCs, political faction alliances, hundreds of supernatural discipline rules across 20+ physical rulebooks, session notes, and geographical locations.
+    </p>
+    <p>
+      Standard commercial GM tools are either generic, require constant internet access, or lack the ability to ingest and search deep proprietary rulebook lore offline.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="System Goals & Architectural Requirements">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      Design and deploy a bespoke, self-hosted campaign management suite with four core capabilities:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Local GPU-Accelerated OCR Pipeline:</strong> Convert hundreds of scanned PDF rulebook pages into structured, searchable Markdown using deep learning.</li>
+      <li><strong>Structured Knowledge Graph:</strong> Index 800+ lore entries, NPCs, locations, and clan mechanics into a fast JSON-backed database with zero database bloat.</li>
+      <li><strong>Interactive Game Master UI:</strong> Render an interactive geographical map of Los Angeles, faction relationship graphs, and live session editors.</li>
+      <li><strong>LLM Character Concept Generation:</strong> Integrate the DeepSeek API with domain-tailored system prompts to generate lore-accurate character sheets on demand.</li>
+    </ul>
+  </StarSection>
+
+  <!-- PIPELINE DIAGRAM -->
+  <FlowDiagram title="Knowledge Extraction & GM Dashboard Architecture" steps={laFlowSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Technical Engineering & Implementation">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Local GPU OCR Pipeline (PyTorch + Baidu Unlimited-OCR)</h4>
+        <p>
+          Constructed a standalone Python worker script utilizing NVIDIA CUDA acceleration and Hugging Face's <code>baidu/Unlimited-OCR</code> vision model. The pipeline extracts multi-column text and tables from high-resolution PDF scans, formats the output into clean Markdown, and writes structured lore summaries.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. High-Speed FastAPI Backend & Data Layer</h4>
+        <p>
+          Built a robust FastAPI backend with over 1,900 lines of clean routing logic. To ensure maximum portability and zero database management overhead, the data layer utilizes schema-validated JSON file persistence with atomic write backups.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. DeepSeek LLM Character Generator & Interactive Map</h4>
+        <p>
+          Engineered structured prompt templates for the DeepSeek LLM API that take high-level narrative archetypes and produce fully statted, lore-compliant character concepts. Added an interactive Leaflet map marking key chronicle locations and an export pipeline compiling entire chronicles into formatted DOCX files for offline reading.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Outcomes & Operational Value">
+    <p>
+      The custom software suite eliminated rulebook lookup delays and transformed session storytelling:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Information Retrieval</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant Knowledge Queries</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Search over 800 lore entries and discipline rules in under 50 milliseconds directly mid-session.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Content Generation</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">AI-Powered Character Concepting</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          DeepSeek LLM prompt pipeline drafts detailed, lore-faithful NPCs and stats in under 5 seconds.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Builder Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Combining local machine learning (computer vision OCR) with lightweight APIs (FastAPI) and modern LLM reasoning creates personalized software that outperforms bulky, one-size-fits-all commercial tools.
+    </p>
+  </div>
+
+</DetailLayout>

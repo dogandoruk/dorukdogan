@@ -1,0 +1,124 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Global Reach", value: "Multi-Market", sub: "Enterprise web properties" },
+  { label: "CMS Architecture", value: "AEM", sub: "Adobe Experience Manager" },
+  { label: "Experimentation", value: "Adobe Target", sub: "Data-driven A/B testing" },
+  { label: "Rollout Stability", value: "100%", sub: "Zero-downtime releases" }
+];
+
+const tools = [
+  "Adobe Experience Manager (AEM)",
+  "Adobe Target",
+  "Adobe Analytics",
+  "Google Analytics",
+  "A/B Experimentation",
+  "Localization"
+];
+
+const abFlowSteps = [
+  { step: "01", title: "Hypothesis & UX Audit", desc: "Identified high-dropoff funnel stages using Adobe Analytics and heatmaps." },
+  { step: "02", title: "Target Variant Design", desc: "Configured test variants, audience segmentation, and traffic splits in Adobe Target." },
+  { step: "03", title: "AEM Component Build", desc: "Implemented modular, accessible components in enterprise AEM architecture." },
+  { step: "04", title: "Data-Led Rollout", desc: "Analyzed statistical significance and rolled out winning variants across markets." }
+];
+---
+
+<DetailLayout
+  title="Philips: AEM Web Localization & Adobe Target A/B Testing"
+  subtitle="Managing enterprise-grade digital page deployments across international consumer markets and proving growth levers through A/B testing."
+  category="A/B Testing & Enterprise CMS"
+  tag="Enterprise Growth"
+  role="Web Services & Omnichannel Operations Specialist"
+  timeline="2022 – 2024"
+  tools={tools}
+  kpis={kpis}
+  backLink="/case-studies"
+  backText="Back to Enterprise Case Studies"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="Enterprise Web Scale">
+    <p>
+      Royal Philips operates global consumer health and electronics web properties serving millions of international users across multiple regional languages and regulatory requirements. Managing digital experiences at this scale requires enterprise-grade content management in Adobe Experience Manager (AEM) combined with continuous conversion rate optimization (CRO) via Adobe Target.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Objectives & Cross-Functional Alignment">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      The role was responsible for bridge-building between global marketing, regional brand managers, and technical web operations:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Enterprise AEM Localization:</strong> Deliver zero-defect page authoring and rollout for international product launches, maintaining design system consistency across global markets.</li>
+      <li><strong>Conversion Rate Optimization:</strong> Design and deploy structured A/B tests in Adobe Target to isolate UX bottlenecks and improve click-through rates (CTR) on primary product pages.</li>
+      <li><strong>Multi-Stakeholder Delivery:</strong> Align global marketing directors, UX designers, translation vendors, and regional stakeholders to ensure launch deadlines were consistently met.</li>
+    </ul>
+  </StarSection>
+
+  <!-- FLOW DIAGRAM -->
+  <FlowDiagram title="A/B Experimentation & Release Pipeline" steps={abFlowSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Methodology & Testing Program">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Adobe Target A/B Experimentation Framework</h4>
+        <p>
+          Formulated data-backed hypotheses targeting high-intent product landing pages. Configured audience segmentation, split-test allocations, and statistical confidence thresholds in Adobe Target. Evaluated key micro-conversions (e.g. "Where to Buy" click rates, specification drawer engagements, and primary CTA interactions).
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Scalable Enterprise Authoring in AEM</h4>
+        <p>
+          Constructed modular, responsive page layouts in Adobe Experience Manager (AEM), leveraging enterprise master templates and localized language fragments. Maintained strict accessibility standards (contrast ratios, semantic headings, and responsive image scaling).
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Analytics & Decision Intelligence</h4>
+        <p>
+          Combined Adobe Analytics and Google Analytics telemetry to evaluate experiment outcomes. Provided clear executive reporting with statistical confidence intervals, enabling brand leadership to make evidence-based decisions before rolling out site-wide template changes.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Outcomes & Commercial Impact">
+    <p>
+      The systematic experimentation and localization workflow established a reliable, repeatable delivery engine:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Conversion Optimization</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Data-Validated UX Improvements</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Identified high-performing CTA variants through Adobe Target, validating layout upgrades prior to global multi-market rollouts.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Operational Rigor</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Flawless Multi-Market Launches</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Executed international campaign rollouts across diverse locales with zero downtime and strict design system adherence.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Strategic Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      In large enterprises, website optimization is a marriage of disciplined experimentation and rock-solid content governance. Building consensus with data makes global site improvements frictionless.
+    </p>
+  </div>
+
+</DetailLayout>

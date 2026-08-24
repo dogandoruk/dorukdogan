@@ -1,0 +1,125 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Extraction Pipeline", value: "Automated", sub: "Multi-volume PDF processing" },
+  { label: "Lookup Latency", value: "<10ms", sub: "Offline indexed search" },
+  { label: "Multi-Device UI", value: "Responsive", sub: "Phone & tablet optimized" },
+  { label: "Data Schemas", value: "Clean JSON", sub: "Spells, rotes & paradigms" }
+];
+
+const tools = [
+  "Python",
+  "PyMuPDF (fitz)",
+  "Computer Vision OCR",
+  "Regex & Heuristic Parsing",
+  "JSON Schema Engine",
+  "HTML5 & Vanilla JS",
+  "Local Network Server"
+];
+
+const mageFlowSteps = [
+  { step: "01", title: "Rulebook Ingestion", desc: "Batch ingestion of multi-hundred page PDF sourcebooks." },
+  { step: "02", title: "OCR & Heuristic Parsing", desc: "Python scripts parse typography, spell sphere headers, and rotes into tokens." },
+  { step: "03", title: "Catalog Assembly", desc: "Post-processing pipeline structures spells, rotes, and NPCs into indexed JSON databases." },
+  { step: "04", title: "Mobile Server Broadcast", desc: "Lightweight local server broadcasts instant-search spellbook to phones and tablets." }
+];
+---
+
+<DetailLayout
+  title="Monday Mage: Rulebook OCR Extractor & Spellbook Dashboard"
+  subtitle="An automated document extraction pipeline and cross-platform dashboard that converts complex tabletop rulebooks into a searchable spellbook."
+  category="Python, ETL & Mobile Dashboard"
+  tag="AI & Builder Tool"
+  role="Developer & System Designer"
+  timeline="2025 – 2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/projects"
+  backText="Back to AI & Builder Tools"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Document Fragmentation Problem">
+    <p>
+      In tabletop roleplaying systems like <em>Mage: The Ascension</em>, spell mechanics, magical rotes, spheres, and paradigms are scattered across dozens of vintage books, supplement manuals, and scanned PDFs. During live game sessions, locating a specific rote or sphere calculation manually takes minutes of flipping through physical or digital pages, breaking the flow of storytelling.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Project Goals & Extraction Challenges">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      Build an automated extraction and browsing system with the following specifications:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Automated PDF Extraction:</strong> Build a Python pipeline capable of extracting structured text from multi-column vintage rulebook scans without manual transcription.</li>
+      <li><strong>Schema Normalization:</strong> Map unstructured rotes into standardized JSON attributes (Spheres, Quintessence, Difficulty, Effect, Description).</li>
+      <li><strong>Mobile-Optimized Local Dashboard:</strong> Host a zero-latency local web application accessible from smartphones and tablets over the local Wi-Fi network.</li>
+    </ul>
+  </StarSection>
+
+  <!-- FLOW DIAGRAM -->
+  <FlowDiagram title="Document Parsing & Mobile Delivery Pipeline" steps={mageFlowSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Engineering & ETL Implementation">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Custom Python Parsing Pipeline</h4>
+        <p>
+          Utilized PyMuPDF and computer vision text extraction scripts (<code>run_ocr_pipeline.py</code>, <code>post_process.py</code>) to parse hundreds of pages. Designed regex heuristics that detect rote name conventions, sphere requirements, and flavor text blocks.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Structured Data Indexing</h4>
+        <p>
+          Organized extracted rotes, magical artifacts, and NPC profiles into clean, searchable JSON dictionaries. Added cross-reference indexes allowing instantaneous filtering by magic sphere level (e.g. Forces 3, Prime 2, Spirit 1).
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Cross-Device Local Server</h4>
+        <p>
+          Built a lightweight HTTP server and mobile-first dashboard (<code>Launch Server (for Phone & Tablet).bat</code>) allowing instant search and filter lookups from any device connected to the home network.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Results & Table Efficiency">
+    <p>
+      The custom pipeline consolidated years of fragmented rulebook PDFs into a single, instant lookup tool:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Search Speed</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant Rote & Rule Retrieval</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Lookups dropped from 3 minutes of PDF scrolling to sub-10ms instant typing searches.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Data Accessibility</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Multi-Device Mobile Support</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Full offline accessibility on mobile phones and tablets during live tabletop sessions.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Builder Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Custom ETL and document extraction pipelines can turn messy, unstructured PDF documentation into structured, instant-access data stores that solve real usability friction.
+    </p>
+  </div>
+
+</DetailLayout>

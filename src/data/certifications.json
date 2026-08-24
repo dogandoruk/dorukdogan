@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Apple Search Ads Certification",
+    "issuer": "Apple",
+    "year": "2024",
+    "category": "Paid Media & App Growth",
+    "description": "Certified in app store campaign creation, keyword bidding strategies, custom product pages, and discovery campaign optimization.",
+    "badge": "Apple Certified"
+  },
+  {
+    "name": "Google Ads Search Certification",
+    "issuer": "Google",
+    "year": "2024",
+    "category": "Paid Search & Performance",
+    "description": "Certified in Google Search campaign architecture, Smart Bidding strategies, audience targeting, and conversion value maximization.",
+    "badge": "Google Certified"
+  },
+  {
+    "name": "Technical SEO Certification",
+    "issuer": "Blue Array Academy",
+    "year": "2023",
+    "category": "Technical SEO",
+    "description": "Rigorous training in enterprise site architecture, log file analysis, crawl budget management, rendering (CSR/SSR), and Core Web Vitals.",
+    "badge": "Technical SEO"
+  },
+  {
+    "name": "Foundations of User Experience (UX) Design",
+    "issuer": "Coursera / Google",
+    "year": "2023",
+    "category": "UX/UI Design",
+    "description": "Comprehensive foundation in user-centric research, wireframing, usability testing, and accessibility best practices.",
+    "badge": "UX Design"
+  },
+  {
+    "name": "UX/UI Certification",
+    "issuer": "Mindset Academy",
+    "year": "2023",
+    "category": "UX/UI Design",
+    "description": "Hands-on UI system design, component libraries in Figma, responsive layouts, and interactive design prototypes.",
+    "badge": "Design Systems"
+  },
+  {
+    "name": "SEO Certificate",
+    "issuer": "Mangools",
+    "year": "2023",
+    "category": "SEO & Search",
+    "description": "Proficiency in backlink analysis, keyword difficulty forecasting, and search engine rank tracking.",
+    "badge": "SEO Analysis"
+  },
+  {
+    "name": "Navigating On-Page & Technical SEO",
+    "issuer": "Semrush Academy",
+    "year": "2024",
+    "category": "Technical SEO",
+    "description": "Audit techniques for status codes, canonical tags, schema markup, and site health diagnostic troubleshooting.",
+    "badge": "Semrush Certified"
+  },
+  {
+    "name": "SEO Fundamentals",
+    "issuer": "Semrush Academy",
+    "year": "2024",
+    "category": "SEO & Search",
+    "description": "Foundational search algorithms, search intent mapping, and competitive domain positioning.",
+    "badge": "Semrush Certified"
+  },
+  {
+    "name": "Content Marketing Toolkit",
+    "issuer": "Semrush Academy",
+    "year": "2024",
+    "category": "Content Strategy",
+    "description": "Topic research, content gap analysis, and content performance tracking across organic channels.",
+    "badge": "Content Strategy"
+  },
+  {
+    "name": "How to Plan Content Strategy",
+    "issuer": "Semrush Academy",
+    "year": "2024",
+    "category": "Content Strategy",
+    "description": "Audience persona modeling, editorial calendar management, and multi-stage content funnels.",
+    "badge": "Content Strategy"
+  }
+]

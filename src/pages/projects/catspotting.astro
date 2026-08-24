@@ -1,0 +1,125 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Platform", value: "Android", sub: "Native Kotlin application" },
+  { label: "Location Services", value: "GPS API", sub: "Accurate map pin logging" },
+  { label: "Media Engine", value: "Camera API", sub: "Photo capture & local storage" },
+  { label: "UI System", value: "Material 3", sub: "Modern responsive mobile UI" }
+];
+
+const tools = [
+  "Android SDK",
+  "Kotlin",
+  "Gradle / Kotlin DSL",
+  "Android Location Services",
+  "Camera API",
+  "Material Design 3",
+  "Local SQLite / Room"
+];
+
+const catFlowSteps = [
+  { step: "01", title: "Spotting Trigger", desc: "User opens app to record a street cat sighting with 1 tap." },
+  { step: "02", title: "Camera & GPS Capture", desc: "Captures high-resolution photo and records precise GPS coordinates." },
+  { step: "03", title: "Profile Attributes", desc: "Logs coat pattern, personality tags, health notes, and custom nicknames." },
+  { step: "04", title: "Map Visualization", desc: "Renders interactive neighborhood map with sighting pins and photo galleries." }
+];
+---
+
+<DetailLayout
+  title="Catspotting: Native Android Cat Logging & Map App"
+  subtitle="A native Android mobile application built in Kotlin to photo-document, geo-tag, and track local neighborhood cats with clean Material Design."
+  category="Native Mobile Development"
+  tag="AI & Builder Tool"
+  role="Mobile App Developer"
+  timeline="2025 – 2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/projects"
+  backText="Back to AI & Builder Tools"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Urban Street Cat Culture">
+    <p>
+      Living in Kadıköy, Istanbul—a city world-renowned for its beloved community street cats—cat encounters are an integral part of daily neighborhood life. However, keeping track of regular neighborhood cats, their health status, preferred resting spots, and unique personality traits is impossible without a purpose-built mobile tracker.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Mobile App Requirements">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      Engineer a fast, native Android application providing smooth on-the-go logging:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Rapid Sighting Logging:</strong> Capture a photo and attach instant GPS coordinates with minimal taps.</li>
+      <li><strong>Detailed Profile Attributes:</strong> Tag cat personality traits (friendly, shy, playful), coat colors (calico, tabby, tuxedo), and feeding/health notes.</li>
+      <li><strong>Map & Gallery Views:</strong> Browse sightings on an interactive map showing favorite neighborhood hangout zones alongside a visual photo gallery.</li>
+    </ul>
+  </StarSection>
+
+  <!-- FLOW DIAGRAM -->
+  <FlowDiagram title="Mobile Application Workflow" steps={catFlowSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Technical Implementation in Kotlin">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Modern Kotlin & Android Architecture</h4>
+        <p>
+          Architected the app using clean modern Android best practices in Kotlin, configuring build pipelines in Gradle Kotlin DSL (<code>build.gradle.kts</code>). Implemented lifecycle-aware components for stable background location retrieval.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Hardware Integration (Camera & Location APIs)</h4>
+        <p>
+          Integrated native Android Camera and Location APIs to securely request runtime permissions, acquire accurate GPS coordinates, and save compressed photo assets to local device storage without memory leaks.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Material Design 3 UI System</h4>
+        <p>
+          Constructed a clean, intuitive user interface following Material 3 guidelines, featuring floating action buttons for quick logging, card-based sighting lists, and smooth image preview transitions.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Results & Experience">
+    <p>
+      The application delivers a delightful, reliable native mobile experience:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">User Experience</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant 5-Second Sighting Logs</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Camera capture and automated GPS tagging enable rapid logging while walking outdoors.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Mobile Engineering</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Robust Native Performance</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Lightweight memory footprint and offline-first storage ensure zero stutter or lag.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Builder Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Building native mobile apps deepens understanding of mobile UX, hardware API lifecycles, and on-device performance constraints—skills that directly enhance web and digital product ownership.
+    </p>
+  </div>
+
+</DetailLayout>

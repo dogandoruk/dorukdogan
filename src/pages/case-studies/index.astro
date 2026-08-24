@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import caseStudies from '../../data/case-studies.json';
+---
+
+<Layout
+  title="Enterprise Case Studies | Doruk Doğan"
+  description="In-depth case studies covering Performance Marketing for Rituals, Omnichannel A/B testing for Philips, and Enterprise SEO audits."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
+    
+    <!-- Header -->
+    <div class="max-w-2xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300 text-xs font-semibold">
+        <span>Enterprise Track Record</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        Enterprise Case Studies
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        Structured STAR breakdowns of multi-market paid media operations, conversion rate experimentation, and technical SEO architecture delivered for global brands.
+      </p>
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {caseStudies.map((study) => (
+        <ProjectCard
+          title={study.title}
+          summary={study.summary}
+          category={study.category}
+          tag={study.tag}
+          tools={study.tools}
+          kpis={study.kpis}
+          url={study.url}
+        />
+      ))}
+    </div>
+
+    <!-- Note on confidentiality -->
+    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+      <strong>Confidentiality Notice:</strong> Specific internal financial budgets and raw customer identifiers have been normalized to respect client non-disclosure agreements. Methodologies and operational architectures reflect authentic enterprise delivery.
+    </div>
+
+  </div>
+</Layout>

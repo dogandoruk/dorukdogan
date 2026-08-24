@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import projects from '../../data/projects.json';
+---
+
+<Layout
+  title="AI & Builder Tools | Doruk Doğan"
+  description="Custom-built software tools, local GPU OCR pipelines, full-stack dashboards, and Android apps created by Doruk Doğan."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
+    
+    <!-- Header -->
+    <div class="max-w-2xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300 text-xs font-semibold">
+        <span>Software & Automation Lab</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        AI & Builder Projects
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        When existing SaaS tools fall short, I build custom solutions. A showcase of full-stack web applications, local GPU OCR pipelines, LLM-powered knowledge bases, and native mobile apps.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((proj) => (
+        <ProjectCard
+          title={proj.title}
+          summary={proj.summary}
+          category={proj.category}
+          tag={proj.tag}
+          tools={proj.tools}
+          kpis={proj.kpis}
+          url={proj.url}
+        />
+      ))}
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TechBadge from '../components/TechBadge.astro';
+import certData from '../data/certifications.json';
+
+const categories = [
+  "All",
+  "Paid Media & App Growth",
+  "Technical SEO",
+  "UX/UI Design",
+  "Content Strategy"
+];
+---
+
+<Layout
+  title="Professional Certifications | Doruk Doğan"
+  description="Verified professional certifications in Google Ads, Apple Search Ads, Technical SEO (Blue Array & Semrush), and UX Design."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
+    
+    <!-- Page Header -->
+    <div class="max-w-2xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
+        <span>Verified Credentials</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        Industry Certifications
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        Continuous professional learning across paid acquisition platforms, technical search engine algorithms, and user experience design principles.
+      </p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap gap-2 pt-2" id="cert-filter-container">
+      {categories.map((cat, idx) => (
+        <button
+          type="button"
+          data-category={cat}
+          class={`filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+            idx === 0
+              ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent active-tab'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+          }`}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Certifications Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cert-grid">
+      {certData.map((cert) => (
+        <div
+          data-cat={cert.category}
+          class="cert-item bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <TechBadge name={cert.badge || cert.issuer} variant="primary" />
+              <span class="text-xs font-semibold text-slate-400 code-font">{cert.year}</span>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+              {cert.name}
+            </h3>
+            
+            <div class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">
+              Issued by {cert.issuer} · {cert.category}
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              {cert.description}
+            </p>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+            <span>Verified Industry Standard</span>
+            <span class="text-emerald-500">✓ Verified</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Client-side tab filtering script -->
+  <script is:inline>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const certItems = document.querySelectorAll('.cert-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = btn.getAttribute('data-category');
+        
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'border-transparent');
+          b.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+        });
+
+        btn.classList.add('bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'border-transparent');
+        btn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+
+        certItems.forEach(item => {
+          const itemCat = item.getAttribute('data-cat');
+          if (selected === 'All' || itemCat === selected) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</Layout>

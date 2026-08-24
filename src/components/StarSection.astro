@@ -1,0 +1,55 @@
+---
+interface Props {
+  type: 'situation' | 'task' | 'action' | 'result';
+  title?: string;
+}
+
+const { type, title } = Astro.props;
+
+const config = {
+  situation: {
+    badge: 'SITUATION',
+    badgeClass: 'bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border-blue-200 dark:border-blue-800/60',
+    borderClass: 'border-blue-200 dark:border-blue-900/40',
+    bgClass: 'bg-blue-50/30 dark:bg-blue-950/10',
+    defaultTitle: 'Context & Background'
+  },
+  task: {
+    badge: 'TASK',
+    badgeClass: 'bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border-amber-200 dark:border-amber-800/60',
+    borderClass: 'border-amber-200 dark:border-amber-900/40',
+    bgClass: 'bg-amber-50/30 dark:bg-amber-950/10',
+    defaultTitle: 'Core Objective & Challenge'
+  },
+  action: {
+    badge: 'ACTION',
+    badgeClass: 'bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300 border-purple-200 dark:border-purple-800/60',
+    borderClass: 'border-purple-200 dark:border-purple-900/40',
+    bgClass: 'bg-purple-50/30 dark:bg-purple-950/10',
+    defaultTitle: 'Implementation & Methodology'
+  },
+  result: {
+    badge: 'RESULT',
+    badgeClass: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60',
+    borderClass: 'border-emerald-200 dark:border-emerald-900/40',
+    bgClass: 'bg-emerald-50/30 dark:bg-emerald-950/10',
+    defaultTitle: 'Impact, Metrics & Outcomes'
+  }
+};
+
+const current = config[type];
+---
+
+<div class={`rounded-2xl border ${current.borderClass} ${current.bgClass} p-6 sm:p-8 my-6 transition-all`}>
+  <div class="flex items-center gap-3 mb-4">
+    <span class={`px-2.5 py-1 text-xs font-bold tracking-wider rounded-md border uppercase ${current.badgeClass}`}>
+      {current.badge}
+    </span>
+    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+      {title || current.defaultTitle}
+    </h3>
+  </div>
+  <div class="text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
+    <slot />
+  </div>
+</div>

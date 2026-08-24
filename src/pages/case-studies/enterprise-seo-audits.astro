@@ -1,0 +1,127 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const kpis = [
+  { label: "Enterprise Brands", value: "7+", sub: "Eurowings, Lineage, C&F..." },
+  { label: "Crawl Health", value: "95%+", sub: "Eliminated 4xx error chains" },
+  { label: "Asset Compression", value: "-65%", sub: "Reduced image payload bloat" },
+  { label: "Search Intent", value: "1000s", sub: "Keywords clustered" }
+];
+
+const tools = [
+  "Screaming Frog",
+  "Semrush",
+  "Google Search Console",
+  "Google Analytics",
+  "Technical SEO Auditing",
+  "AEM & Intranet UX"
+];
+
+const seoAuditSteps = [
+  { step: "01", title: "Full Domain Crawl", desc: "Diagnosed indexation status, HTTP response codes, and canonical chains in Screaming Frog." },
+  { step: "02", title: "Crawl Budget Fixes", desc: "Resolved 4xx errors, redirect loops, and unoptimized image payloads (>100KB)." },
+  { step: "03", title: "Keyword Clustering", desc: "Grouped thousands of search queries by user intent and topical search volume." },
+  { step: "04", title: "On-Page Governance", desc: "Defined structured heading hierarchies, meta templates, and internal linking strategies." }
+];
+---
+
+<DetailLayout
+  title="Enterprise SEO: Technical Audits, Crawl Health & Keyword Clustering"
+  subtitle="Engineering technical site health improvements, eliminating crawl waste, and mapping search intent for major international brands."
+  category="Technical SEO & Search Architecture"
+  tag="Enterprise Growth"
+  role="SEO Specialist"
+  timeline="2022 – 2025"
+  tools={tools}
+  kpis={kpis}
+  backLink="/case-studies"
+  backText="Back to Enterprise Case Studies"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Enterprise Search Challenge">
+    <p>
+      Enterprise web architectures spanning thousands of indexed URLs frequently suffer from silent technical degradation over time: broken internal links resulting in 4xx client errors, heavy uncompressed imagery slowing down Largest Contentful Paint (LCP), orphan pages, and unmanaged redirect chains that deplete crawl budget.
+    </p>
+    <p>
+      During my tenure at NMQ Digital, I led comprehensive technical SEO audits and content gap strategies for leading international brands including <strong>Eurowings</strong>, <strong>Lineage Logistics</strong>, <strong>Crum & Forster</strong>, <strong>BailUSA</strong>, <strong>Redwoods</strong>, <strong>Wolters Kluwer</strong>, and <strong>TP Vision</strong>.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Core Objectives & Health Benchmarks">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      The technical mandate centered on restoring domain authority and aligning site structure with search engine crawling algorithms:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Crawl Error Elimination:</strong> Isolate and resolve hundreds of 4xx client errors, redirect chains, and canonical misconfigurations across enterprise domains.</li>
+      <li><strong>Core Web Vitals & Page Weight:</strong> Identify and catalog heavy unoptimized assets (such as imagery exceeding 100KB) to improve page speed and user retention.</li>
+      <li><strong>Intent-Driven Keyword Clusters:</strong> Move beyond basic keyword lists to build semantic topic clusters and content gap blueprints for client marketing teams.</li>
+    </ul>
+  </StarSection>
+
+  <!-- FLOW DIAGRAM -->
+  <FlowDiagram title="Technical SEO Diagnostic & Remediation Pipeline" steps={seoAuditSteps} />
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Audit Methodology & Technical Execution">
+    <div class="space-y-4">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Deep Screaming Frog Crawls & Diagnostic Analysis</h4>
+        <p>
+          Executed full-scale spider crawls mimicking Googlebot mobile and desktop user agents. Extracted detailed diagnostic reports on response codes, orphan URLs, robots.txt crawl directives, XML sitemap coverage, and meta title duplication.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Asset & Performance Optimization</h4>
+        <p>
+          Generated automated audit spreadsheets isolating all image assets exceeding 100KB, missing alt attributes, or improperly sized responsive containers. Provided development teams with precise remediation tickets for modern image formats (WebP/AVIF) and cache headers.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Topic Cluster Architecture & Competitor Gap Analysis</h4>
+        <p>
+          Conducted deep keyword research and topical gap analysis (e.g. JAMS Pathways vs. Pollack Peacebuilding). Segmented target search phrases into informational, navigational, and commercial clusters, equipping content creators with actionable content briefs.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Site Health & Organic Impact">
+    <p>
+      The technical optimizations resulted in immediate, measurable improvements to domain crawlability and site hygiene:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Technical Site Health</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">95%+ Health Score Achieved</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Eliminated 4xx error cascades and established clean canonical relationships across audited enterprise domains.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Search Strategy</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Topical Authority Blueprints</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Delivered semantic keyword clusters and content templates to guide long-term organic ranking gains.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Strategic Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Great SEO is engineering before it is copywriting. When crawl paths are clean, page payloads are lean, and site architecture reflects user intent, organic search growth becomes a natural byproduct.
+    </p>
+  </div>
+
+</DetailLayout>
