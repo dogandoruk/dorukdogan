@@ -1,0 +1,183 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const kpis = [
+  { label: "On-Device OCR", value: "ML Kit", sub: "Zero-latency receipt scanning" },
+  { label: "Brand Disambiguation", value: "Turkish NLP", sub: "Food vs non-food auto-purge" },
+  { label: "Produce Standards", value: "TSE Certified", sub: "TS 1212 & TS 1208 caliber weights" },
+  { label: "Glassware Engine", value: "Chef-Calibrated", sub: "Refika (200ml) vs Arda (250ml)" }
+];
+
+const tools = [
+  "Google ML Kit",
+  "JavaScript / TypeScript",
+  "Tailwind CSS",
+  "Data Engineering",
+  "TSE Produce Standards",
+  "Bilingual Architecture (TR/EN)"
+];
+
+const flowSteps = [
+  { step: "01", title: "Receipt Ingestion", desc: "User photographs Turkish supermarket receipt (BİM, A101, Migros, CarrefourSA)." },
+  { step: "02", title: "On-Device OCR & Cleanup", desc: "Google ML Kit extracts line items locally with zero cloud API latency or privacy exposure." },
+  { step: "03", title: "Brand Disambiguation", desc: "Turkish brand dictionary resolves items (Duru Bulgur vs Duru Sabun) and purges non-food goods." },
+  { step: "04", title: "Fridge & Recipe Match", desc: "Updates inventory with TSE weights and matches current ingredients against recipe library." }
+];
+---
+
+<DetailLayout
+  title="Cooking Companion: Smart Fridge & Kitchen Inventory Platform"
+  subtitle="An on-device kitchen management and recipe recommendation platform engineered for Turkish grocery shopping, featuring receipt OCR, brand disambiguation, TSE produce calibrations, and chef glassware conversions."
+  category="On-Device OCR & Data Engineering"
+  tag="AI & Builder Tool"
+  role="Product Designer & Lead Developer"
+  timeline="2025 – 2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/projects"
+  backText="Back to AI & Builder Tools"
+>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Turkish Kitchen Inventory Challenge">
+    <p>
+      Managing a home kitchen in Turkey involves unique grocery and culinary hurdles that generic international apps fail to address. Supermarket receipts from discount chains (BİM, A101, ŞOK) and hypermarkets (Migros, CarrefourSA) use cryptic abbreviations, brand names that overlap between food and personal care (such as <em>Duru</em> bulgur vs. <em>Duru</em> soap), and mixed baskets containing cleaning supplies.
+    </p>
+    <p class="mt-3">
+      Furthermore, Turkish recipes rely heavily on traditional volumetric glassware measurements (<em>su bardağı</em>, <em>çay bardağı</em>) that vary significantly across leading culinary figures (Refika Birgül's 200ml standard vs. Arda Türkmen's 250ml standard), leading to frequent baking and cooking inconsistencies. Produce purchased by piece also lacks weight standardization in typical inventory trackers.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="System Goals & Requirements">
+    <p class="font-medium text-slate-900 dark:text-white">
+      Design and engineer a smart kitchen inventory application tailored specifically to Turkish households:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>On-Device Receipt Scanning:</strong> Rapidly digitize printed supermarket paper slips using on-device ML Kit OCR without sending financial or grocery data to third-party cloud servers.</li>
+      <li><strong>Turkish Brand & Item Disambiguation:</strong> Automatically distinguish food ingredients from non-food items (paper towels, detergents) and accurately categorize branded products.</li>
+      <li><strong>TSE Produce Standardization:</strong> Incorporate official Turkish Standards Institution (TSE) produce calibrations (such as TS 1212 for citrus and TS 1208 for peppers) to translate loose piece counts into realistic gram weights.</li>
+      <li><strong>Chef Glassware Conversion Engine:</strong> Provide a calibrated conversion system allowing users to switch between culinary standards and view ingredient measurements in exact grams or milliliters.</li>
+      <li><strong>Fridge-to-Recipe Matching:</strong> Suggest dishes based on on-hand ingredients, highlighting items nearing expiration to actively curb food waste.</li>
+    </ul>
+  </StarSection>
+
+  <!-- FLOW DIAGRAM -->
+  <FlowDiagram title="Receipt Parsing to Recipe Recommendation Workflow" steps={flowSteps} />
+
+  <!-- SCREENSHOT SHOWCASE -->
+  <div class="my-10 space-y-8 not-prose">
+    <div class="space-y-3">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        Application Interface & Functional Showcase
+      </h3>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/cooking-companion/receipt-ocr-scanner.png`}
+          alt="Receipt OCR Scanner and Brand Disambiguation"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Receipt OCR & Turkish Brand Disambiguation:</strong> Live parsing of supermarket receipts with automatic non-food item filtering and brand recognition.
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/cooking-companion/fridge-inventory.png`}
+          alt="Categorized Smart Fridge Inventory"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Categorized Smart Fridge Inventory:</strong> Real-time tracking across Produce, Dairy, Pantry, and Proteins with expiration countdowns and visual waste indicators.
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/cooking-companion/recipe-matcher.png`}
+          alt="Fridge-to-Recipe Matching and Chef Glassware Engine"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Fridge-to-Recipe Matching & Glassware Converter:</strong> Real-time recipe generation prioritizing expiring produce, complete with Refika vs. Arda glassware conversion toggles.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Engineering & Architectural Implementation">
+    <div class="space-y-5">
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. On-Device OCR Pipeline & Non-Food Purge</h4>
+        <p>
+          Integrated Google ML Kit's on-device text recognition to extract receipt lines in milliseconds. Built a domain-specific Turkish dictionary and rule engine that recognizes common retail abbreviations (e.g., <em>PILIC PRP</em>, <em>YSTK PRM SUT</em>) and automatically flags and filters out non-edible purchases like detergents, soaps, and kitchen paper towels.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. TSE Produce Calibration & Shelf-Life Indexing</h4>
+        <p>
+          Codified Turkish Standards Institution produce sizing tables (including TS 1212 citrus calibers and TS 1208 capsicum standards) so that entering "3 lemons" automatically records realistic base gram weights (~360g) for recipe calculations. Configured tiered shelf-life defaults tailored to local produce handling.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Calibrated Culinary Glassware Converter</h4>
+        <p>
+          Built an algorithmic conversion layer resolving the classic Turkish culinary dilemma: a "water glass" can represent 200ml (Refika Birgül standard) or 250ml (Arda Türkmen standard), which translates to substantial gram variance across flour (120g vs. 150g), sugar (200g vs. 250g), and olive oil. Users select their preferred reference chef, and recipes automatically adjust ingredient weights.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">4. Intelligent Pantry-to-Plate Matching</h4>
+        <p>
+          Constructed a recipe matching engine that cross-references available fridge stock against traditional and modern Turkish recipes. The matcher ranks suggestions based on missing ingredients and prioritizes dishes that consume items close to their expiration dates.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Results & Impact">
+    <p>
+      The platform addresses everyday culinary friction by combining localized data engineering with zero-latency computer vision:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Data Entry Speed</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant Receipt Ingestion</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Eliminates manual grocery item entry with on-device ML Kit OCR and automated brand classification.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Waste Reduction</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Proactive Kitchen Tracking</div>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          Expiry-weighted recipe matching helps households consume perishables before they spoil.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- Key Takeaway -->
+  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
+    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
+      Builder Takeaway
+    </h4>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      Great software often solves localized, cultural nuances that global platforms overlook. Grounding an inventory app in local supermarket formats, national produce standards, and regional culinary measurements transforms a generic tool into an indispensable daily utility.
+    </p>
+  </div>
+
+</DetailLayout>

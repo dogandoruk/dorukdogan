@@ -171,6 +171,7 @@ const featuredWork = [
             tools={item.tools}
             kpis={item.kpis}
             url={item.url}
+            images={'images' in item ? (item as any).images : undefined}
           />
         ))}
       </div>

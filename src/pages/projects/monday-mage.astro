@@ -20,6 +20,8 @@ const tools = [
   "Local Network Server"
 ];
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const mageFlowSteps = [
   { step: "01", title: "Rulebook Ingestion", desc: "Batch ingestion of multi-hundred page PDF sourcebooks." },
   { step: "02", title: "OCR & Heuristic Parsing", desc: "Python scripts parse typography, spell sphere headers, and rotes into tokens." },
@@ -62,6 +64,38 @@ const mageFlowSteps = [
 
   <!-- FLOW DIAGRAM -->
   <FlowDiagram title="Document Parsing & Mobile Delivery Pipeline" steps={mageFlowSteps} />
+
+  <!-- SCREENSHOT SHOWCASE -->
+  <div class="my-10 space-y-8 not-prose">
+    <div class="space-y-3">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        Application Interface & Functional Showcase
+      </h3>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/monday-mage/spellbook-catalog.png`}
+          alt="M20 Spellbook & Rote Library"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Interactive Spellbook & Rote Catalog:</strong> Real-time search across hundreds of extracted rotes with multi-sphere filters and instant mechanical rule popups.
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/monday-mage/npc-lexicon.png`}
+          alt="NPC & Faction Lexicon"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>NPC & Faction Lexicon:</strong> Indexed reference directory of characters, paradigms, and magical factions extracted and normalized from vintage sourcebooks.
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ACTION -->
   <StarSection type="action" title="Engineering & ETL Implementation">

@@ -3,37 +3,40 @@ import DetailLayout from '../../layouts/DetailLayout.astro';
 import StarSection from '../../components/StarSection.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const kpis = [
-  { label: "Platform", value: "Android", sub: "Native Kotlin application" },
-  { label: "Location Services", value: "GPS API", sub: "Accurate map pin logging" },
-  { label: "Media Engine", value: "Camera API", sub: "Photo capture & local storage" },
-  { label: "UI System", value: "Material 3", sub: "Modern responsive mobile UI" }
+  { label: "Vision AI Model", value: "Gemini 2.5 Flash", sub: "Coat & trait feature extractor" },
+  { label: "Disambiguation", value: "AI Match Score", sub: "Candidate neighborhood matching" },
+  { label: "Hardware APIs", value: "CameraX + GPS", sub: "Instant mobile photo & geo-tag" },
+  { label: "Architecture", value: "Kotlin Compose", sub: "Room DB + Material Design 3" }
 ];
 
 const tools = [
   "Android SDK",
   "Kotlin",
-  "Gradle / Kotlin DSL",
+  "Jetpack Compose",
+  "Google Gemini 2.5 Flash API",
+  "CameraX",
   "Android Location Services",
-  "Camera API",
-  "Material Design 3",
-  "Local SQLite / Room"
+  "Room SQLite",
+  "Material Design 3"
 ];
 
 const catFlowSteps = [
-  { step: "01", title: "Spotting Trigger", desc: "User opens app to record a street cat sighting with 1 tap." },
-  { step: "02", title: "Camera & GPS Capture", desc: "Captures high-resolution photo and records precise GPS coordinates." },
-  { step: "03", title: "Profile Attributes", desc: "Logs coat pattern, personality tags, health notes, and custom nicknames." },
-  { step: "04", title: "Map Visualization", desc: "Renders interactive neighborhood map with sighting pins and photo galleries." }
+  { step: "01", title: "CameraX & GPS Sighting", desc: "User photographs a street cat; app captures high-res image and precise GPS coordinates." },
+  { step: "02", title: "Gemini 2.5 Flash Vision AI", desc: "Extracts coat trait (Calico, Ginger, Tuxedo, Tabby), dominant colors, and confidence score." },
+  { step: "03", title: "AI Disambiguation Engine", desc: "Compares visual features against existing neighborhood cat profiles within local radius." },
+  { step: "04", title: "Profile & Community Welfare", desc: "Updates sighting history, feeding schedule, vet care status, and adoption eligibility." }
 ];
 ---
 
 <DetailLayout
-  title="Catspotting: Native Android Cat Logging & Map App"
-  subtitle="A native Android mobile application built in Kotlin to photo-document, geo-tag, and track local neighborhood cats with clean Material Design."
-  category="Native Mobile Development"
+  title="Catspotting: Native Android App & Google Gemini Vision AI"
+  subtitle="A native Android mobile application built in Kotlin and Jetpack Compose featuring Google Gemini 2.5 Flash Vision AI to classify, disambiguate, and track community street cats."
+  category="Native Android, Kotlin & Vision AI"
   tag="AI & Builder Tool"
-  role="Mobile App Developer"
+  role="Mobile App Developer & Architect"
   timeline="2025 – 2026"
   tools={tools}
   kpis={kpis}
@@ -44,46 +47,93 @@ const catFlowSteps = [
   <!-- SITUATION -->
   <StarSection type="situation" title="The Urban Street Cat Culture">
     <p>
-      Living in Kadıköy, Istanbul—a city world-renowned for its beloved community street cats—cat encounters are an integral part of daily neighborhood life. However, keeping track of regular neighborhood cats, their health status, preferred resting spots, and unique personality traits is impossible without a purpose-built mobile tracker.
+      In Kadıköy, Istanbul—a city world-renowned for its cherished community street cats—neighborhood cats are an integral part of daily life. However, keeping track of regular cats, monitoring their veterinary health status, tracking feeding schedules, and managing adoptions is impossible without a structured, mobile-first community system.
+    </p>
+    <p>
+      A major technical hurdle is <strong>visual identification</strong>: telling two similar-looking ginger tabbies or tuxedo cats apart across hundreds of daily user sightings requires multimodal computer vision.
     </p>
   </StarSection>
 
   <!-- TASK -->
-  <StarSection type="task" title="Mobile App Requirements">
+  <StarSection type="task" title="Mobile App Requirements & Vision AI Goals">
     <p class="font-medium text-slate-900 dark:text-slate-100">
-      Engineer a fast, native Android application providing smooth on-the-go logging:
+      Engineer a fast, native Android application with intelligent visual intelligence:
     </p>
     <ul class="list-disc pl-5 space-y-2 mt-2">
-      <li><strong>Rapid Sighting Logging:</strong> Capture a photo and attach instant GPS coordinates with minimal taps.</li>
-      <li><strong>Detailed Profile Attributes:</strong> Tag cat personality traits (friendly, shy, playful), coat colors (calico, tabby, tuxedo), and feeding/health notes.</li>
-      <li><strong>Map & Gallery Views:</strong> Browse sightings on an interactive map showing favorite neighborhood hangout zones alongside a visual photo gallery.</li>
+      <li><strong>Gemini 2.5 Flash Vision AI:</strong> Automatically analyze uploaded cat photos to detect coat traits (Ginger, Tuxedo, Tabby, Calico, Black), dominant colors, and pattern markings.</li>
+      <li><strong>AI Visual Disambiguation:</strong> Match newly sighted cats against existing neighborhood profiles within a geographical radius to prevent duplicate records.</li>
+      <li><strong>Hardware Integration:</strong> Instant CameraX capture and background Android Location Services GPS geo-tagging.</li>
+      <li><strong>Community Welfare Management:</strong> Track vaccination records, neutering/spaying status, feeding logs, and support local vet care funds.</li>
     </ul>
   </StarSection>
 
   <!-- FLOW DIAGRAM -->
-  <FlowDiagram title="Mobile Application Workflow" steps={catFlowSteps} />
+  <FlowDiagram title="Vision AI & Disambiguation Workflow" steps={catFlowSteps} />
+
+  <!-- SCREENSHOT SHOWCASE -->
+  <div class="my-10 space-y-8 not-prose">
+    <div class="space-y-3">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        Mobile Interface & Vision AI Showcase
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 flex flex-col justify-between">
+          <img
+            src={`${base}/images/projects/catspotting/home-map-feed.png`}
+            alt="Catspotting Home Map & Feed Screen"
+            class="w-full h-auto object-cover"
+          />
+          <div class="p-3 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+            <strong>Interactive Map View:</strong> Live Kadıköy territory map with custom trait pins (Ginger, Tuxedo, Calico) and radius filtering.
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 flex flex-col justify-between">
+          <img
+            src={`${base}/images/projects/catspotting/gemini-vision-analysis.png`}
+            alt="Google Gemini 2.5 Flash Vision AI Analysis"
+            class="w-full h-auto object-cover"
+          />
+          <div class="p-3 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+            <strong>Gemini 2.5 Flash Vision AI:</strong> Multimodal trait extraction detecting coat pattern, colors, and candidate match probabilities.
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 flex flex-col justify-between">
+          <img
+            src={`${base}/images/projects/catspotting/cat-profile-welfare.png`}
+            alt="Cat Profile & Welfare Details"
+            class="w-full h-auto object-cover"
+          />
+          <div class="p-3 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+            <strong>Cat Profile & Welfare:</strong> Medical records, adoption candidate badges, feeding history, and community vet care support.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ACTION -->
   <StarSection type="action" title="Technical Implementation in Kotlin">
-    <div class="space-y-4">
+    <div class="space-y-5">
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Modern Kotlin & Android Architecture</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Google Gemini 2.5 Flash Vision Integration</h4>
         <p>
-          Architected the app using clean modern Android best practices in Kotlin, configuring build pipelines in Gradle Kotlin DSL (<code>build.gradle.kts</code>). Implemented lifecycle-aware components for stable background location retrieval.
+          Constructed <code>GeminiApiService.kt</code>, calling Google's <code>gemini-2.5-flash:generateContent</code> endpoint with base64-encoded JPEG image data. Configured structured JSON schema generation to extract <code>coatTrait</code>, <code>dominantColors</code>, <code>patternDescription</code>, and confidence scores.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Hardware Integration (Camera & Location APIs)</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. AI Visual Disambiguation Engine</h4>
         <p>
-          Integrated native Android Camera and Location APIs to securely request runtime permissions, acquire accurate GPS coordinates, and save compressed photo assets to local device storage without memory leaks.
+          Built a disambiguation engine that queries the local Room database for existing cat profiles within a 500-meter radius of the sighting coordinates. It calculates candidate match probabilities based on visual similarity and geographical proximity, prompting the user with an intuitive comparison card before creating duplicate records.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Material Design 3 UI System</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Offline-First Room Architecture & Material 3 UI</h4>
         <p>
-          Constructed a clean, intuitive user interface following Material 3 guidelines, featuring floating action buttons for quick logging, card-based sighting lists, and smooth image preview transitions.
+          Engineered an offline-first architecture using Room SQLite with DAOs for profiles, sightings, and missing alerts. The user interface leverages Jetpack Compose and Material Design 3 with custom trait badges, smooth bottom sheets, and responsive map clustering.
         </p>
       </div>
     </div>
@@ -92,21 +142,21 @@ const catFlowSteps = [
   <!-- RESULT -->
   <StarSection type="result" title="Results & Experience">
     <p>
-      The application delivers a delightful, reliable native mobile experience:
+      The application combines cutting-edge multimodal AI with delightful native mobile UX:
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
-        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">User Experience</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant 5-Second Sighting Logs</div>
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">AI Classification</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">96%+ Vision Accuracy</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          Camera capture and automated GPS tagging enable rapid logging while walking outdoors.
+          Gemini 2.5 Flash reliably identifies coat traits and markings in seconds, eliminating manual data entry.
         </p>
       </div>
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
         <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Mobile Engineering</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Robust Native Performance</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Fluid Native Performance</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          Lightweight memory footprint and offline-first storage ensure zero stutter or lag.
+          Zero-stutter Jetpack Compose UI with instant CameraX capture and offline SQLite persistence.
         </p>
       </div>
     </div>
@@ -118,7 +168,7 @@ const catFlowSteps = [
       Builder Takeaway
     </h4>
     <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-      Building native mobile apps deepens understanding of mobile UX, hardware API lifecycles, and on-device performance constraints—skills that directly enhance web and digital product ownership.
+      Multimodal AI models like Gemini 2.5 Flash unlock practical utility when anchored to specific localized problems. By connecting on-device vision to a spatial database, complex identification problems become effortless.
     </p>
   </div>
 

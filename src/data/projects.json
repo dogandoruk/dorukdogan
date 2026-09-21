@@ -4,34 +4,88 @@
     "title": "Job Application Suite: Automated Form Filler & Tailored CV Engine",
     "type": "Productivity & Career Automation",
     "tag": "AI & Builder Tool",
-    "category": "Full-Stack & Extension",
-    "summary": "Engineered an end-to-end automation suite featuring a Chrome extension, Node.js backend, and PDF generation engine that generates tailored CVs and auto-populates complex job applications.",
+    "category": "Full-Stack & Browser Automation",
+    "summary": "An end-to-end career automation system featuring a 530KB single-page dashboard, Puppeteer job hunter with human-like jitter, Groq LLM match scoring, Manifest V3 Chrome extension, and dynamic PDF resume compiler.",
     "kpis": [
-      { "label": "Time Saved", "value": "85%", "sub": "Per job application cycle" },
-      { "label": "CV Engine", "value": "Dynamic", "sub": "Role-tailored PDF generation" },
-      { "label": "Browser Integration", "value": "Chrome Ext", "sub": "1-click form auto-fill" },
-      { "label": "Architecture", "value": "Full Stack", "sub": "Node.js, Express & Extension" }
+      { "label": "Application Time Saved", "value": "85%", "sub": "Per job application cycle" },
+      { "label": "AI Match Scoring", "value": "Groq LLM", "sub": "Real-time JD vs CV evaluation" },
+      { "label": "Browser Integration", "value": "Chrome Ext", "sub": "1-click ATS form auto-fill" },
+      { "label": "Crawler Pacing", "value": "Anti-Ban", "sub": "Vivaldi profile + 2s-8s jitter" }
     ],
-    "tools": ["JavaScript", "Node.js", "Express", "Chrome Extension API", "PDF Generation", "HTML5/CSS3"],
+    "tools": ["JavaScript", "Node.js", "Express", "Chrome Extension API", "Puppeteer", "Groq API", "HTML5 & CSS3"],
     "featured": true,
-    "url": "/projects/job-application-filler"
+    "url": "/projects/job-application-filler",
+    "images": [
+      { "src": "/images/projects/job-filler/dashboard-overview.png", "caption": "Interactive CV Dashboard & Section-Based Editor" },
+      { "src": "/images/projects/job-filler/autoapply-hunt.png", "caption": "Auto-Apply Bot Hunt & Queue with Match Scoring" }
+    ]
   },
   {
     "slug": "la-by-night",
-    "title": "LA by Night: Storyteller GM Dashboard & Knowledge Base",
+    "title": "LA by Night: Storyteller GM Dashboard & Player Codex",
     "type": "Data Pipeline & Game Master Suite",
     "tag": "AI & Builder Tool",
-    "category": "FastAPI & AI Pipeline",
-    "summary": "Built a comprehensive campaign manager for tabletop storytelling featuring a local GPU OCR pipeline, 800+ node structured JSON lore database, interactive map pins, and DeepSeek LLM character concept generation.",
+    "category": "FastAPI & Player Portal",
+    "summary": "A comprehensive campaign management suite for Vampire: The Masquerade featuring an asynchronous FastAPI backend, Leaflet GIS territory map, 800+ node structured JSON lore database, local GPU OCR pipeline, and a live public Player Codex with an interactive mobile d10 dice roller.",
     "kpis": [
       { "label": "Lore Entities", "value": "800+", "sub": "Structured JSON knowledge graph" },
-      { "label": "Local OCR", "value": "PyTorch GPU", "sub": "Automated PDF-to-Markdown" },
-      { "label": "LLM Integration", "value": "DeepSeek API", "sub": "Prompt-engineered character gen" },
-      { "label": "Backend Speed", "value": "<50ms", "sub": "FastAPI & lightweight JSON store" }
+      { "label": "Player Codex", "value": "Live Portal", "sub": "In-app mobile d10 dice roller" },
+      { "label": "Local GPU OCR", "value": "PyTorch", "sub": "Automated PDF-to-Markdown" },
+      { "label": "Interactive Map", "value": "Leaflet GIS", "sub": "Los Angeles territory havens" }
     ],
-    "tools": ["Python", "FastAPI", "PyTorch", "Baidu Unlimited-OCR", "DeepSeek API", "Jinja2", "Vanilla JS"],
+    "tools": ["Python 3.10", "FastAPI", "Leaflet Map", "PyTorch", "Baidu Unlimited-OCR", "Jinja2 & Vanilla JS", "GitHub Pages"],
     "featured": true,
-    "url": "/projects/la-by-night"
+    "url": "/projects/la-by-night",
+    "images": [
+      { "src": "/images/projects/la-by-night/gm-dashboard.png", "caption": "Storyteller Campaign Management Dashboard" },
+      { "src": "/images/projects/la-by-night/la-map.png", "caption": "Interactive Leaflet GIS Map of Los Angeles Havens" },
+      { "src": "/images/projects/la-by-night/player-codex.png", "caption": "Live Public Player Codex with Mobile d10 Dice Roller" },
+      { "src": "/images/projects/la-by-night/codex-manager.png", "caption": "Storyteller's Player Codex Curation & Visibility Manager" }
+    ]
+  },
+  {
+    "slug": "cooking-companion",
+    "title": "Cooking Companion: Smart Fridge & Kitchen Inventory Platform",
+    "type": "Smart Kitchen & Food Waste Reduction",
+    "tag": "AI & Builder Tool",
+    "category": "On-Device OCR & Data Engineering",
+    "summary": "A smart kitchen inventory and recipe recommendation platform tailored for the Turkish market, featuring on-device Google ML Kit receipt OCR, Turkish brand disambiguation, TSE produce weight standardization, chef glassware conversions, and fridge-to-recipe matching.",
+    "kpis": [
+      { "label": "On-Device OCR", "value": "ML Kit", "sub": "Zero-latency receipt scanning" },
+      { "label": "Brand Disambiguation", "value": "Turkish NLP", "sub": "Food vs non-food auto-purge" },
+      { "label": "Produce Standards", "value": "TSE Certified", "sub": "TS 1212 & TS 1208 caliber weights" },
+      { "label": "Glassware Engine", "value": "Chef-Calibrated", "sub": "Refika (200ml) vs Arda (250ml)" }
+    ],
+    "tools": ["Google ML Kit", "JavaScript / TypeScript", "Tailwind CSS", "Data Engineering", "Bilingual (TR/EN)"],
+    "featured": true,
+    "url": "/projects/cooking-companion",
+    "images": [
+      { "src": "/images/projects/cooking-companion/receipt-ocr-scanner.png", "caption": "On-Device Receipt OCR & Turkish Brand Disambiguation" },
+      { "src": "/images/projects/cooking-companion/fridge-inventory.png", "caption": "Categorized Smart Fridge Inventory with Expiration Alerts" },
+      { "src": "/images/projects/cooking-companion/recipe-matcher.png", "caption": "Fridge-to-Recipe Matching with Chef Glassware Conversion" }
+    ]
+  },
+  {
+    "slug": "catspotting",
+    "title": "Catspotting: Native Android Cat Logging & Map App",
+    "type": "Mobile Application & Computer Vision",
+    "tag": "AI & Builder Tool",
+    "category": "Android, Kotlin & Gemini Vision",
+    "summary": "A native Android application in Kotlin and Jetpack Compose utilizing Google Gemini 2.5 Flash Vision AI to classify coat traits, run visual cat disambiguation, and track community stray cats across neighborhood maps.",
+    "kpis": [
+      { "label": "Vision AI", "value": "Gemini 2.5 Flash", "sub": "Coat trait classification & confidence" },
+      { "label": "Disambiguation", "value": "AI Candidate Match", "sub": "Prevents duplicate cat profiles" },
+      { "label": "Hardware Integration", "value": "CameraX + GPS", "sub": "Instant sighting & location capture" },
+      { "label": "Persistence", "value": "Room SQLite", "sub": "Offline-first with sync guardrails" }
+    ],
+    "tools": ["Android SDK", "Kotlin", "Jetpack Compose", "Google Gemini API", "CameraX", "Location Services", "Room SQLite"],
+    "featured": true,
+    "url": "/projects/catspotting",
+    "images": [
+      { "src": "/images/projects/catspotting/home-map-feed.png", "caption": "Interactive Kadıköy Map View with Trait Markers & Feed" },
+      { "src": "/images/projects/catspotting/gemini-vision-analysis.png", "caption": "Google Gemini 2.5 Flash Vision AI Coat Classification" },
+      { "src": "/images/projects/catspotting/cat-profile-welfare.png", "caption": "Cat Profile with Medical History & Community Welfare Fund" }
+    ]
   },
   {
     "slug": "monday-mage",
@@ -39,32 +93,19 @@
     "type": "Computer Vision & Offline Catalog",
     "tag": "AI & Builder Tool",
     "category": "Python & ETL",
-    "summary": "Developed an automated ETL pipeline that processes multi-volume TTRPG rulebooks via computer vision and regex heuristics into a structured, mobile-responsive offline spellbook database.",
+    "summary": "An automated ETL pipeline that processes multi-volume TTRPG rulebooks via computer vision and regex heuristics into a structured, mobile-responsive offline spellbook database with sub-10ms lookup speeds.",
     "kpis": [
       { "label": "Rulebook Parsing", "value": "Automated", "sub": "Multi-volume PDF extraction" },
-      { "label": "Search Speed", "value": "Instant", "sub": "Zero-latency offline lookups" },
+      { "label": "Search Speed", "value": "<10ms", "sub": "Zero-latency offline lookups" },
       { "label": "Mobile Access", "value": "Responsive", "sub": "Tablet & phone optimized UI" },
       { "label": "ETL Pipeline", "value": "Python", "sub": "Custom regex & post-processing" }
     ],
     "tools": ["Python", "PyMuPDF", "Computer Vision OCR", "JSON Data Schemas", "Vanilla JS", "HTML5"],
     "featured": false,
-    "url": "/projects/monday-mage"
-  },
-  {
-    "slug": "catspotting",
-    "title": "Catspotting: Native Android Cat Logging & Map App",
-    "type": "Mobile Application",
-    "tag": "AI & Builder Tool",
-    "category": "Android & Kotlin",
-    "summary": "Designed and built a native Android app in Kotlin that allows users to photograph, geo-tag, catalog, and record notes on local neighborhood cats with clean Material Design UI.",
-    "kpis": [
-      { "label": "Platform", "value": "Native Android", "sub": "Kotlin & Jetpack" },
-      { "label": "Geo-Tagging", "value": "GPS Maps", "sub": "Precise sighting location" },
-      { "label": "Media Capture", "value": "Camera API", "sub": "Local photo storage & gallery" },
-      { "label": "UI Design", "value": "Material 3", "sub": "Smooth, modern mobile UX" }
-    ],
-    "tools": ["Android SDK", "Kotlin", "Gradle", "Camera API", "Location Services", "Material Design"],
-    "featured": false,
-    "url": "/projects/catspotting"
+    "url": "/projects/monday-mage",
+    "images": [
+      { "src": "/images/projects/monday-mage/spellbook-catalog.png", "caption": "M20 Spellbook & Rote Library with Sphere Filtering" },
+      { "src": "/images/projects/monday-mage/npc-lexicon.png", "caption": "NPC & Faction Lexicon with Offline Quick Search" }
+    ]
   }
 ]

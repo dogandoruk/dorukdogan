@@ -11,7 +11,7 @@
   "metrics": [
     { "label": "EU Markets Managed", "value": "16+", "subtext": "Rituals Paid Media campaigns" },
     { "label": "Enterprise SEO Audits", "value": "100+", "subtext": "Technical health & crawl optimizations" },
-    { "label": "Custom AI Tools Built", "value": "4", "subtext": "Full-stack apps & local pipelines" },
+    { "label": "Custom AI Tools Built", "value": "5", "subtext": "Full-stack apps & AI systems" },
     { "label": "Academic Publication", "value": "ICA '22", "subtext": "Presented research in Paris, France" }
   ],
   "pillars": [

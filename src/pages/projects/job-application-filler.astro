@@ -3,34 +3,37 @@ import DetailLayout from '../../layouts/DetailLayout.astro';
 import StarSection from '../../components/StarSection.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const kpis = [
   { label: "Application Time Saved", value: "85%", sub: "Per application cycle" },
-  { label: "CV Generation", value: "Dynamic", sub: "Tailored PDF generator" },
-  { label: "Browser Extension", value: "1-Click", sub: "Form auto-population" },
-  { label: "Backend API", value: "Node.js", sub: "Express + Puppeteer" }
+  { label: "AI Match Scoring", value: "Groq LLM", sub: "Real-time JD vs CV evaluation" },
+  { label: "Browser Integration", value: "Chrome Ext", "sub": "1-click ATS form auto-fill" },
+  { label: "Crawler Pacing", value: "Anti-Ban", sub: "Vivaldi profile + 2s-8s jitter" }
 ];
 
 const tools = [
   "JavaScript",
   "Node.js",
   "Express",
+  "Puppeteer",
+  "Groq LLM API",
   "Chrome Extension API",
   "Puppeteer / PDF Engine",
-  "HTML5 & Tailwind CSS",
-  "Android Tablet UI"
+  "HTML5 & CSS3"
 ];
 
 const jobFlowSteps = [
-  { step: "01", title: "Job Description Ingestion", desc: "Chrome extension captures job posting details and role requirements." },
-  { step: "02", title: "Role-Profile Mapping", desc: "Backend maps requirements to matching skill blocks (SEO, Paid Media, or Omnichannel)." },
-  { step: "03", title: "PDF CV Compilation", desc: "Express server renders and compiles a pristine, tailored PDF CV in seconds." },
-  { step: "04", title: "Form Auto-Fill", desc: "Extension automatically injects verified career data into ATS portal fields." }
+  { step: "01", title: "Job Board Crawling", desc: "Puppeteer launches Vivaldi profile, crawling target job boards with human-like jitter delays." },
+  { step: "02", title: "Groq LLM Match Scoring", desc: "Evaluates raw job descriptions against master CV via /api/ai/matchscore, filtering >=40% matches." },
+  { step: "03", title: "PDF CV Compilation", desc: "Express backend compiles ATS-compliant, role-tailored PDF resumes in real-time." },
+  { step: "04", title: "1-Click ATS Auto-Fill", desc: "Manifest V3 Chrome extension auto-populates complex application fields directly in the browser." }
 ];
 ---
 
 <DetailLayout
   title="Job Application Suite: Automated Form Filler & Tailored CV Engine"
-  subtitle="An end-to-end career automation system featuring a Chrome extension, Node.js PDF compiler, and tablet dashboard to eliminate job application friction."
+  subtitle="An end-to-end career automation system featuring a 530KB interactive dashboard, Puppeteer job crawler, Groq LLM match scorer, and Chrome extension to eliminate job application friction."
   category="Full-Stack & Browser Automation"
   tag="AI & Builder Tool"
   role="Full-Stack Developer & Product Owner"
@@ -44,49 +47,82 @@ const jobFlowSteps = [
   <!-- SITUATION -->
   <StarSection type="situation" title="The High-Friction Job Application Process">
     <p>
-      Modern job applications are notoriously repetitive. Candidates applying across multiple specialized disciplines (such as Performance Marketing, Technical SEO, and Digital Operations) are forced to manually copy-paste identical personal details, work histories, and portfolio links into hundreds of distinct Applicant Tracking System (ATS) portals (Greenhouse, Lever, Workday, LinkedIn).
+      Modern job applications are notoriously repetitive. Candidates applying across multiple specialized disciplines (such as Performance Marketing, Technical SEO, and Digital Operations) are forced to manually copy-paste identical personal details, work histories, and portfolio links into hundreds of distinct Applicant Tracking System (ATS) portals (Greenhouse, Lever, Workday, LinkedIn, SEEK).
     </p>
     <p>
-      Furthermore, submitting a generic CV reduces conversion rates, while manually editing bespoke PDFs for every single position is tedious and time-consuming.
+      Furthermore, submitting a generic CV significantly lowers interview callback rates, while manually editing bespoke PDFs for every single position introduces human fatigue and formatting errors.
     </p>
   </StarSection>
 
   <!-- TASK -->
   <StarSection type="task" title="Project Goals & Technical Requirements">
     <p class="font-medium text-slate-900 dark:text-slate-100">
-      Design and build an integrated productivity suite with three core capabilities:
+      Design and build an integrated productivity suite with four core capabilities:
     </p>
     <ul class="list-disc pl-5 space-y-2 mt-2">
-      <li><strong>1-Click Browser Auto-Fill:</strong> A lightweight Chrome extension that detects ATS form inputs and populates verified career history instantly.</li>
+      <li><strong>Automated Job Hunting & Scoring:</strong> Crawl configured job boards overnight, extract raw job descriptions, and evaluate them against my CV using Groq LLM scoring.</li>
+      <li><strong>1-Click Browser Auto-Fill:</strong> A lightweight Manifest V3 Chrome extension that detects ATS form inputs and populates verified career history instantly.</li>
       <li><strong>On-Demand PDF CV Engine:</strong> A backend service that dynamically generates role-tailored PDF CVs matching the exact focus of the job posting.</li>
-      <li><strong>Cross-Platform Management:</strong> A responsive dashboard accessible via desktop and tablet to track application statuses and view generated documents.</li>
+      <li><strong>Centralized Application CRM:</strong> A rich dashboard to manage job statuses, email templates, companies, and interview notes in one place.</li>
     </ul>
   </StarSection>
 
   <!-- SYSTEM FLOW DIAGRAM -->
   <FlowDiagram title="End-to-End Application Automation Pipeline" steps={jobFlowSteps} />
 
+  <!-- SCREENSHOT SHOWCASE -->
+  <div class="my-10 space-y-8 not-prose">
+    <div class="space-y-3">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        Live Interface Showcase
+      </h3>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/job-filler/dashboard-overview.png`}
+          alt="Job Application Filler Dashboard"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Interactive CV Dashboard:</strong> Section-based resume editor with real-time field toggles, job tracking CRM, and dynamic PDF export controls.
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/job-filler/autoapply-hunt.png`}
+          alt="Auto-Apply Hunt Tab"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Auto-Apply Bot (Hunt & Queue):</strong> Puppeteer job hunter interface with Groq match score thresholds, crawl pacing rules, and application status queues.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ACTION -->
   <StarSection type="action" title="System Architecture & Implementation">
-    <div class="space-y-4">
+    <div class="space-y-5">
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Chrome Extension Architecture</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Puppeteer Crawler with Human-Like Anti-Ban Pacing</h4>
         <p>
-          Engineered a Manifest V3 browser extension using content scripts and background service workers. The extension parses DOM structures across popular job boards, identifies input fields (name, email, experience history, portfolio URLs), and populates them safely with one click.
+          Constructed a standalone crawler (<code>autoapply/hunt.js</code>) that clones the user's active browser profile (preserving logins). It crawls configured job boards with randomized human-like jitter delays (2s to 8s) and anti-ban velocity limits (capped at 20 applications/hour).
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Node.js & Express PDF Generation Service</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Groq LLM Match Scoring & Queue Engine</h4>
         <p>
-          Built a dedicated backend service that stores structured master career data in JSON. When requested, the engine dynamically selects the most relevant highlights (e.g. emphasizing Smartly.io and ROAS for Performance roles, or Screaming Frog and crawl health for SEO roles) and compiles an ATS-compliant PDF.
+          Each extracted job description is evaluated via <code>/api/ai/matchscore</code> powered by Groq. The engine compares role requirements against the master CV, generating a match percentage score and categorizing high-confidence postings into <code>applyqueue.json</code> for 1-click review.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Tablet & Mobile Dashboard</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Manifest V3 Chrome Extension & Dynamic PDF Compiler</h4>
         <p>
-          Wrapped the management interface into a responsive dashboard that can be launched locally or accessed over a local network, enabling seamless monitoring on a secondary tablet display while working on desktop.
+          Engineered a browser extension that maps DOM fields across Workday, Greenhouse, and Lever portals to verified profile data. Simultaneously, a Puppeteer-based PDF compiler (<code>pdf-service.js</code>) renders role-tailored resumes on demand.
         </p>
       </div>
     </div>
@@ -95,7 +131,7 @@ const jobFlowSteps = [
   <!-- RESULT -->
   <StarSection type="result" title="Results & Productivity Gains">
     <p>
-      The automation suite transformed an otherwise exhausting multi-hour daily process into a fast, painless workflow:
+      The automation suite transformed an otherwise exhausting multi-hour daily process into a fast, automated workflow:
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
@@ -121,7 +157,7 @@ const jobFlowSteps = [
       Builder Takeaway
     </h4>
     <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-      Repetitive problems are software opportunities. Building a custom browser extension and document compiler demonstrated how a small full-stack system can unlock massive compounding time savings.
+      Repetitive problems are software opportunities. Building a custom browser extension, crawler, and document compiler demonstrated how a small full-stack system can unlock massive compounding time savings.
     </p>
   </div>
 

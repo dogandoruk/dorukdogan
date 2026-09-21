@@ -3,36 +3,38 @@ import DetailLayout from '../../layouts/DetailLayout.astro';
 import StarSection from '../../components/StarSection.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const kpis = [
   { label: "Lore Knowledge Graph", value: "800+", sub: "Structured JSON entities" },
+  { label: "Player Codex Portal", value: "Live Web App", sub: "Mobile d10 dice roller" },
   { label: "Local GPU OCR", value: "PyTorch", sub: "Automated PDF-to-Markdown" },
-  { label: "LLM Character Gen", value: "DeepSeek", sub: "Prompt-engineered concepts" },
   { label: "Backend Response", value: "<50ms", sub: "Lightweight FastAPI server" }
 ];
 
 const tools = [
   "Python 3.10",
   "FastAPI",
+  "Leaflet Map",
   "PyTorch",
   "Baidu Unlimited-OCR",
-  "DeepSeek LLM API",
   "PyMuPDF",
   "Jinja2 & Vanilla JS",
-  "Leaflet Map"
+  "GitHub Pages"
 ];
 
 const laFlowSteps = [
   { step: "01", title: "PDF Rulebook Ingestion", desc: "PyMuPDF splits multi-hundred page scanned rulebooks into image slices." },
   { step: "02", title: "Local GPU OCR", desc: "PyTorch model (Baidu Unlimited-OCR) parses multi-column text into clean Markdown." },
   { step: "03", title: "JSON Knowledge Store", desc: "Structured extraction maps 800+ lore entries, NPCs, disciplines, and factions." },
-  { step: "04", title: "Interactive GM Hub", desc: "FastAPI serves interactive LA map, relationship graph, and DeepSeek character generator." }
+  { step: "04", title: "Player Codex Deployment", desc: "Storyteller curates public lore and publishes sanitized web codex with mobile dice roller." }
 ];
 ---
 
 <DetailLayout
-  title="LA by Night: Storyteller GM Dashboard & Knowledge Base"
-  subtitle="A high-performance campaign management system featuring local GPU OCR extraction, an 800+ node structured lore database, and LLM-assisted character generation."
-  category="Python, FastAPI & AI Pipeline"
+  title="LA by Night: Storyteller GM Dashboard & Player Codex"
+  subtitle="A high-performance campaign management system featuring local GPU OCR extraction, an 800+ node structured lore database, and a live player-facing portal with a mobile d10 dice roller."
+  category="Python, FastAPI & Player Portal"
   tag="AI & Builder Tool"
   role="Software Architect & Developer"
   timeline="2025 – 2026"
@@ -45,50 +47,93 @@ const laFlowSteps = [
   <!-- SITUATION -->
   <StarSection type="situation" title="The Complexity of Tabletop Worldbuilding">
     <p>
-      Running a complex tabletop roleplaying game (TTRPG) chronicle—specifically <em>Vampire: The Masquerade 20th Anniversary Edition</em>—requires managing dozens of interconnected NPCs, political faction alliances, hundreds of supernatural discipline rules across 20+ physical rulebooks, session notes, and geographical locations.
+      Running an expansive tabletop roleplaying chronicle—specifically <em>Vampire: The Masquerade 20th Anniversary Edition (V20)</em> set in nocturnal Los Angeles—requires orchestrating over 100 NPCs, complex political factions, clan territories, and rulebook references spanning dozens of physical supplement books.
     </p>
     <p>
-      Standard commercial GM tools are either generic, require constant internet access, or lack the ability to ingest and search deep proprietary rulebook lore offline.
+      Equally challenging is the player experience: players need constant access to sanitized lore, their character sheets, session briefings, and a reliable dice roller during live sessions without accidentally seeing secret Storyteller notes or campaign plot twists.
     </p>
   </StarSection>
 
   <!-- TASK -->
   <StarSection type="task" title="System Goals & Architectural Requirements">
     <p class="font-medium text-slate-900 dark:text-slate-100">
-      Design and deploy a bespoke, self-hosted campaign management suite with four core capabilities:
+      Design and deploy a bespoke, two-tier campaign management architecture:
     </p>
     <ul class="list-disc pl-5 space-y-2 mt-2">
-      <li><strong>Local GPU-Accelerated OCR Pipeline:</strong> Convert hundreds of scanned PDF rulebook pages into structured, searchable Markdown using deep learning.</li>
-      <li><strong>Structured Knowledge Graph:</strong> Index 800+ lore entries, NPCs, locations, and clan mechanics into a fast JSON-backed database with zero database bloat.</li>
-      <li><strong>Interactive Game Master UI:</strong> Render an interactive geographical map of Los Angeles, faction relationship graphs, and live session editors.</li>
-      <li><strong>LLM Character Concept Generation:</strong> Integrate the DeepSeek API with domain-tailored system prompts to generate lore-accurate character sheets on demand.</li>
+      <li><strong>Storyteller Operations Engine:</strong> A private FastAPI backend managing 108 NPCs, 10 PCs, territory pins, and session notes with atomic JSON persistence.</li>
+      <li><strong>Public Player Codex:</strong> A dedicated, sanitized mobile-responsive portal (<a href="https://evatium.github.io/la-by-night/" target="_blank" class="text-emerald-500 font-bold underline">evatium.github.io/la-by-night</a>) providing players with an in-app V20 d10 dice roller, session recaps, and sanitized character rosters.</li>
+      <li><strong>Local GPU OCR Pipeline:</strong> A PyTorch worker running <code>baidu/Unlimited-OCR</code> to convert scanned V20 rulebook PDFs into structured, searchable Markdown lore.</li>
+      <li><strong>Interactive GIS Territory Map:</strong> A Leaflet map visualizing clan havens, Elysiums, and contested boundaries across Los Angeles.</li>
     </ul>
   </StarSection>
 
   <!-- PIPELINE DIAGRAM -->
-  <FlowDiagram title="Knowledge Extraction & GM Dashboard Architecture" steps={laFlowSteps} />
+  <FlowDiagram title="Knowledge Extraction & Player Codex Pipeline" steps={laFlowSteps} />
+
+  <!-- SCREENSHOT SHOWCASE -->
+  <div class="my-10 space-y-8 not-prose">
+    <div class="space-y-3">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        Live Interface Showcase
+      </h3>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/la-by-night/player-codex.png`}
+          alt="Live Player Codex Web Portal"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Live Player Codex Portal (<a href="https://evatium.github.io/la-by-night/" target="_blank" class="text-emerald-500 underline">evatium.github.io/la-by-night</a>):</strong> Player-facing portal featuring sanitized character profiles and an interactive mobile V20 d10 dice roller with botch and success calculation.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/la-by-night/la-map.png`}
+          alt="Interactive Los Angeles Leaflet Map"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Interactive LA Territory Map:</strong> Leaflet-based GIS dashboard plotting havens, Elysiums, and faction boundaries across Los Angeles.
+        </div>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <img
+          src={`${base}/images/projects/la-by-night/codex-manager.png`}
+          alt="Storyteller Player Codex Manager"
+          class="w-full h-auto object-cover"
+        />
+        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <strong>Player Codex Manager:</strong> Storyteller interface to curate which lore, NPCs, and session briefings are published publicly to players.
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ACTION -->
   <StarSection type="action" title="Technical Engineering & Implementation">
-    <div class="space-y-4">
+    <div class="space-y-5">
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Local GPU OCR Pipeline (PyTorch + Baidu Unlimited-OCR)</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Two-Tier Storyteller & Player Architecture</h4>
         <p>
-          Constructed a standalone Python worker script utilizing NVIDIA CUDA acceleration and Hugging Face's <code>baidu/Unlimited-OCR</code> vision model. The pipeline extracts multi-column text and tables from high-resolution PDF scans, formats the output into clean Markdown, and writes structured lore summaries.
+          Architected a separation of concerns between private GM data and public player data. The Storyteller uses the private FastAPI dashboard to manage plots and rollouts, then triggers an automated export and GitHub Pages publishing script (<code>publish_player_codex.py</code>) that pushes sanitized data to <a href="https://evatium.github.io/la-by-night/" target="_blank" class="text-emerald-500 underline font-semibold">evatium.github.io/la-by-night</a>.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. High-Speed FastAPI Backend & Data Layer</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Local GPU OCR Pipeline (PyTorch + Baidu Unlimited-OCR)</h4>
         <p>
-          Built a robust FastAPI backend with over 1,900 lines of clean routing logic. To ensure maximum portability and zero database management overhead, the data layer utilizes schema-validated JSON file persistence with atomic write backups.
+          Constructed a Python worker script utilizing NVIDIA CUDA acceleration and Hugging Face's <code>baidu/Unlimited-OCR</code> vision model. The pipeline extracts multi-column text and tables from high-resolution PDF scans, formats the output into clean Markdown, and writes structured lore summaries into 800+ searchable JSON entities.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. DeepSeek LLM Character Generator & Interactive Map</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Mobile d10 Dice Roller & Downtime Sync</h4>
         <p>
-          Engineered structured prompt templates for the DeepSeek LLM API that take high-level narrative archetypes and produce fully statted, lore-compliant character concepts. Added an interactive Leaflet map marking key chronicle locations and an export pipeline compiling entire chronicles into formatted DOCX files for offline reading.
+          Integrated a client-side dice rolling engine directly into the player codex drawer, supporting pool selection, target difficulty ratings, automatic 10-again re-rolls, and botch detection. Integrated Google Apps Script endpoints to ingest player downtime submissions into the Storyteller campaign tracker.
         </p>
       </div>
     </div>
@@ -97,21 +142,21 @@ const laFlowSteps = [
   <!-- RESULT -->
   <StarSection type="result" title="Outcomes & Operational Value">
     <p>
-      The custom software suite eliminated rulebook lookup delays and transformed session storytelling:
+      The two-tier system transformed campaign management into a seamless, modern experience:
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
-        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Information Retrieval</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant Knowledge Queries</div>
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Player Engagement</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Live Codex & Mobile Roller</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          Search over 800 lore entries and discipline rules in under 50 milliseconds directly mid-session.
+          Players access up-to-date recaps, lore, and in-app dice rolling on their phones with zero rulebook confusion.
         </p>
       </div>
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
-        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Content Generation</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">AI-Powered Character Concepting</div>
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Storyteller Velocity</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Instant Knowledge Retrieval</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          DeepSeek LLM prompt pipeline drafts detailed, lore-faithful NPCs and stats in under 5 seconds.
+          Search over 800 lore nodes, NPC stats, and LA map havens in under 50ms mid-session.
         </p>
       </div>
     </div>
@@ -123,7 +168,7 @@ const laFlowSteps = [
       Builder Takeaway
     </h4>
     <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-      Combining local machine learning (computer vision OCR) with lightweight APIs (FastAPI) and modern LLM reasoning creates personalized software that outperforms bulky, one-size-fits-all commercial tools.
+      A great product separates administrative control from end-user consumption. Building a private curation dashboard paired with a public, sanitized player portal delivers full data privacy without sacrificing player engagement.
     </p>
   </div>
 
