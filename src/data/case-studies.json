@@ -1,20 +1,127 @@
 [
   {
+    "slug": "karpov-design",
+    "title": "Karpov Design: Architectural Studio Web Design & Interactive Portfolio",
+    "client": "Karpov Design LLC",
+    "role": "Lead Front-End Designer & Creative Developer",
+    "timeline": "2026",
+    "tag": "Past Work",
+    "category": "Web Design & Canvas Animation",
+    "summary": "A bespoke, borderless architectural portfolio engineering an interactive 21-project archive, dynamic frame-sequence canvas logo animation, responsive plate viewers, and contact infrastructure.",
+    "kpis": [
+      {
+        "label": "Design System",
+        "value": "Borderless",
+        "sub": "#f8f9fa typographic grid"
+      },
+      {
+        "label": "Interactive Canvas",
+        "value": "30 FPS",
+        "sub": "Spritesheet frame sequencer"
+      },
+      {
+        "label": "Project Archive",
+        "value": "21 Plates",
+        "sub": "Curated architectural renders"
+      },
+      {
+        "label": "Deployment",
+        "value": "GitHub Pages",
+        "sub": "Static edge delivery"
+      }
+    ],
+    "tools": [
+      "HTML5 Canvas",
+      "JavaScript",
+      "CSS3 / Modern Typography",
+      "GitHub Pages"
+    ],
+    "featured": true,
+    "url": "/case-studies/karpov-design",
+    "outboundUrl": "https://dogandoruk.github.io/karpovdesign/",
+    "repoUrl": "https://github.com/dogandoruk/karpovdesign",
+    "image": "/dorukdogan/images/past-work/karpov-design/hero-overview.png"
+  },
+  {
+    "slug": "rdd-design",
+    "title": "RDD Design & Advisory: Commercial B2B Hospitality Consulting & Technical SEO",
+    "client": "RDD Design & Advisory",
+    "role": "Lead Web Strategist & Technical SEO",
+    "timeline": "2026",
+    "tag": "Past Work",
+    "category": "Commercial B2B & SEO",
+    "summary": "High-ticket hospitality consulting spinoff platform featuring an AutoCAD-to-reality interactive transformation engine, commercial intent search architecture, and institutional conversion funnels.",
+    "kpis": [
+      {
+        "label": "Transformation Engine",
+        "value": "Interactive",
+        "sub": "AutoCAD to Built Reality"
+      },
+      {
+        "label": "Commercial Intent",
+        "value": "100%",
+        "sub": "High-ticket enterprise keywords"
+      },
+      {
+        "label": "Target Sector",
+        "value": "Hospitality B2B",
+        "sub": "Restaurants & boutique hotels"
+      },
+      {
+        "label": "Spinoff Launch",
+        "value": "2026",
+        "sub": "Sean Reymann advisory arm"
+      }
+    ],
+    "tools": [
+      "AutoCAD Visualization",
+      "Technical SEO",
+      "Astro",
+      "Tailwind CSS",
+      "B2B Conversion Architecture"
+    ],
+    "featured": true,
+    "url": "/case-studies/rdd-design",
+    "image": "/dorukdogan/images/past-work/rdd-design/cad-gallery.png"
+  },
+  {
     "slug": "rituals-performance-marketing",
     "title": "Rituals: Multi-Market Paid Media & Creator Pipeline Automation",
     "client": "Rituals Cosmetics (via NMQ Digital)",
     "role": "Performance Marketing Specialist & Campaign Manager",
     "timeline": "2024 – 2025",
-    "tag": "Enterprise Growth",
+    "tag": "Past Work",
     "category": "Paid Media & API",
     "summary": "Managed high-budget seasonal campaigns across 16 EU countries on TikTok, Meta, and Pinterest, and built an automated API pipeline to solve creator story tracking rate limits.",
     "kpis": [
-      { "label": "EU Markets", "value": "16", "sub": "NL, DE, FR, UK, Nordics..." },
-      { "label": "Seasonal Flights", "value": "12+", "sub": "Sakura, Karma, 3 Kings..." },
-      { "label": "Feed Precision", "value": "100%", "sub": "Smartly.io catalog sync" },
-      { "label": "Pipeline Automation", "value": "0 API Errors", "sub": "Bypassed platform rate limits" }
+      {
+        "label": "EU Markets",
+        "value": "16",
+        "sub": "NL, DE, FR, UK, Nordics..."
+      },
+      {
+        "label": "Seasonal Flights",
+        "value": "12+",
+        "sub": "Sakura, Karma, 3 Kings..."
+      },
+      {
+        "label": "Feed Precision",
+        "value": "100%",
+        "sub": "Smartly.io catalog sync"
+      },
+      {
+        "label": "Pipeline Automation",
+        "value": "0 API Errors",
+        "sub": "Bypassed platform rate limits"
+      }
     ],
-    "tools": ["Smartly.io", "TikTok Ads Manager", "Meta Business Manager", "Pinterest Ads", "Custom API Pipeline"],
+    "tools": [
+      "Smartly.io",
+      "TikTok Ads Manager",
+      "Meta Business Manager",
+      "Pinterest Ads",
+      "Custom API Pipeline"
+    ],
     "featured": true,
     "url": "/case-studies/rituals-performance-marketing"
   },
@@ -24,16 +131,37 @@
     "client": "Philips (via NMQ Digital)",
     "role": "Web Services & Omnichannel Operations Specialist",
     "timeline": "2022 – 2024",
-    "tag": "Enterprise Growth",
+    "tag": "Past Work",
     "category": "A/B Testing & CMS",
     "summary": "Coordinated global page localization across international consumer markets in Adobe Experience Manager (AEM) and ran data-driven A/B experimentation via Adobe Target.",
     "kpis": [
-      { "label": "Global Markets", "value": "Multi-Region", "sub": "EMEA, Americas, APAC" },
-      { "label": "Experimentation", "value": "Adobe Target", "sub": "A/B growth validation" },
-      { "label": "Analytics Rigor", "value": "Dual Track", "sub": "Adobe Analytics & GA" },
-      { "label": "Rollout Speed", "value": "Zero Downtime", "sub": "Enterprise AEM releases" }
+      {
+        "label": "Global Markets",
+        "value": "Multi-Region",
+        "sub": "EMEA, Americas, APAC"
+      },
+      {
+        "label": "Experimentation",
+        "value": "Adobe Target",
+        "sub": "A/B growth validation"
+      },
+      {
+        "label": "Analytics Rigor",
+        "value": "Dual Track",
+        "sub": "Adobe Analytics & GA"
+      },
+      {
+        "label": "Rollout Speed",
+        "value": "Zero Downtime",
+        "sub": "Enterprise AEM releases"
+      }
     ],
-    "tools": ["Adobe Experience Manager (AEM)", "Adobe Target", "Adobe Analytics", "Google Analytics"],
+    "tools": [
+      "Adobe Experience Manager (AEM)",
+      "Adobe Target",
+      "Adobe Analytics",
+      "Google Analytics"
+    ],
     "featured": true,
     "url": "/case-studies/philips-ab-testing"
   },
@@ -43,16 +171,38 @@
     "client": "Eurowings, Lineage, C&F, Wolters Kluwer (via NMQ Digital)",
     "role": "SEO Specialist",
     "timeline": "2022 – 2025",
-    "tag": "Enterprise Growth",
+    "tag": "Past Work",
     "category": "Technical SEO",
     "summary": "Conducted deep technical health audits, fixed 4xx crawl errors and oversized asset payloads, and engineered high-intent semantic keyword clusters for Fortune 500 & European leaders.",
     "kpis": [
-      { "label": "Brands Audited", "value": "7+", "sub": "Eurowings, Lineage, C&F..." },
-      { "label": "Crawl Health", "value": "95%+", "sub": "Eliminated 4xx error chains" },
-      { "label": "Asset Optimization", "value": "-65%", "sub": "Page payload reduction" },
-      { "label": "Keyword Clusters", "value": "1000s", "sub": "Search intent mapped" }
+      {
+        "label": "Brands Audited",
+        "value": "7+",
+        "sub": "Eurowings, Lineage, C&F..."
+      },
+      {
+        "label": "Crawl Health",
+        "value": "95%+",
+        "sub": "Eliminated 4xx error chains"
+      },
+      {
+        "label": "Asset Optimization",
+        "value": "-65%",
+        "sub": "Page payload reduction"
+      },
+      {
+        "label": "Keyword Clusters",
+        "value": "1000s",
+        "sub": "Search intent mapped"
+      }
     ],
-    "tools": ["Screaming Frog", "Semrush", "Google Search Console", "Technical Auditing", "AEM"],
+    "tools": [
+      "Screaming Frog",
+      "Semrush",
+      "Google Search Console",
+      "Technical Auditing",
+      "AEM"
+    ],
     "featured": false,
     "url": "/case-studies/enterprise-seo-audits"
   }

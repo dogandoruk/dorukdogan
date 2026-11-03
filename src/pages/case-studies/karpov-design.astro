@@ -1,0 +1,148 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const kpis = [
+  { label: "Design System", value: "Borderless", sub: "#f8f9fa neutral typographic grid" },
+  { label: "Canvas Animation", value: "30 FPS", sub: "Spritesheet frame sequencer" },
+  { label: "Project Archive", value: "21 Plates", sub: "Curated architectural renders" },
+  { label: "Live Deployment", value: "GitHub Pages", sub: "Static edge delivery" }
+];
+
+const tools = [
+  "HTML5 Canvas",
+  "JavaScript (ES6+)",
+  "CSS3 / Modern Typography",
+  "Responsive Grid",
+  "GitHub Pages"
+];
+---
+
+<DetailLayout
+  title="Karpov Design: Architectural Studio Web Design & Interactive Portfolio"
+  subtitle="A bespoke, borderless digital archive designed for Karpov Design LLC featuring an HTML5 canvas spritesheet logo engine, a 21-project plate collection, and minimal typographic navigation."
+  category="Web Design & Creative Dev"
+  tag="Past Work"
+  role="Lead Front-End Designer & Creative Developer"
+  timeline="2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/#past-work"
+  backText="Back to Past work"
+>
+
+  <!-- Live Demo CTA Banner -->
+  <div class="mb-10 p-5 rounded-2xl bg-slate-900 text-white dark:bg-slate-800/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+      <div class="text-xs uppercase font-mono tracking-widest text-emerald-400 font-bold mb-1">
+        Live Demonstration
+      </div>
+      <div class="text-base font-bold">
+        Experience the live interactive studio portfolio
+      </div>
+      <p class="text-xs text-slate-300 mt-0.5">
+        Explore the frame-sequence canvas logo and the 21 architectural project plates.
+      </p>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <a
+        href="https://dogandoruk.github.io/karpovdesign/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-md flex items-center gap-1.5"
+      >
+        <span>Open Live Site</span>
+        <span>↗</span>
+      </a>
+      <a
+        href="https://github.com/dogandoruk/karpovdesign"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs border border-slate-700 transition-all flex items-center gap-1.5"
+      >
+        <span>GitHub</span>
+        <span>↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Overview Image -->
+  <div class="mb-12 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/60 shadow-sm">
+    <img
+      src={`${base}/images/past-work/karpov-design/hero-overview.png`}
+      alt="Karpov Design LLC studio portfolio overview"
+      class="w-full h-auto object-cover"
+    />
+  </div>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Architectural Design Mandate">
+    <p>
+      Karpov Design LLC required a portfolio platform that rejected the cluttered, card-heavy layouts typical of generic agency templates. As an architectural and spatial design studio, their digital presence demanded strict typographic discipline, high-density plate curation, and subtle interactive craftsmanship that let their rendering and structural work take center stage.
+    </p>
+    <p>
+      The objective was to create a frictionless web experience with a minimalist palette, ultra-fast static loading speeds, and an engaging visual identity element that communicates precision engineering.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Key Objectives & Architectural Requirements">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      The design and engineering scope covered three core areas:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>Borderless Typographic Architecture:</strong> Implement an open, borderless editorial grid utilizing high-contrast monospace metadata paired with clean serif and sans-serif titles, avoiding arbitrary cards and drop shadows.</li>
+      <li><strong>Interactive HTML5 Canvas Animation:</strong> Build a custom frame-sequenced logo player that dynamically loops through architectural geometry without heavy third-party 3D engine overhead.</li>
+      <li><strong>21-Project High-Resolution Archive:</strong> Curate and structure 21 distinct architectural render plates with fluid modal views and responsive metadata.</li>
+      <li><strong>Zero-Dependency Static Performance:</strong> Ensure the site compiles and runs with instantaneous paint speeds directly on GitHub Pages with zero client-side framework bloat.</li>
+    </ul>
+  </StarSection>
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Design Strategy & Technical Implementation">
+    <p>
+      To achieve the desired aesthetic and performance, the interface was designed from the ground up around four technical pillars:
+    </p>
+    <div class="space-y-4 mt-4">
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">1. Custom Canvas Frame Sequencer</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Engineered an HTML5 <code>&lt;canvas&gt;</code> loop that plays an animated wireframe sequence at 30 frames per second. By utilizing an optimized spritesheet and requestAnimationFrame, the animation achieves butter-smooth rendering with zero CPU spikes and minimal memory footprints.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">2. Plate Archive & Dynamic Lightbox</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Structured 21 individual project plates across commercial, residential, and conceptual installations. Each entry features full-resolution render viewports, design intent briefs, and material specifications accessible through keyboard-navigable overlays.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">3. Borderless Minimalist Typography</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Replaced all traditional card containers with disciplined 1px hairline rules, generous whitespace, and asymmetric text alignments. The subtle contrast between off-black text and warm paper-white backdrops produces an editorial print magazine aesthetic.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Outcomes & Creative Impact">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-emerald-50/50 dark:bg-emerald-950/20">
+        <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide mb-1">Instantaneous Edge Delivery</div>
+        <div class="text-2xl font-bold text-slate-900 dark:text-white font-mono">100 / 100</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Perfect performance rating on Lighthouse with sub-0.5s Largest Contentful Paint (LCP).</p>
+      </div>
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-emerald-50/50 dark:bg-emerald-950/20">
+        <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide mb-1">High-Precision Visuals</div>
+        <div class="text-2xl font-bold text-slate-900 dark:text-white font-mono">21 Plates</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Archived and curated architectural renders presented in pristine, responsive high-DPI quality.</p>
+      </div>
+    </div>
+  </StarSection>
+
+</DetailLayout>

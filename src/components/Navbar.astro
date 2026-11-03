@@ -5,10 +5,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const navLinks = [
   { name: 'Overview', href: `${base}/` },
-  { name: 'Case Studies', href: `${base}/case-studies` },
-  { name: 'AI & Tools', href: `${base}/projects` },
+  { name: 'Past work', href: `${base}/#past-work` },
+  { name: 'Custom tools', href: `${base}/#custom-tools` },
+  { name: 'Career', href: `${base}/#career-timeline` },
+  { name: 'Accreditations', href: `${base}/certifications` },
   { name: 'Education', href: `${base}/education` },
-  { name: 'Certifications', href: `${base}/certifications` },
 ];
 
 const currentPath = Astro.url.pathname;

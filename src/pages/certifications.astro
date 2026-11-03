@@ -5,14 +5,8 @@ import certData from '../data/certifications.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const categories = [
-  "All",
-  "Performance Marketing & Paid Ads",
-  "SEO & Content",
-  "AI & Search",
-  "UX & Automation",
-  "Social & Media"
-];
+const uniqueCategories = Array.from(new Set(certData.map(c => c.category).filter(Boolean)));
+const categories = ["All", ...uniqueCategories];
 
 function formatDate(dateStr?: string | null) {
   if (!dateStr) return '';
@@ -77,10 +71,11 @@ const categoryCounts = categories.reduce((acc, cat) => {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cert-grid">
       {certData.map((cert) => {
         const badgeVariant =
-          cert.category === 'Performance Marketing & Paid Ads' ? 'primary' :
-          cert.category === 'SEO & Content' ? 'amber' :
-          cert.category === 'AI & Search' ? 'purple' :
-          cert.category === 'UX & Automation' ? 'cyan' : 'default';
+          cert.category.includes('Performance') ? 'primary' :
+          cert.category.includes('SEO') ? 'amber' :
+          cert.category.includes('AI') ? 'purple' :
+          cert.category.includes('UX') ? 'cyan' :
+          cert.category.includes('Maritime') ? 'primary' : 'default';
 
         return (
           <div

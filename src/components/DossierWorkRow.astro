@@ -1,0 +1,141 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  category: string;
+  timeline: string;
+  summary: string;
+  kpis?: Array<{ label: string; value: string; sub?: string }>;
+  tools?: string[];
+  url: string;
+  outboundUrl?: string;
+  repoUrl?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  index,
+  title,
+  category,
+  timeline,
+  summary,
+  kpis = [],
+  tools = [],
+  url,
+  outboundUrl,
+  repoUrl,
+  image,
+  imageAlt = title,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const fullUrl = url.startsWith('http') ? url : `${base}${url}`;
+---
+
+<article class="group border-b border-slate-200/80 dark:border-slate-800/80 py-10 first:pt-4 transition-colors">
+  <div class="flex flex-col space-y-4">
+    <!-- Meta Header: Eyebrow + Timeline -->
+    <div class="flex items-center justify-between text-xs font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">{index}</span>
+        <span>/</span>
+        <span>{category}</span>
+      </div>
+      <span class="font-mono text-slate-400 dark:text-slate-500">{timeline}</span>
+    </div>
+
+    <!-- Title & Links -->
+    <div class="space-y-2">
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug">
+        <a href={fullUrl} class="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+          {title}
+        </a>
+      </h3>
+
+      <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+        {summary}
+      </p>
+    </div>
+
+    <!-- Key Metrics / Ground Truth Highlights (Hairline layout, zero bulky cards) -->
+    {kpis && kpis.length > 0 && (
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 pb-2 border-y border-slate-100 dark:border-slate-800/50">
+        {kpis.map((kpi) => (
+          <div>
+            <div class="text-xs uppercase font-medium tracking-wide text-slate-400 dark:text-slate-500">
+              {kpi.label}
+            </div>
+            <div class="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-mono">
+              {kpi.value}
+            </div>
+            {kpi.sub && (
+              <div class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
+                {kpi.sub}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Unboxed Visual Preview (if image exists) -->
+    {image && (
+      <div class="pt-2">
+        <a href={outboundUrl || fullUrl} class="block overflow-hidden rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/60 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700">
+          <img
+            src={image.startsWith('http') || image.startsWith(base) ? image : `${base}${image}`}
+            alt={imageAlt}
+            loading="lazy"
+            class="w-full h-auto object-cover max-h-96 transform group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </a>
+      </div>
+    )}
+
+    <!-- Tools & Direct Action Links -->
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+      <!-- Minimalist tool tags -->
+      <div class="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
+        {tools.map((t, idx) => (
+          <span>
+            {t}{idx < tools.length - 1 ? ' ·' : ''}
+          </span>
+        ))}
+      </div>
+
+      <!-- Action Anchors -->
+      <div class="flex items-center gap-4 text-xs font-bold">
+        {outboundUrl && (
+          <a
+            href={outboundUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline"
+          >
+            <span>Live Site</span>
+            <span>↗</span>
+          </a>
+        )}
+        {repoUrl && (
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:underline"
+          >
+            <span>GitHub</span>
+            <span>↗</span>
+          </a>
+        )}
+        <a
+          href={fullUrl}
+          class="inline-flex items-center gap-1 text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 hover:underline"
+        >
+          <span>Read Narrative</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

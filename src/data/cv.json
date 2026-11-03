@@ -9,10 +9,26 @@
     "summary": "Versatile Digital Marketing Professional with 3+ years of enterprise experience driving commercial growth across international markets. Expert in Performance Media campaign management, Technical SEO site health optimizations, and Omnichannel web operations for global brands including Rituals, Philips, and Haleon. A high-agency problem solver who builds custom AI tools and automation pipelines to streamline complex workflows."
   },
   "metrics": [
-    { "label": "EU Markets Managed", "value": "16+", "subtext": "Rituals Paid Media campaigns" },
-    { "label": "Enterprise SEO Audits", "value": "100+", "subtext": "Technical health & crawl optimizations" },
-    { "label": "Custom AI Tools Built", "value": "5", "subtext": "Full-stack apps & AI systems" },
-    { "label": "Academic Publication", "value": "ICA '22", "subtext": "Presented research in Paris, France" }
+    {
+      "label": "EU Markets Managed",
+      "value": "16+",
+      "subtext": "Rituals Paid Media campaigns"
+    },
+    {
+      "label": "Enterprise SEO Audits",
+      "value": "100+",
+      "subtext": "Technical health & crawl optimizations"
+    },
+    {
+      "label": "Custom AI Tools Built",
+      "value": "5",
+      "subtext": "Full-stack apps & AI systems"
+    },
+    {
+      "label": "Academic Publication",
+      "value": "ICA '22",
+      "subtext": "Presented research in Paris, France"
+    }
   ],
   "pillars": [
     {
@@ -20,7 +36,13 @@
       "title": "Performance Marketing & Paid Social",
       "subtitle": "ROAS-driven ad operations across EU markets",
       "description": "Designed and executed high-impact performance media plans on TikTok, Meta, Pinterest, and Snapchat. Managed complex product catalogs and dynamic ad feeds via Smartly.io.",
-      "tools": ["Smartly.io", "Meta Business Manager", "TikTok Ads Manager", "Pinterest Ads", "Snapchat Ads"],
+      "tools": [
+        "Smartly.io",
+        "Meta Business Manager",
+        "TikTok Ads Manager",
+        "Pinterest Ads",
+        "Snapchat Ads"
+      ],
       "caseStudyUrl": "/case-studies/rituals-performance-marketing"
     },
     {
@@ -28,7 +50,13 @@
       "title": "Technical SEO & Search Strategy",
       "subtitle": "Data-led site health, architecture & keyword clusters",
       "description": "Led in-depth technical SEO audits, crawl budget optimizations, and semantic keyword cluster analyses for major enterprise brands including Eurowings, Lineage Logistics, and Wolters Kluwer.",
-      "tools": ["Screaming Frog", "Semrush", "Google Search Console", "Google Analytics", "Technical Audits"],
+      "tools": [
+        "Screaming Frog",
+        "Semrush",
+        "Google Search Console",
+        "Google Analytics",
+        "Technical Audits"
+      ],
       "caseStudyUrl": "/case-studies/enterprise-seo-audits"
     },
     {
@@ -36,7 +64,13 @@
       "title": "Omnichannel Web Operations & A/B Testing",
       "subtitle": "Enterprise CMS localization & experimentation",
       "description": "Managed multi-market page rollouts in Adobe Experience Manager (AEM), executed A/B experimentation programs via Adobe Target, and handled Amazon digital shelf operations.",
-      "tools": ["Adobe Experience Manager (AEM)", "Adobe Target", "Adobe Analytics", "Amazon Vendor Central", "ProductsUp"],
+      "tools": [
+        "Adobe Experience Manager (AEM)",
+        "Adobe Target",
+        "Adobe Analytics",
+        "Amazon Vendor Central",
+        "ProductsUp"
+      ],
       "caseStudyUrl": "/case-studies/philips-ab-testing"
     }
   ],
@@ -44,7 +78,7 @@
     {
       "company": "NMQ Digital",
       "role": "Digital Specialist",
-      "period": "2022-10 – 2025-12",
+      "period": "2022-10 – 2026-04",
       "location": "Istanbul",
       "summary": "Embedded within world-class brand teams to lead performance media operations, SEO technical health, and omnichannel web localization.",
       "highlights": [
@@ -59,6 +93,7 @@
       "location": "Global / Remote",
       "summary": "Executed high-impact performance media campaigns across 16+ European markets.",
       "highlights": [
+        "Managed up to €75,000/month in performance media ad spend across Meta, TikTok, Pinterest, and Snapchat for seasonal flights spanning 16 European markets.",
         "Managed performance campaigns on TikTok, Meta, and Pinterest driving commercial conversion and measurable ROAS.",
         "Operated complex product catalogs and feeds via Smartly.io and Meta Business Manager.",
         "Managed major retail campaigns including Dream, Sakura, Karma, Advent, Christmas, Easter, Mother's Day, and Summer Gifting across NL, BE, DE, FR, UK, IE, DK, NO, SE, FI, ES, PT, IT, PL, RO, AT, CH."
@@ -89,7 +124,7 @@
     {
       "company": "Haleon (at NMQ Digital)",
       "role": "Amazon Digital Shelf Liaison",
-      "period": "2025-11 – 2025-12",
+      "period": "2025-11 – 2026-04",
       "location": "Global / Remote",
       "summary": "Managed and optimized digital retail content on Amazon Vendor Central.",
       "highlights": [

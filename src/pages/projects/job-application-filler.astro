@@ -6,159 +6,131 @@ import FlowDiagram from '../../components/FlowDiagram.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const kpis = [
-  { label: "Application Time Saved", value: "85%", sub: "Per application cycle" },
-  { label: "AI Match Scoring", value: "Groq LLM", sub: "Real-time JD vs CV evaluation" },
-  { label: "Browser Integration", value: "Chrome Ext", "sub": "1-click ATS form auto-fill" },
-  { label: "Crawler Pacing", value: "Anti-Ban", sub: "Vivaldi profile + 2s-8s jitter" }
+  { label: "Board Consolidation", value: "Unified", sub: "Single-pane opportunity intake" },
+  { label: "Fit Evaluation", value: "Real-Time", sub: "Role vs profile match analysis" },
+  { label: "Pipeline Tracking", value: "Centralized", sub: "Status & stage management" },
+  { label: "Efficiency Gain", value: "High", sub: "Streamlined search workflow" }
 ];
 
 const tools = [
   "JavaScript",
   "Node.js",
   "Express",
-  "Puppeteer",
-  "Groq LLM API",
-  "Chrome Extension API",
-  "Puppeteer / PDF Engine",
+  "Data Aggregation",
+  "PDF Engine",
   "HTML5 & CSS3"
 ];
 
-const jobFlowSteps = [
-  { step: "01", title: "Job Board Crawling", desc: "Puppeteer launches Vivaldi profile, crawling target job boards with human-like jitter delays." },
-  { step: "02", title: "Groq LLM Match Scoring", desc: "Evaluates raw job descriptions against master CV via /api/ai/matchscore, filtering >=40% matches." },
-  { step: "03", title: "PDF CV Compilation", desc: "Express backend compiles ATS-compliant, role-tailored PDF resumes in real-time." },
-  { step: "04", title: "1-Click ATS Auto-Fill", desc: "Manifest V3 Chrome extension auto-populates complex application fields directly in the browser." }
+const aggregatorSteps = [
+  { step: "01", title: "Opportunity Aggregation", desc: "Consolidates listings from diverse career platforms into a structured, single-pane intake queue." },
+  { step: "02", title: "Role-Profile Fit Evaluation", desc: "Analyzes job posting requirements against master qualifications to highlight strong alignment." },
+  { step: "03", title: "Tailored Profile Export", desc: "Generates clean, focused CV exports dynamically aligned with the role's primary focus." },
+  { step: "04", title: "Pipeline Management", desc: "Tracks application stages, interview progress, and communication checkpoints in one central CRM." }
 ];
 ---
 
 <DetailLayout
-  title="Job Application Suite: Automated Form Filler & Tailored CV Engine"
-  subtitle="An end-to-end career automation system featuring a 530KB interactive dashboard, Puppeteer job crawler, Groq LLM match scorer, and Chrome extension to eliminate job application friction."
-  category="Full-Stack & Browser Automation"
-  tag="AI & Builder Tool"
+  title="Job Search Platform Aggregator & Opportunity Hub"
+  subtitle="A centralized career management platform designed to aggregate multi-source job postings, evaluate role-to-profile alignment, and streamline opportunity tracking into a unified dashboard."
+  category="Data Consolidation & Opportunity Intelligence"
+  tag="Custom Tool"
   role="Full-Stack Developer & Product Owner"
   timeline="2025 – 2026"
   tools={tools}
   kpis={kpis}
-  backLink="/projects"
-  backText="Back to AI & Builder Tools"
+  backLink="/#custom-tools"
+  backText="Back to Custom tools"
 >
 
   <!-- SITUATION -->
-  <StarSection type="situation" title="The High-Friction Job Application Process">
+  <StarSection type="situation" title="The Fragmented Job Search Landscape">
     <p>
-      Modern job applications are notoriously repetitive. Candidates applying across multiple specialized disciplines (such as Performance Marketing, Technical SEO, and Digital Operations) are forced to manually copy-paste identical personal details, work histories, and portfolio links into hundreds of distinct Applicant Tracking System (ATS) portals (Greenhouse, Lever, Workday, LinkedIn, SEEK).
+      Searching for specialized marketing and technical leadership roles across international markets is traditionally fragmented across dozens of disconnected platforms—including LinkedIn, regional European job portals, and specialized ATS boards. Reviewing roles across multiple browser tabs makes it difficult to maintain a coherent search strategy, leads to duplicate reviews, and obscures application history.
     </p>
     <p>
-      Furthermore, submitting a generic CV significantly lowers interview callback rates, while manually editing bespoke PDFs for every single position introduces human fatigue and formatting errors.
+      Additionally, evaluating whether a given opportunity genuinely matches core skills (Performance Marketing vs. Technical SEO vs. Omnichannel Operations) requires rapid, objective comparison against candidate qualifications.
     </p>
   </StarSection>
 
   <!-- TASK -->
-  <StarSection type="task" title="Project Goals & Technical Requirements">
+  <StarSection type="task" title="Project Objectives & Platform Scope">
     <p class="font-medium text-slate-900 dark:text-slate-100">
-      Design and build an integrated productivity suite with four core capabilities:
+      Build an integrated career opportunity dashboard with four central features:
     </p>
     <ul class="list-disc pl-5 space-y-2 mt-2">
-      <li><strong>Automated Job Hunting & Scoring:</strong> Crawl configured job boards overnight, extract raw job descriptions, and evaluate them against my CV using Groq LLM scoring.</li>
-      <li><strong>1-Click Browser Auto-Fill:</strong> A lightweight Manifest V3 Chrome extension that detects ATS form inputs and populates verified career history instantly.</li>
-      <li><strong>On-Demand PDF CV Engine:</strong> A backend service that dynamically generates role-tailored PDF CVs matching the exact focus of the job posting.</li>
-      <li><strong>Centralized Application CRM:</strong> A rich dashboard to manage job statuses, email templates, companies, and interview notes in one place.</li>
+      <li><strong>Unified Opportunity Queue:</strong> Aggregate and organize target job listings from disparate sources into a clean, searchable internal feed.</li>
+      <li><strong>Role Fit Evaluation:</strong> Provide instant comparison between posted job requirements and candidate expertise to prioritize top opportunities.</li>
+      <li><strong>Dynamic Profile Customization:</strong> Maintain a master modular CV dataset with real-time section toggles to compile clean, role-tailored PDF summaries.</li>
+      <li><strong>Structured Application CRM:</strong> Provide full lifecycle tracking for applications, interviews, contacts, and follow-up milestones.</li>
     </ul>
   </StarSection>
 
   <!-- SYSTEM FLOW DIAGRAM -->
-  <FlowDiagram title="End-to-End Application Automation Pipeline" steps={jobFlowSteps} />
+  <FlowDiagram title="Consolidated Career Opportunity Workflow" steps={aggregatorSteps} />
 
   <!-- SCREENSHOT SHOWCASE -->
   <div class="my-10 space-y-8 not-prose">
     <div class="space-y-3">
       <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-        Live Interface Showcase
+        Platform Dashboard Interface
       </h3>
       <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
         <img
           src={`${base}/images/projects/job-filler/dashboard-overview.png`}
-          alt="Job Application Filler Dashboard"
+          alt="Job Search Platform Aggregator Dashboard"
           class="w-full h-auto object-cover"
         />
         <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
-          <strong>Interactive CV Dashboard:</strong> Section-based resume editor with real-time field toggles, job tracking CRM, and dynamic PDF export controls.
-        </div>
-      </div>
-    </div>
-
-    <div class="space-y-3">
-      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
-        <img
-          src={`${base}/images/projects/job-filler/autoapply-hunt.png`}
-          alt="Auto-Apply Hunt Tab"
-          class="w-full h-auto object-cover"
-        />
-        <div class="p-4 bg-white dark:bg-[#0f172a] border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
-          <strong>Auto-Apply Bot (Hunt & Queue):</strong> Puppeteer job hunter interface with Groq match score thresholds, crawl pacing rules, and application status queues.
+          <strong>Centralized Opportunity Hub:</strong> Master profile manager with modular section toggles, application pipeline status tracking, and dynamic PDF export controls.
         </div>
       </div>
     </div>
   </div>
 
   <!-- ACTION -->
-  <StarSection type="action" title="System Architecture & Implementation">
+  <StarSection type="action" title="Architecture & Functional Implementation">
     <div class="space-y-5">
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Puppeteer Crawler with Human-Like Anti-Ban Pacing</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">1. Multi-Source Opportunity Aggregation Engine</h4>
         <p>
-          Constructed a standalone crawler (<code>autoapply/hunt.js</code>) that clones the user's active browser profile (preserving logins). It crawls configured job boards with randomized human-like jitter delays (2s to 8s) and anti-ban velocity limits (capped at 20 applications/hour).
+          Constructed a lightweight backend service that ingests and standardizes postings across target markets. Each posting is normalized with standardized fields: company tier, seniority, key required competencies, location, and salary benchmarks.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Groq LLM Match Scoring & Queue Engine</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">2. Requirement-to-Profile Match Scoring</h4>
         <p>
-          Each extracted job description is evaluated via <code>/api/ai/matchscore</code> powered by Groq. The engine compares role requirements against the master CV, generating a match percentage score and categorizing high-confidence postings into <code>applyqueue.json</code> for 1-click review.
+          Integrated a semantic evaluation engine that analyzes job specifications against the user's verified track record. Postings are scored and categorized into priority tiers, allowing instant identification of the highest-relevance positions.
         </p>
       </div>
 
       <div>
-        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Manifest V3 Chrome Extension & Dynamic PDF Compiler</h4>
+        <h4 class="text-base font-bold text-slate-900 dark:text-white mb-1">3. Modular CV Customization & Export</h4>
         <p>
-          Engineered a browser extension that maps DOM fields across Workday, Greenhouse, and Lever portals to verified profile data. Simultaneously, a Puppeteer-based PDF compiler (<code>pdf-service.js</code>) renders role-tailored resumes on demand.
+          Built a section-based resume editor driven by structured JSON. The platform allows instant toggling of role-specific highlights (e.g. emphasizing performance marketing ad spend vs technical SEO audits) before compiling an export-ready PDF.
         </p>
       </div>
     </div>
   </StarSection>
 
   <!-- RESULT -->
-  <StarSection type="result" title="Results & Productivity Gains">
-    <p>
-      The automation suite transformed an otherwise exhausting multi-hour daily process into a fast, automated workflow:
-    </p>
+  <StarSection type="result" title="Operational Impact & Search Discipline">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 not-prose">
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
-        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Application Velocity</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">85% Faster Form Submission</div>
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Search Efficiency</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Unified Single-Pane Workflow</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          Complex multi-page ATS application forms that previously took 15 minutes are now completed in under 2 minutes.
+          Eliminated tab clutter and disjointed notes by centralizing listings, notes, and deadlines into a single dashboard.
         </p>
       </div>
       <div class="p-4 rounded-xl bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800">
-        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Targeted Quality</div>
-        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Zero-Manual Tailored CVs</div>
+        <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400">Targeted Accuracy</div>
+        <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Objective Role Prioritization</div>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
-          Generates role-specific PDF resumes on demand with perfect formatting and zero copy-paste typos.
+          Focuses attention on positions with the strongest qualification overlap, ensuring tailored applications with zero fatigue.
         </p>
       </div>
     </div>
   </StarSection>
-
-  <!-- Key Takeaway -->
-  <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mt-8">
-    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2">
-      Builder Takeaway
-    </h4>
-    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-      Repetitive problems are software opportunities. Building a custom browser extension, crawler, and document compiler demonstrated how a small full-stack system can unlock massive compounding time savings.
-    </p>
-  </div>
 
 </DetailLayout>

@@ -1,5 +1,17 @@
 [
   {
+    "name": "Ship Broker's License (Gemi Kiralama ve Brokerlik Sertifikası)",
+    "issuer": "Yıldız Teknik Üniversitesi",
+    "date": "2026-10",
+    "expiryDate": null,
+    "credentialId": "verified",
+    "credentialUrl": "https://sem.yildiz.edu.tr/",
+    "category": "Maritime and Commercial Licensing",
+    "badge": "Yıldız Teknik Üniv.",
+    "description": "Comprehensive certification in dry cargo and tanker chartering contracts (BIMCO Gencon, NYPE, Baltime), laytime and demurrage (TCE) calculations, and Turkish Commercial Code (TTK Book 5) maritime law provisions.",
+    "pdf": null
+  },
+  {
     "name": "Amazon Ads Foundations Certification",
     "issuer": "Amazon Ads Academy",
     "date": "2026-09",

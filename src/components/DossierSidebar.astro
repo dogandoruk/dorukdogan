@@ -1,0 +1,153 @@
+---
+import cvData from '../data/cv.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<aside class="space-y-10 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-slate-200/80 dark:border-slate-800/80 pb-10 lg:pb-0 scrollbar-thin">
+  
+  <!-- Identity & Role -->
+  <div class="space-y-4">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>Available for Growth & Lead Roles</span>
+    </div>
+
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+        {cvData.basics.name}
+      </h1>
+      <p class="text-sm sm:text-base font-semibold text-emerald-600 dark:text-emerald-400 mt-2">
+        {cvData.basics.title}
+      </p>
+    </div>
+
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+      Combining 3+ years of enterprise growth execution (<span class="font-semibold text-slate-900 dark:text-white">Rituals, Philips, Haleon</span>) across 16+ European markets with full-stack engineering—building custom software, data pipelines, and high-efficiency operational tools.
+    </p>
+
+    <!-- Location & Mobility -->
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+      <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+      <span>Kadıköy, Istanbul · Open to EU Relocation</span>
+    </div>
+  </div>
+
+  <!-- In-Page Jump Index -->
+  <nav class="space-y-1">
+    <div class="text-[11px] font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-3">
+      Index
+    </div>
+    <ul class="space-y-2 text-sm">
+      <li>
+        <a href="#past-work" class="group flex items-center justify-between py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+          <span class="font-medium group-hover:translate-x-1 transition-transform">01. Past work</span>
+          <span class="text-xs text-slate-400 group-hover:text-emerald-500">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="#custom-tools" class="group flex items-center justify-between py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+          <span class="font-medium group-hover:translate-x-1 transition-transform">02. Custom tools</span>
+          <span class="text-xs text-slate-400 group-hover:text-emerald-500">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="#career-timeline" class="group flex items-center justify-between py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+          <span class="font-medium group-hover:translate-x-1 transition-transform">03. Career timeline</span>
+          <span class="text-xs text-slate-400 group-hover:text-emerald-500">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="#accreditations" class="group flex items-center justify-between py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+          <span class="font-medium group-hover:translate-x-1 transition-transform">04. Accreditations</span>
+          <span class="text-xs text-slate-400 group-hover:text-emerald-500">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="#education" class="group flex items-center justify-between py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+          <span class="font-medium group-hover:translate-x-1 transition-transform">05. Education & Research</span>
+          <span class="text-xs text-slate-400 group-hover:text-emerald-500">↗</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Coordinates & Contact -->
+  <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800/80 text-xs">
+    <div class="text-[11px] font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-1">
+      Coordinates
+    </div>
+
+    <div class="space-y-2.5">
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 dark:text-slate-400">Email</span>
+        <div class="flex items-center gap-2">
+          <a href={`mailto:${cvData.basics.email}`} class="font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400">
+            {cvData.basics.email}
+          </a>
+          <button
+            id="sidebar-copy-email-btn"
+            type="button"
+            title="Copy email address"
+            class="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 dark:text-slate-400">Phone</span>
+        <a href={`tel:${cvData.basics.phone}`} class="font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400">
+          {cvData.basics.phone}
+        </a>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 dark:text-slate-400">LinkedIn</span>
+        <a href={cvData.basics.linkedin} target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-1">
+          <span>linkedin.com/in/dorukdogan</span>
+          <span>↗</span>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 dark:text-slate-400">GitHub</span>
+        <a href="https://github.com/dogandoruk" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-1">
+          <span>github.com/dogandoruk</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Direct CTA -->
+    <div class="pt-4">
+      <a
+        href={`mailto:${cvData.basics.email}?subject=Collaboration%20Inquiry`}
+        class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 font-semibold text-xs shadow-sm transition-all hover:scale-[1.01]"
+      >
+        <span>Initiate Discussion</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<script is:inline>
+  const copySidebarBtn = document.getElementById('sidebar-copy-email-btn');
+  if (copySidebarBtn) {
+    copySidebarBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('dorukdogan95@gmail.com').then(() => {
+        copySidebarBtn.classList.add('text-emerald-500');
+        setTimeout(() => {
+          copySidebarBtn.classList.remove('text-emerald-500');
+        }, 1500);
+      });
+    });
+  }
+</script>

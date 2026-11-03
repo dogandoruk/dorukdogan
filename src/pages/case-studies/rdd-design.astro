@@ -1,0 +1,135 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import StarSection from '../../components/StarSection.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const kpis = [
+  { label: "Transformation Engine", value: "Interactive", sub: "AutoCAD to Built Reality" },
+  { label: "Commercial Intent", value: "100%", sub: "High-ticket enterprise keywords" },
+  { label: "Target Sector", value: "Hospitality B2B", sub: "Restaurants & boutique hotels" },
+  { label: "Spinoff Launch", value: "2026", sub: "Sean Reymann advisory arm" }
+];
+
+const tools = [
+  "AutoCAD Visualization",
+  "Technical SEO",
+  "Astro",
+  "Tailwind CSS",
+  "B2B Conversion Architecture",
+  "Semrush Search Analysis"
+];
+---
+
+<DetailLayout
+  title="RDD Design & Advisory: Commercial B2B Hospitality Consulting & Technical SEO"
+  subtitle="Architecting the digital presence, commercial search strategy, and interactive AutoCAD-to-reality engine for Sean Reymann's high-ticket hospitality advisory spinoff."
+  category="Commercial B2B & SEO"
+  tag="Past Work"
+  role="Lead Web Strategist & Technical SEO"
+  timeline="2026"
+  tools={tools}
+  kpis={kpis}
+  backLink="/#past-work"
+  backText="Back to Past work"
+>
+
+  <!-- Hero Overview Image -->
+  <div class="mb-12 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/60 shadow-sm">
+    <img
+      src={`${base}/images/past-work/rdd-design/cad-gallery.png`}
+      alt="RDD Design and Advisory CAD to reality gallery"
+      class="w-full h-auto object-cover"
+    />
+  </div>
+
+  <!-- SITUATION -->
+  <StarSection type="situation" title="The Commercial Spinoff Mandate">
+    <p>
+      Sean Reymann, a recognized culinary entrepreneur and restaurant concept builder, was expanding operations with a dedicated B2B advisory firm: <strong>RDD Design & Advisory</strong>. While his flagship ventures had strong consumer brand awareness, the new enterprise advisory firm needed to target an entirely different institutional audience: hospitality real estate investors, boutique hotel operators, and restaurant groups looking for end-to-end concept engineering, spatial planning, and kitchen ergonomics.
+    </p>
+    <p>
+      The challenge was twofold: articulate high-ticket advisory value with proof of execution (bridging technical AutoCAD architectural blueprints with operating venues) while capturing high-value organic search demand from commercial operators.
+    </p>
+  </StarSection>
+
+  <!-- TASK -->
+  <StarSection type="task" title="Strategic Scope & Core Deliverables">
+    <p class="font-medium text-slate-900 dark:text-slate-100">
+      The project required end-to-end digital positioning, UX architecture, and commercial SEO:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mt-2">
+      <li><strong>AutoCAD-to-Reality Interactive Engine:</strong> Create an intuitive visual showcase demonstrating the progression from technical architectural schematics and kitchen layouts to fully built, operational venues.</li>
+      <li><strong>Commercial Intent SEO Architecture:</strong> Design topic clusters, page hierarchies, and technical site health optimized around high-ticket queries such as commercial kitchen planning, restaurant ergonomics, and hospitality concept consulting.</li>
+      <li><strong>High-Trust B2B Conversion Funnel:</strong> Replace transactional consumer inquiry forms with an institutional consultation intake process tailored to investors and hospitality directors.</li>
+      <li><strong>Brand Credibility Framework:</strong> Structure partner logos, venue photographs, and executive project profiles to immediately validate institutional pedigree.</li>
+    </ul>
+  </StarSection>
+
+  <!-- Visual Asset Breakout -->
+  <div class="my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
+      <img
+        src={`${base}/images/past-work/rdd-design/built-reality-pano.jpg`}
+        alt="Built hospitality interior reality panorama"
+        class="w-full h-48 object-cover"
+      />
+      <div class="p-3 bg-slate-50 dark:bg-slate-900/60 text-xs text-slate-500 font-mono">
+        Fig 1. Built Reality Venue Panorama
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
+      <img
+        src={`${base}/images/past-work/rdd-design/client-logos.png`}
+        alt="Client and partner verification logos"
+        class="w-full h-48 object-cover"
+      />
+      <div class="p-3 bg-slate-50 dark:bg-slate-900/60 text-xs text-slate-500 font-mono">
+        Fig 2. Institutional Client & Partner Roster
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <StarSection type="action" title="Execution & Technical Architecture">
+    <div class="space-y-4">
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">1. AutoCAD Blueprint to Venue Reality Showcase</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Engineered an interactive case visualizer that pairs exact CAD floorplans, mechanical plumbing layouts, and kitchen heat-flow diagrams directly with high-resolution photography of the finished venue. This immediately demonstrates technical rigour to institutional clients.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">2. High-Intent Technical SEO & Topic Clusters</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Mapped intent-driven keyword taxonomies focusing on high-ticket commercial queries. Engineered semantic Schema.org structured data (Organization, Service, CaseStudy) and zero-render-blocking assets to ensure rapid search engine indexing and prime crawl efficiency.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">3. Institutional Advisory Positioning</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          Crafted concise, executive-focused narrative copy highlighting cost control, equipment ROI, compliance certifications, and turn-key operational handovers, establishing RDD as a premier consulting partner in the hospitality sector.
+        </p>
+      </div>
+    </div>
+  </StarSection>
+
+  <!-- RESULT -->
+  <StarSection type="result" title="Outcomes & Commercial Traction">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-emerald-50/50 dark:bg-emerald-950/20">
+        <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide mb-1">Target Audience Alignment</div>
+        <div class="text-2xl font-bold text-slate-900 dark:text-white font-mono">100% B2B</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Successfully separated consumer restaurant visitors from institutional commercial consulting prospects.</p>
+      </div>
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-emerald-50/50 dark:bg-emerald-950/20">
+        <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide mb-1">Visual Proof Engine</div>
+        <div class="text-2xl font-bold text-slate-900 dark:text-white font-mono">CAD → Reality</div>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Interactive side-by-side verification proving execution competence from blueprint to launch.</p>
+      </div>
+    </div>
+  </StarSection>
+
+</DetailLayout>

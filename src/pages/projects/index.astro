@@ -1,40 +1,44 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import DossierWorkRow from '../../components/DossierWorkRow.astro';
 import projects from '../../data/projects.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pad = (n: number) => n.toString().padStart(2, '0');
 ---
 
 <Layout
-  title="AI & Builder Tools | Doruk Doğan"
-  description="Custom-built software tools, local GPU OCR pipelines, full-stack dashboards, and Android apps created by Doruk Doğan."
+  title="Custom tools | Doruk Doğan"
+  description="Custom-built software tools, full-stack dashboards, opportunity aggregators, and Android apps created by Doruk Doğan."
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
     
     <!-- Header -->
-    <div class="max-w-2xl space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300 text-xs font-semibold">
-        <span>Software & Automation Lab</span>
+    <div class="space-y-4 border-b border-slate-900 dark:border-white pb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
+        <span>Software & Systems Lab</span>
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-        AI & Builder Projects
+        Custom tools
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        When existing SaaS tools fall short, I build custom solutions. A showcase of full-stack web applications, local GPU OCR pipelines, LLM-powered knowledge bases, and native mobile apps.
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+        When existing SaaS tools fall short, I build custom solutions. A showcase of full-stack web applications, opportunity aggregators, computer vision OCR pipelines, and native mobile apps.
       </p>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {projects.map((proj) => (
-        <ProjectCard
+    <!-- Editorial Rows (Card-free hairline stream) -->
+    <div class="divide-y divide-slate-200/80 dark:divide-slate-800/80">
+      {projects.map((proj, idx) => (
+        <DossierWorkRow
+          index={pad(idx + 1)}
           title={proj.title}
-          summary={proj.summary}
           category={proj.category}
-          tag={proj.tag}
-          tools={proj.tools}
+          timeline="2024 – 2026"
+          summary={proj.summary}
           kpis={proj.kpis}
+          tools={proj.tools}
           url={proj.url}
-          images={proj.images}
+          image={proj.images && proj.images.length > 0 ? proj.images[0].src : undefined}
         />
       ))}
     </div>
