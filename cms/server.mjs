@@ -284,20 +284,44 @@ const server = http.createServer(async (req, res) => {
       const body = await parseBody(req);
       const { message } = JSON.parse(body || '{}');
       const commitMsg = message && message.trim() ? message.trim() : `Content update via Local CMS (${new Date().toISOString().slice(0, 10)})`;
+      const env = { ...process.env, GIT_TERMINAL_PROMPT: '0' };
 
-      const command = `git add . && git commit -m "${commitMsg.replace(/"/g, '\\"')}" && git push`;
-      exec(command, { cwd: ROOT_DIR }, (err, stdout, stderr) => {
-        if (err) {
-          return sendJson(res, 500, {
-            success: false,
-            error: err.message,
-            output: stderr || stdout
-          });
+      // Step 1: Check if there are local uncommitted changes
+      exec('git status --porcelain', { cwd: ROOT_DIR, env }, (statusErr, statusStdout) => {
+        if (statusErr) {
+          return sendJson(res, 500, { success: false, error: statusErr.message });
         }
-        return sendJson(res, 200, {
-          success: true,
-          message: 'Changes committed and pushed to GitHub!',
-          output: stdout
+
+        const hasChanges = statusStdout.trim().length > 0;
+        const commitCommand = hasChanges
+          ? `git add . && git commit -m "${commitMsg.replace(/"/g, '\\"')}"`
+          : 'git status';
+
+        exec(commitCommand, { cwd: ROOT_DIR, env }, (commitErr, commitStdout, commitStderr) => {
+          if (commitErr && hasChanges) {
+            return sendJson(res, 500, {
+              success: false,
+              error: commitErr.message,
+              output: commitStderr || commitStdout
+            });
+          }
+
+          // Step 2: Push commits to GitHub origin main
+          exec('git push origin main', { cwd: ROOT_DIR, env }, (pushErr, pushStdout, pushStderr) => {
+            if (pushErr) {
+              return sendJson(res, 500, {
+                success: false,
+                error: pushErr.message,
+                output: pushStderr || pushStdout
+              });
+            }
+
+            return sendJson(res, 200, {
+              success: true,
+              message: 'Changes committed and pushed to GitHub!',
+              output: [commitStdout, pushStdout, pushStderr].filter(Boolean).join('\n')
+            });
+          });
         });
       });
       return;

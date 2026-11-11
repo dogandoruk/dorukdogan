@@ -23,3 +23,9 @@ Thumbs.db
 
 # local safety backups
 backups/
+
+# local experimental variants and archives (kept on local disk only)
+src/pages/variant/
+src/components/variant/
+src/layouts/VariantLayout.astro
+src/pages/archive/
