@@ -3,15 +3,58 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light dark;
+    interpolate-size: allow-keywords;
+  }
+
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html.editorial-light {
+    color-scheme: light;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html,
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
   body {
-    @apply bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 transition-colors duration-200 antialiased;
+    @apply bg-slate-50 text-slate-900 dark:bg-[#0B0F19] dark:text-slate-100 transition-colors duration-200 antialiased;
     min-height: 100vh;
   }
+}
+
+/* Post-interaction form validation states */
+.contact-input:user-invalid,
+.contact-input.user-invalid-fallback {
+  border-color: #ef4444 !important;
+}
+
+.contact-input:user-valid {
+  border-color: #10b981 !important;
+}
+
+.field-error-msg {
+  display: none;
+}
+
+.contact-field:has(.contact-input:user-invalid) .field-error-msg,
+.contact-field:has(.contact-input.user-invalid-fallback) .field-error-msg {
+  display: block;
 }
 
 /* Custom scrollbars */

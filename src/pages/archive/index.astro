@@ -1,0 +1,388 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DossierSidebar from '../../components/DossierSidebar.astro';
+import DossierWorkRow from '../../components/DossierWorkRow.astro';
+import cvData from '../../data/cv.json';
+import caseStudies from '../../data/case-studies.json';
+import projects from '../../data/projects.json';
+import certifications from '../../data/certifications.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Format helper for numbers
+const pad = (n: number) => n.toString().padStart(2, '0');
+---
+
+<Layout
+  title="Doruk Doğan | Archived Asymmetric Dossier"
+  description="Archived dossier layout and past work of Doruk Doğan — Enterprise Performance Marketing, Technical SEO, Omnichannel Operations, and Full-Stack AI Tooling."
+>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
+    <div class="mb-8 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-900/60 flex flex-wrap items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-mono">
+        <span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold">ARCHIVE</span>
+        <span>Legacy Asymmetric Dossier Layout</span>
+      </div>
+      <div class="flex items-center gap-4 font-semibold">
+        <a href={`${base}/`} class="text-emerald-600 dark:text-emerald-400 hover:underline">← Back to Main Dark Bento</a>
+        <a href={`${base}/variant`} class="text-slate-700 dark:text-slate-300 hover:underline">View Editorial Light (/variant) →</a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      
+      <!-- LEFT COLUMN: Sticky Identity & Coordinates Sidebar (~35-38%) -->
+      <div class="lg:col-span-4">
+        <DossierSidebar />
+      </div>
+
+      <!-- RIGHT COLUMN: Continuous Editorial Stream (~62-65%) -->
+      <div class="lg:col-span-8 space-y-20">
+
+        <!-- Impact Metrics Strip (Borderless hairline structure, zero cards) -->
+        <section class="border-b border-slate-200/80 dark:border-slate-800/80 pb-8">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                EU Markets Managed
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                16+
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Rituals Paid Media campaigns
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Peak Media Spend
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                €75k/mo
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Across Meta, TikTok & Pinterest
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Enterprise SEO Audits
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                100+
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Technical health & crawl fixes
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Custom Systems Built
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                5 Tools
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Full-stack apps & AI pipelines
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Academic Research
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                ICA '22
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Presented in Paris, France
+              </div>
+            </div>
+
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                Verified Credentials
+              </div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-0.5">
+                21 Certs
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Including Ship Broker's License
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 01. PAST WORK -->
+        <section id="past-work" class="scroll-mt-24 space-y-6">
+          <div class="border-b border-slate-900 dark:border-white pb-3 flex items-baseline justify-between">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                01 / Archive
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                Past work
+              </h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
+              {caseStudies.length} deliverables
+            </span>
+          </div>
+
+          <div class="divide-y divide-slate-200/80 dark:divide-slate-800/80">
+            {caseStudies.map((work, idx) => (
+              <DossierWorkRow
+                index={pad(idx + 1)}
+                title={work.title}
+                category={work.category}
+                timeline={work.timeline}
+                summary={work.summary}
+                kpis={work.kpis}
+                tools={work.tools}
+                url={work.url}
+                outboundUrl={'outboundUrl' in work ? (work as any).outboundUrl : undefined}
+                repoUrl={'repoUrl' in work ? (work as any).repoUrl : undefined}
+                image={'image' in work ? (work as any).image : undefined}
+              />
+            ))}
+          </div>
+        </section>
+
+        <!-- 02. CUSTOM TOOLS -->
+        <section id="custom-tools" class="scroll-mt-24 space-y-6">
+          <div class="border-b border-slate-900 dark:border-white pb-3 flex items-baseline justify-between">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                02 / Software & Systems
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                Custom tools
+              </h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
+              {projects.length} engineering projects
+            </span>
+          </div>
+
+          <div class="divide-y divide-slate-200/80 dark:divide-slate-800/80">
+            {projects.map((proj, idx) => (
+              <DossierWorkRow
+                index={pad(idx + 1)}
+                title={proj.title}
+                category={proj.category}
+                timeline="2024 – 2026"
+                summary={proj.summary}
+                kpis={proj.kpis}
+                tools={proj.tools}
+                url={proj.url}
+                image={proj.images && proj.images.length > 0 ? proj.images[0].src : undefined}
+              />
+            ))}
+          </div>
+        </section>
+
+        <!-- 03. CAREER TIMELINE -->
+        <section id="career-timeline" class="scroll-mt-24 space-y-6">
+          <div class="border-b border-slate-900 dark:border-white pb-3 flex items-baseline justify-between">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                03 / Experience
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                Career timeline
+              </h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
+              3+ years enterprise
+            </span>
+          </div>
+
+          <div class="space-y-8">
+            {cvData.experience.map((exp) => (
+              <div class="border-b border-slate-200/70 dark:border-slate-800/80 pb-8 last:border-b-0 space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                      {exp.role}
+                    </h3>
+                    <div class="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                      {exp.company} <span class="text-slate-400 dark:text-slate-500 font-normal">· {exp.location}</span>
+                    </div>
+                  </div>
+                  <span class="font-mono text-xs font-medium text-slate-400 dark:text-slate-500 shrink-0">
+                    {exp.period}
+                  </span>
+                </div>
+
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                  {exp.summary}
+                </p>
+
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                  {exp.highlights.map((h) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-emerald-500 font-bold leading-relaxed shrink-0">—</span>
+                      <span class="leading-relaxed">{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- 04. ACCREDITATIONS & LICENSES -->
+        <section id="accreditations" class="scroll-mt-24 space-y-6">
+          <div class="border-b border-slate-900 dark:border-white pb-3 flex items-baseline justify-between">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                04 / Qualifications
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                Accreditations & licenses
+              </h2>
+            </div>
+            <a
+              href={`${base}/certifications`}
+              class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+            >
+              All 21 credentials →
+            </a>
+          </div>
+
+          <!-- Featured: Ship Broker's License Highlight -->
+          <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">
+                  Maritime & Commercial Licensing · 2026-10
+                </span>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  Ship Broker's License (Gemi Kiralama ve Brokerlik Sertifikası)
+                </h3>
+              </div>
+              <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 shrink-0 self-start sm:self-auto">
+                Yıldız Teknik Üniversitesi
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Comprehensive certification in dry cargo and tanker chartering contracts (BIMCO Gencon, NYPE, Baltime), laytime and demurrage (TCE) calculations, and Turkish Commercial Code (TTK Book 5) maritime law provisions.
+            </p>
+          </div>
+
+          <!-- Other Top Industry Credentials -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.slice(1, 5).map((c) => (
+              <div class="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 space-y-1.5">
+                <div class="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 font-mono">
+                  <span>{c.badge || c.issuer}</span>
+                  <span>{c.date}</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">
+                  {c.name}
+                </h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2">
+                  {c.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div class="pt-2">
+            <a
+              href={`${base}/certifications`}
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400"
+            >
+              <span>Explore complete index of 21 verified certificates & downloadable PDFs</span>
+              <span>→</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- 05. EDUCATION & RESEARCH -->
+        <section id="education" class="scroll-mt-24 space-y-6">
+          <div class="border-b border-slate-900 dark:border-white pb-3 flex items-baseline justify-between">
+            <div>
+              <div class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+                05 / Rigor
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                Education & academic research
+              </h2>
+            </div>
+            <a
+              href={`${base}/education`}
+              class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+            >
+              Academic papers →
+            </a>
+          </div>
+
+          <div class="space-y-6">
+            <div class="border-b border-slate-200/70 dark:border-slate-800/80 pb-6 space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <div>
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    M.A. in New Media
+                  </h3>
+                  <div class="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                    Kadir Has University · Istanbul
+                  </div>
+                </div>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-500">
+                  2019 – 2021
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Thesis on digital platform cultures and computational media. Master's research was peer-reviewed, accepted, and presented at the <strong>International Communication Association (ICA) 2022 Annual Conference in Paris, France</strong>.
+              </p>
+            </div>
+
+            <div class="border-b border-slate-200/70 dark:border-slate-800/80 pb-6 space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <div>
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    B.A. Double Major: Media and Visual Arts & Sociology
+                  </h3>
+                  <div class="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                    Koç University · Istanbul
+                  </div>
+                </div>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-500">
+                  2014 – 2019
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Completed simultaneous degrees combining qualitative societal analysis, visual communication design, and digital media production. Full merit scholarship recipient.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Direct Contact Footer -->
+        <section class="border-t border-slate-200/80 dark:border-slate-800/80 pt-10 pb-6 text-xs text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="font-semibold text-slate-900 dark:text-white">Doruk Doğan</span> · Asymmetric Dossier (2026)
+          </div>
+          <div class="flex items-center gap-4">
+            <a href={`mailto:${cvData.basics.email}`} class="hover:text-slate-900 dark:hover:text-white">
+              {cvData.basics.email}
+            </a>
+            <span>·</span>
+            <a href={cvData.basics.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-white">
+              LinkedIn
+            </a>
+            <span>·</span>
+            <a href="https://github.com/dogandoruk" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-white">
+              GitHub
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</Layout>

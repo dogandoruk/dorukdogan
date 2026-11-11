@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio CMS - Visual In-Context Editor</title>
+  <!-- Tailwind CSS CDN for exact visual fidelity matching the live site -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#10b981'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- SortableJS for cursor drag-and-drop reordering -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark bg-[#0b0f19] text-[#f8fafc]">
+
+  <!-- 1. AEM TOP STUDIO TOOLBAR -->
+  <header class="aem-topbar">
+    <div class="aem-topbar-left">
+      <div class="aem-brand-pill">AEM STUDIO</div>
+      <div class="aem-site-title">Doruk Doğan Portfolio</div>
+      
+      <!-- Edit vs. Preview Mode Switcher -->
+      <div class="aem-mode-toggle">
+        <button id="btn-mode-edit" class="aem-mode-btn active" title="Authoring mode: outlines, inline editing &amp; right-click options">
+          Edit Mode
+        </button>
+        <button id="btn-mode-preview" class="aem-mode-btn" title="Preview mode: view clean live site without editor outlines">
+          Preview Mode
+        </button>
+      </div>
+    </div>
+
+    <div class="aem-topbar-center">
+      <div id="save-status" class="aem-save-status">All Changes Saved</div>
+    </div>
+
+    <div class="aem-topbar-right">
+      <button id="btn-save" class="btn-aem-primary" title="Save all inline edits and reordering to disk (Ctrl+S)">
+        Save All Changes (Ctrl+S)
+      </button>
+      <button id="btn-media" class="btn-aem-secondary" title="Open media &amp; image uploader">
+        Media Uploader
+      </button>
+      <button id="btn-git" class="btn-aem-secondary" title="Review git status and push to GitHub">
+        Push to Git
+      </button>
+      <a href="http://localhost:4321/dorukdogan" target="_blank" class="btn-aem-ghost" title="Open public site in new tab">
+        View Live Site
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. AEM AUTHORING CANVAS (Mirroring Live Website) -->
+  <div class="aem-canvas-wrapper">
+    <main id="aem-canvas" class="aem-canvas space-y-4">
+      <!-- Populated dynamically by app.js with live data from src/data/*.json -->
+      <div style="text-align: center; padding: 4rem; color: #64748b; font-family: monospace;">
+        Loading live website components...
+      </div>
+    </main>
+  </div>
+
+  <!-- 3. AEM FLOATING CONTEXT MENU (Right-Click) -->
+  <div id="aem-context-menu" class="aem-context-menu">
+    <div id="aem-menu-title" class="aem-menu-header">Component</div>
+    <div class="aem-menu-item" id="menu-action-configure">Configure Properties</div>
+    <div class="aem-menu-item" id="menu-action-move-up">Move Up</div>
+    <div class="aem-menu-item" id="menu-action-move-down">Move Down</div>
+    <div class="aem-menu-divider"></div>
+    <div class="aem-menu-item" id="menu-action-insert">Insert Component</div>
+    <div class="aem-menu-divider"></div>
+    <div class="aem-menu-item danger" id="menu-action-delete">Delete Component</div>
+  </div>
+
+  <!-- 4. AEM PROPERTIES DRAWER (380px Slide-out on Right) -->
+  <aside id="aem-drawer" class="aem-drawer">
+    <div class="aem-drawer-header">
+      <div id="aem-drawer-title" class="aem-drawer-title">Configure Properties</div>
+      <button id="aem-drawer-close" class="aem-drawer-close" title="Close drawer">&times;</button>
+    </div>
+    <div id="aem-drawer-body" class="aem-drawer-body">
+      <!-- Injected dynamically based on selected component -->
+    </div>
+    <div class="aem-drawer-footer">
+      <button id="aem-drawer-done-btn" class="btn-aem-primary">Done</button>
+    </div>
+  </aside>
+
+  <!-- 5. INSERT COMPONENT MODAL -->
+  <div id="aem-insert-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-title">Insert Component</div>
+      <div class="modal-desc">Select an item to insert into the portfolio:</div>
+      
+      <div class="insert-option-list">
+        <button class="insert-option-btn" data-insert="case-study">
+          <span>Case Study (Past Work)</span>
+          <span class="type-desc">Client project with KPIs</span>
+        </button>
+        <button class="insert-option-btn" data-insert="custom-tool">
+          <span>Custom Software Tool</span>
+          <span class="type-desc">Engineering application</span>
+        </button>
+        <button class="insert-option-btn" data-insert="experience-role">
+          <span>Career Experience Role</span>
+          <span class="type-desc">Timeline job with bullets</span>
+        </button>
+        <button class="insert-option-btn" data-insert="certification">
+          <span>Certification Credential</span>
+          <span class="type-desc">Accreditation license</span>
+        </button>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+        <button id="aem-insert-cancel-btn" class="btn-aem-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. MEDIA UPLOADER MODAL -->
+  <div id="aem-media-modal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 600px;">
+      <div class="modal-title">Media &amp; Image Uploader</div>
+      <div class="modal-desc">Upload images to <code>public/images/uploads/</code>. Filenames are automatically sanitized for the web.</div>
+
+      <div id="media-dropzone" style="border: 2px dashed #334155; border-radius: 8px; padding: 2rem; text-align: center; cursor: pointer; background: #111827; margin-bottom: 1rem;">
+        <p style="font-size: 13px; font-weight: 600; color: #fff;">Click to choose an image or drag &amp; drop here</p>
+        <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">PNG, JPG, WebP, SVG supported</p>
+        <input type="file" id="media-file-input" accept="image/*" style="display: none;">
+      </div>
+
+      <div id="media-gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; max-height: 220px; overflow-y: auto; padding-right: 4px;">
+        <!-- Hydrated with recent uploads -->
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+        <button id="media-modal-close-btn" class="btn-aem-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. GIT REVIEW & PUSH MODAL -->
+  <div id="git-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-title">Review &amp; Push to GitHub</div>
+      <div class="modal-desc">Review modified files and deploy your changes straight to your repository.</div>
+
+      <div id="git-changes-preview" style="background: #090d16; padding: 0.75rem; border-radius: 8px; font-family: ui-monospace, monospace; font-size: 11px; max-height: 140px; overflow-y: auto; margin-bottom: 1rem; border: 1px solid #1e293b;">
+        Checking git status...
+      </div>
+
+      <div class="drawer-form-group">
+        <label for="commit-msg">Commit Message</label>
+        <input type="text" id="commit-msg" placeholder="e.g. Update portfolio content via Studio CMS">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem;">
+        <button id="close-git-modal-btn" class="btn-aem-secondary">Cancel</button>
+        <button id="execute-git-push-btn" class="btn-aem-primary">Commit &amp; Push Now</button>
+      </div>
+
+      <div id="git-terminal-output" style="display: none; background: #000; color: #10b981; font-family: ui-monospace, monospace; font-size: 11px; padding: 0.75rem; border-radius: 6px; max-height: 120px; overflow-y: auto; margin-top: 0.75rem;"></div>
+    </div>
+  </div>
+
+  <!-- 8. TOAST NOTIFICATION -->
+  <div id="toast" class="aem-toast">Saved!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

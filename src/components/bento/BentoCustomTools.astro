@@ -1,0 +1,72 @@
+---
+import projects from '../../data/projects.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Clean 1-sentence distillations
+const toolSummaries: Record<string, string> = {
+  'job-application-filler': 'Unified career intake dashboard consolidating job boards with real-time match scoring and custom CV exports.',
+  'la-by-night': 'VTM campaign management suite with FastAPI, interactive Leaflet GIS territory maps, and 800+ node lore codex.',
+  'cooking-companion': 'Smart kitchen inventory with on-device Google ML Kit receipt OCR and TSE produce weight conversions.',
+  'catspotting': 'Native Android app with Google Gemini 2.5 Flash Vision AI to classify coat traits and track community cats on maps.',
+  'monday-mage': 'Automated rulebook OCR extraction pipeline converting multi-volume PDFs into an offline-first search dashboard.'
+};
+---
+
+<section id="custom-tools" class="py-12 sm:py-16 border-b border-slate-200/60 dark:border-slate-800/60 scroll-mt-16">
+  <div class="space-y-8">
+    
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+        Custom Software Tools
+      </h2>
+      <span class="text-xs font-mono text-slate-400">
+        {projects.length} Engineering Systems
+      </span>
+    </div>
+
+    <div class="divide-y divide-slate-200/50 dark:divide-slate-800/50">
+      {projects.map((proj) => {
+        const summary = toolSummaries[proj.slug] || proj.summary;
+        const topKpi = proj.kpis && proj.kpis[0] ? proj.kpis[0] : null;
+
+        return (
+          <article class="py-6 first:pt-0 last:pb-0 group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <div class="space-y-1 max-w-2xl">
+                <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">{proj.category}</span>
+                  <span>·</span>
+                  <span>{proj.type}</span>
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <a href={`${base}${proj.url}`} class="inline-flex items-center gap-1.5">
+                    <span>{proj.title}</span>
+                    <span class="text-slate-400 group-hover:text-emerald-500 transition-colors">→</span>
+                  </a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {summary}
+                </p>
+              </div>
+
+              {topKpi && (
+                <div class="sm:text-right shrink-0 pt-1 sm:pt-0">
+                  <div class="font-mono text-sm font-bold text-slate-900 dark:text-white">
+                    {topKpi.value}
+                  </div>
+                  <div class="text-[11px] text-slate-400">
+                    {topKpi.label}
+                  </div>
+                </div>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

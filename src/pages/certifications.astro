@@ -1,223 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TechBadge from '../components/TechBadge.astro';
-import certData from '../data/certifications.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const uniqueCategories = Array.from(new Set(certData.map(c => c.category).filter(Boolean)));
-const categories = ["All", ...uniqueCategories];
-
-function formatDate(dateStr?: string | null) {
-  if (!dateStr) return '';
-  const parts = dateStr.split('-');
-  if (parts.length === 2) {
-    const year = parts[0];
-    const monthIndex = parseInt(parts[1], 10) - 1;
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return `${months[monthIndex] || parts[1]} ${year}`;
-  }
-  return dateStr;
-}
-
-const totalCount = certData.length;
-const categoryCounts = categories.reduce((acc, cat) => {
-  acc[cat] = cat === 'All' ? totalCount : certData.filter(c => c.category === cat).length;
-  return acc;
-}, {} as Record<string, number>);
+const targetUrl = `${base}/#qualifications`;
 ---
 
 <Layout
-  title="Professional Certifications | Doruk Doğan"
-  description="Verified professional certifications in Amazon Ads, Google Ads, Apple Search Ads, Technical SEO (BlueArray & Semrush), and UX Design."
+  title="Certifications & Accreditations | Doruk Doğan"
+  description="Redirecting to Qualifications and Certifications on the portfolio homepage."
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
-    
-    <!-- Page Header -->
-    <div class="max-w-3xl space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>{totalCount} Verified Industry Credentials</span>
-      </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-        Professional Certifications
-      </h1>
-      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        Continuous professional learning across paid advertising platforms, enterprise technical search algorithms, generative AI search visibility, and UX design systems.
-      </p>
+  <head slot="head">
+    <meta http-equiv="refresh" content={`0;url=${targetUrl}`} />
+    <link rel="canonical" href={targetUrl} />
+  </head>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center space-y-4">
+    <h1 class="text-2xl font-bold text-slate-900 dark:text-white">
+      Qualifications &amp; Certifications
+    </h1>
+    <p class="text-sm text-slate-600 dark:text-slate-400">
+      All 21 professional certifications and licenses have been consolidated on the portfolio homepage.
+    </p>
+    <div class="pt-4">
+      <a
+        href={targetUrl}
+        class="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-500 transition-colors"
+      >
+        View All Credentials on Homepage
+      </a>
     </div>
-
-    <!-- Category Filter Tabs -->
-    <div class="flex flex-wrap gap-2 pt-2" id="cert-filter-container">
-      {categories.map((cat, idx) => (
-        <button
-          type="button"
-          data-category={cat}
-          class={`filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all border flex items-center gap-1.5 ${
-            idx === 0
-              ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent active-tab shadow-sm'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
-          }`}
-        >
-          <span>{cat}</span>
-          <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-mono">
-            {categoryCounts[cat]}
-          </span>
-        </button>
-      ))}
-    </div>
-
-    <!-- Certifications Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cert-grid">
-      {certData.map((cert) => {
-        const badgeVariant =
-          cert.category.includes('Performance') ? 'primary' :
-          cert.category.includes('SEO') ? 'amber' :
-          cert.category.includes('AI') ? 'purple' :
-          cert.category.includes('UX') ? 'cyan' :
-          cert.category.includes('Maritime') ? 'primary' : 'default';
-
-        return (
-          <div
-            data-cat={cert.category}
-            class="cert-item bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
-          >
-            <div>
-              <!-- Top Metadata -->
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <TechBadge name={cert.badge || cert.issuer} variant={badgeVariant} />
-                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 code-font">
-                  {formatDate(cert.date)}
-                  {cert.expiryDate ? ` · Exp: ${formatDate(cert.expiryDate)}` : ''}
-                </span>
-              </div>
-
-              <!-- Certificate Title -->
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1.5 leading-snug">
-                {cert.name}
-              </h3>
-              
-              <!-- Issuer & Category -->
-              <div class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">
-                {cert.issuer} · <span class="text-slate-500 dark:text-slate-400">{cert.category}</span>
-              </div>
-
-              <!-- Description -->
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                {cert.description}
-              </p>
-
-              <!-- Credential ID Badge -->
-              {cert.credentialId && (
-                <div class="flex items-center gap-2 mb-2">
-                  {cert.credentialId !== 'verified' ? (
-                    <button
-                      type="button"
-                      class="copy-id-btn inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-400 font-mono hover:border-emerald-400 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all"
-                      data-id={cert.credentialId}
-                      title="Click to copy Credential ID"
-                    >
-                      <span class="btn-text">ID: {cert.credentialId.length > 22 ? cert.credentialId.substring(0, 20) + '…' : cert.credentialId}</span>
-                      <svg class="w-3.5 h-3.5 text-slate-400 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                      </svg>
-                    </button>
-                  ) : (
-                    <span class="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-                      ✓ Verified Academy Credential
-                    </span>
-                  )}
-                </div>
-              )}
-            </div>
-
-            <!-- Card Actions Footer -->
-            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
-              <div>
-                {cert.pdf ? (
-                  <a
-                    href={`${base}${cert.pdf}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-semibold hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-colors shadow-2xs"
-                  >
-                    <span>View Certificate</span>
-                    <span class="text-[11px]">📄</span>
-                  </a>
-                ) : (
-                  <span class="text-slate-400 dark:text-slate-500 italic">Certificate on file</span>
-                )}
-              </div>
-
-              <div>
-                {cert.credentialUrl && (
-                  <a
-                    href={cert.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-                  >
-                    <span>Verify Online</span>
-                    <span>↗</span>
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-
   </div>
 
-  <!-- Client-side script: Filtering and 1-Click ID Copy -->
-  <script is:inline>
-    // Tab Filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const certItems = document.querySelectorAll('.cert-item');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const selected = btn.getAttribute('data-category');
-        
-        filterBtns.forEach(b => {
-          b.classList.remove('bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'border-transparent', 'active-tab', 'shadow-sm');
-          b.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
-        });
-
-        btn.classList.add('bg-slate-900', 'text-white', 'dark:bg-white', 'dark:text-slate-900', 'border-transparent', 'active-tab', 'shadow-sm');
-        btn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
-
-        certItems.forEach(item => {
-          const itemCat = item.getAttribute('data-cat');
-          if (selected === 'All' || itemCat === selected) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // 1-Click Credential ID Copy
-    const copyBtns = document.querySelectorAll('.copy-id-btn');
-    copyBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        if (!id) return;
-
-        navigator.clipboard.writeText(id).then(() => {
-          const textSpan = btn.querySelector('.btn-text');
-          const originalText = textSpan ? textSpan.textContent : '';
-          if (textSpan) textSpan.textContent = 'Copied!';
-          btn.classList.add('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
-
-          setTimeout(() => {
-            if (textSpan) textSpan.textContent = originalText;
-            btn.classList.remove('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
-          }, 2000);
-        });
-      });
-    });
+  <script is:inline define:vars={{ targetUrl }}>
+    window.location.replace(targetUrl);
   </script>
 </Layout>

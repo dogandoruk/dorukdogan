@@ -1,0 +1,271 @@
+---
+import VariantLayout from '../../layouts/VariantLayout.astro';
+import VariantCaseStudyDrawer, { type EnrichedCaseStudy } from '../../components/variant/VariantCaseStudyDrawer.astro';
+import VariantToolDrawer from '../../components/variant/VariantToolDrawer.astro';
+import ContactForm from '../../components/ContactForm.astro';
+
+import cvData from '../../data/cv.json';
+import caseStudiesRaw from '../../data/case-studies.json';
+import projectsData from '../../data/projects.json';
+import certsData from '../../data/certifications.json';
+import educationData from '../../data/education.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const executiveMetrics = [
+  { value: '16+', label: 'EU Markets' },
+  { value: '€75k/mo', label: 'Peak Spend' },
+  { value: '100+', label: 'SEO Audits' },
+  { value: '5 Tools', label: 'AI Systems' },
+];
+
+const narrativeLookup: Record<string, {
+  problem: string;
+  strategy: string;
+  impactSummary: string;
+}> = {
+  'karpov-design': {
+    problem: 'Architectural studio portfolio rejecting card templates in favor of typographic discipline.',
+    strategy: 'Engineered an interactive 30 FPS HTML5 Canvas sequencer and 21-plate exhibition archive.',
+    impactSummary: '100/100 Lighthouse performance with sub-0.5s LCP across 21 high-res plates.'
+  },
+  'rdd-design': {
+    problem: 'B2B hospitality consulting spinoff targeting institutional investors and hotel operators.',
+    strategy: 'AutoCAD-to-reality transformation engine and commercial intent search architecture.',
+    impactSummary: '100% B2B audience segmentation and interactive blueprint-to-venue verification.'
+  },
+  'rituals-performance-marketing': {
+    problem: 'Simultaneous seasonal flights across 16 EU countries with social API rate limit bottlenecks.',
+    strategy: 'Smartly.io dynamic catalog automation combined with a custom automated UGC story pipeline.',
+    impactSummary: '12+ seasonal flights across 16 EU markets with zero downtime and 0% API errors.'
+  },
+  'philips-ab-testing': {
+    problem: 'Global consumer health web localization across international markets in Adobe Experience Manager.',
+    strategy: 'Modular AEM authoring paired with an Adobe Target A/B experimentation program.',
+    impactSummary: 'Zero-downtime global launches and validated conversion uplifts.'
+  },
+  'enterprise-seo-audits': {
+    problem: 'Crawl budget waste, 4xx error cascades, and heavy payloads across Fortune 500 domains.',
+    strategy: 'Deep crawl diagnostics to eliminate errors, compress assets by 65%, and map search clusters.',
+    impactSummary: 'Restored 95%+ crawl health scores across 7+ global brands.'
+  }
+};
+
+const enrichedCaseStudies: EnrichedCaseStudy[] = caseStudiesRaw.map((cs) => {
+  const details = narrativeLookup[cs.slug] || {
+    problem: cs.summary,
+    strategy: '',
+    impactSummary: cs.summary
+  };
+  return {
+    ...cs,
+    ...details
+  };
+});
+
+const featuredCerts = certsData.slice(0, 3);
+---
+
+<VariantLayout
+  title="Doruk Doğan | Dark Staging Variant"
+  description="Dark Mode staging portfolio of Doruk Doğan featuring in-place expandable drawers, custom AI tooling, and enterprise marketing history."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-12">
+    
+    <!-- Hero (Clean & Concise) -->
+    <section class="space-y-4 border-b border-slate-800/60 pb-10">
+      <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+        <span class="text-emerald-400">Available for International Growth &amp; Operations mandates</span>
+        <a href={`${base}/`} class="underline underline-offset-4 hover:text-white">
+          ← Light Mode Main
+        </a>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+        {cvData.basics.name}
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+        Digital marketing and web operations specialist scaling commercial growth for international brands (<span class="text-white font-semibold">Rituals, Philips, Haleon</span>) across 16+ European markets and building custom automation systems.
+      </p>
+
+      <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+        <a href="#case-studies" class="text-white hover:text-emerald-400 font-semibold underline underline-offset-4">
+          Past Work ↓
+        </a>
+        <a href="#custom-tools" class="hover:text-white">
+          Custom Tools ↓
+        </a>
+        <a href="#career" class="hover:text-white">
+          Experience ↓
+        </a>
+        <a href="#contact" class="hover:text-white">
+          Contact →
+        </a>
+        <span class="text-slate-700">|</span>
+        <a href={`${base}/Doruk_Dogan_CV.pdf`} target="_blank" rel="noopener noreferrer" class="hover:text-white">
+          CV (PDF) ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="border-b border-slate-800/60 pb-10">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {executiveMetrics.map((m) => (
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
+              {m.value}
+            </div>
+            <div class="text-xs text-slate-400 mt-0.5">
+              {m.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Expandable Case Studies -->
+    <section id="case-studies" class="space-y-6 border-b border-slate-800/60 pb-12 scroll-mt-16">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          Case Studies
+        </h2>
+        <span class="text-xs font-mono text-slate-500">
+          Click to expand in place
+        </span>
+      </div>
+
+      <div class="divide-y divide-slate-800/60">
+        {enrichedCaseStudies.map((work, idx) => (
+          <VariantCaseStudyDrawer
+            work={work}
+            index={idx}
+            defaultOpen={idx === 0}
+            base={base}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Expandable Custom Tools -->
+    <section id="custom-tools" class="space-y-6 border-b border-slate-800/60 pb-12 scroll-mt-16">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          Custom Software Tools
+        </h2>
+        <span class="text-xs font-mono text-slate-500">
+          With interactive screenshot galleries
+        </span>
+      </div>
+
+      <div class="divide-y divide-slate-800/60">
+        {projectsData.map((project, idx) => (
+          <VariantToolDrawer
+            project={project}
+            index={idx}
+            defaultOpen={idx === 0}
+            base={base}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Experience & Qualifications -->
+    <section id="career" class="space-y-8 border-b border-slate-800/60 pb-12 scroll-mt-16">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+          Experience &amp; Education
+        </h2>
+        <a
+          href={`${base}/Doruk_Dogan_CV.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-semibold text-white hover:text-emerald-400 underline underline-offset-4"
+        >
+          CV (PDF) ↗
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
+        <!-- Experience -->
+        <div class="space-y-3">
+          <div class="font-mono text-slate-400 font-semibold uppercase tracking-wider text-[11px]">
+            Career
+          </div>
+          <div class="space-y-2.5">
+            {cvData.experience.map((exp) => (
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="font-semibold text-white">{exp.role}</span>
+                  <span class="text-slate-500 mx-1">·</span>
+                  <span class="text-emerald-400">{exp.company}</span>
+                </div>
+                <span class="font-mono text-slate-500">{exp.period}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Qualifications -->
+        <div class="space-y-3">
+          <div class="font-mono text-slate-400 font-semibold uppercase tracking-wider text-[11px]">
+            Key Credentials
+          </div>
+          <div class="space-y-2.5">
+            <div>
+              <div class="font-semibold text-white">Ship Broker's License</div>
+              <div class="text-slate-500 font-mono">Yıldız Teknik Üniversitesi · 2026-10</div>
+            </div>
+            {featuredCerts.map((c) => (
+              <div>
+                <div class="font-semibold text-white">{c.name}</div>
+                <div class="text-slate-500 font-mono">{c.issuer}</div>
+              </div>
+            ))}
+            <div>
+              <div class="font-semibold text-white">M.A. New Media (ICA '22 Paris) · Koç B.A.</div>
+              <div class="text-slate-500 font-mono">Kadir Has University · Koç University</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-8 scroll-mt-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <div class="md:col-span-5 space-y-3">
+          <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+            Contact
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Available for Senior Growth, Performance Marketing, and Web Operations roles across Europe and remote.
+          </p>
+
+          <dl class="space-y-2 pt-2 text-xs font-mono">
+            <div>
+              <dt class="text-slate-500">Email</dt>
+              <dd class="text-white font-semibold">
+                <a href="mailto:dorukdogan95@gmail.com" class="hover:underline">dorukdogan95@gmail.com</a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Phone</dt>
+              <dd class="text-white">{cvData.basics.phone}</dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Location</dt>
+              <dd class="text-white">{cvData.basics.location}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="md:col-span-7">
+          <ContactForm theme="dark" />
+        </div>
+      </div>
+    </section>
+
+  </div>
+</VariantLayout>

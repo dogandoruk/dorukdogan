@@ -1,0 +1,36 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-slate-800/60 py-12 text-xs text-slate-500">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row items-baseline justify-between gap-6 pb-8 border-b border-slate-800/40">
+      
+      <div class="space-y-1 max-w-sm">
+        <div class="font-bold text-white">Doruk Doğan</div>
+        <p class="leading-relaxed">
+          Digital Marketing & Web Operations Specialist. Deep dark mode staging environment.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 font-medium text-slate-300">
+        <a href={`${base}/`} class="text-emerald-400 hover:underline">← Light Mode Main</a>
+        <a href={`${base}/variant`} class="hover:text-white">Dark Staging</a>
+        <a href={`${base}/variant/certifications`} class="hover:text-white">Certifications</a>
+        <a href={`${base}/variant/education`} class="hover:text-white">Education</a>
+        <a href={`${base}/archive`} class="hover:text-white">Archive Dossier</a>
+      </div>
+
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+      <div>
+        © {currentYear} Doruk Doğan. Built with Astro & Tailwind CSS.
+      </div>
+      <div>
+        Kadıköy, Istanbul · dorukdogan95@gmail.com
+      </div>
+    </div>
+  </div>
+</footer>

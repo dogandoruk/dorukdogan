@@ -1,0 +1,72 @@
+---
+import caseStudies from '../../data/case-studies.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Punchy 1-sentence distillations
+const punchySummaries: Record<string, string> = {
+  'karpov-design': 'Bespoke architectural portfolio featuring an interactive 30 FPS HTML5 canvas engine and 21-project archive.',
+  'rdd-design': 'Commercial B2B hospitality advisory platform featuring an AutoCAD-to-reality engine and targeted search architecture.',
+  'rituals-performance-marketing': 'Managed seasonal flights across 16 EU countries on TikTok, Meta, and Pinterest with automated creator tracking.',
+  'philips-ab-testing': 'Global AEM page localization across consumer markets paired with conversion experimentation via Adobe Target.',
+  'enterprise-seo-audits': 'Technical health audits, 4xx crawl remediation, and semantic keyword clustering for international enterprises.'
+};
+---
+
+<section id="case-studies" class="py-12 sm:py-16 border-b border-slate-200/60 dark:border-slate-800/60 scroll-mt-16">
+  <div class="space-y-8">
+    
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+        Past Work
+      </h2>
+      <span class="text-xs font-mono text-slate-400">
+        {caseStudies.length} Deliverables
+      </span>
+    </div>
+
+    <div class="divide-y divide-slate-200/50 dark:divide-slate-800/50">
+      {caseStudies.map((work) => {
+        const summary = punchySummaries[work.slug] || work.summary;
+        const topKpi = work.kpis && work.kpis[0] ? work.kpis[0] : null;
+
+        return (
+          <article class="py-6 first:pt-0 last:pb-0 group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <div class="space-y-1 max-w-2xl">
+                <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">{work.client}</span>
+                  <span>·</span>
+                  <span>{work.category}</span>
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <a href={`${base}${work.url}`} class="inline-flex items-center gap-1.5">
+                    <span>{work.title}</span>
+                    <span class="text-slate-400 group-hover:text-emerald-500 transition-colors">→</span>
+                  </a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {summary}
+                </p>
+              </div>
+
+              {topKpi && (
+                <div class="sm:text-right shrink-0 pt-1 sm:pt-0">
+                  <div class="font-mono text-sm font-bold text-slate-900 dark:text-white">
+                    {topKpi.value}
+                  </div>
+                  <div class="text-[11px] text-slate-400">
+                    {topKpi.label}
+                  </div>
+                </div>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

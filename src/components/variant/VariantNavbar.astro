@@ -1,0 +1,186 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Index', href: `${base}/variant` },
+  { label: 'Case Studies', href: `${base}/variant#case-studies` },
+  { label: 'Custom Tools', href: `${base}/variant#custom-tools` },
+  { label: 'Career & Stack', href: `${base}/variant#career` },
+  { label: 'Accreditations', href: `${base}/variant/certifications` },
+  { label: 'Education', href: `${base}/variant/education` },
+];
+---
+
+<header class="sticky top-0 z-50 bg-[#F8F9FA]/90 backdrop-blur-md border-b border-stone-200/90 transition-colors">
+  <!-- Top Editorial Micro-Bar -->
+  <div class="border-b border-stone-200/70 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-8 flex items-center justify-between text-[11px] font-mono text-stone-500">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-emerald-700 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+          EDITORIAL LIGHT EDITION
+        </span>
+        <span class="hidden sm:inline text-stone-300">|</span>
+        <span class="hidden sm:inline">ARCHIVE & EXPANDABLE CASE DOSSIER</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a
+          href={`${base}/`}
+          class="text-stone-600 hover:text-emerald-700 font-semibold transition-colors inline-flex items-center gap-1"
+        >
+          <span>← Dark Bento Main</span>
+        </a>
+        <span class="text-stone-300">|</span>
+        <a
+          href={`${base}/archive`}
+          class="text-stone-500 hover:text-stone-900 transition-colors hidden sm:inline"
+        >
+          Legacy Dossier ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Row -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Mark -->
+    <a href={`${base}/variant`} class="group flex items-center gap-3 focus:outline-none">
+      <div class="w-9 h-9 rounded-lg bg-stone-900 text-[#F8F9FA] flex items-center justify-center font-mono font-bold text-sm tracking-tighter group-hover:bg-emerald-700 transition-colors">
+        DD
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-stone-900 tracking-tight text-base">Doruk Doğan</span>
+          <span class="hidden xl:inline-block px-1.5 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-emerald-50 text-emerald-700 border border-emerald-200 rounded">
+            Light Staging
+          </span>
+        </div>
+        <p class="text-[11px] font-mono text-stone-500 tracking-tight">
+          Growth · Technical SEO · AI Systems
+        </p>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Editorial Navigation">
+      {navLinks.map((item) => {
+        const isActive =
+          (item.href.endsWith('/certifications') && currentPath.includes('/variant/certifications')) ||
+          (item.href.endsWith('/education') && currentPath.includes('/variant/education'));
+        return (
+          <a
+            href={item.href}
+            class={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              isActive
+                ? 'bg-stone-900 text-white font-semibold'
+                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/50'
+            }`}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right Action CTAs -->
+    <div class="hidden sm:flex items-center gap-2.5">
+      <a
+        href={`${base}/`}
+        class="px-3 py-1.5 rounded-lg border border-stone-300 bg-white text-stone-700 hover:border-stone-900 hover:text-stone-900 text-xs font-medium transition-all"
+        title="Compare with the default Dark Bento experience"
+      >
+        ← Dark Bento Main
+      </a>
+      <a
+        href={`${base}/variant#contact`}
+        class="px-3.5 py-1.5 rounded-lg bg-stone-900 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors shadow-xs"
+      >
+        Initiate Discussion
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      type="button"
+      id="variant-mobile-menu-btn"
+      class="lg:hidden inline-flex items-center justify-center p-2 rounded-lg border border-stone-200 bg-white text-stone-700 hover:text-stone-900 hover:border-stone-400 transition-colors"
+      aria-expanded="false"
+      aria-controls="variant-mobile-menu"
+      aria-label="Toggle editorial navigation menu"
+    >
+      <svg id="variant-menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="variant-menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div
+    id="variant-mobile-menu"
+    class="hidden lg:hidden border-t border-stone-200 bg-white px-4 pt-3 pb-5 space-y-3 shadow-lg"
+  >
+    <div class="grid grid-cols-2 gap-1.5">
+      {navLinks.map((item) => (
+        <a
+          href={item.href}
+          class="variant-mobile-link px-3 py-2 rounded-md text-xs font-medium text-stone-700 hover:bg-stone-100 hover:text-stone-900 transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+    <div class="pt-3 border-t border-stone-200 flex flex-col sm:flex-row gap-2">
+      <a
+        href={`${base}/`}
+        class="w-full text-center px-3 py-2 rounded-lg border border-stone-300 bg-stone-50 text-stone-800 text-xs font-semibold"
+      >
+        ← Switch to Dark Bento Main
+      </a>
+      <a
+        href={`${base}/variant#contact`}
+        class="variant-mobile-link w-full text-center px-3 py-2 rounded-lg bg-stone-900 text-white text-xs font-semibold"
+      >
+        Initiate Discussion
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('variant-mobile-menu-btn');
+    const menu = document.getElementById('variant-mobile-menu');
+    const iconOpen = document.getElementById('variant-menu-icon-open');
+    const iconClose = document.getElementById('variant-menu-icon-close');
+
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          iconOpen?.classList.add('hidden');
+          iconClose?.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          iconOpen?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.variant-mobile-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          iconOpen?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+        });
+      });
+    }
+  })();
+</script>

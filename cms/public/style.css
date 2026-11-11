@@ -1,0 +1,562 @@
+/* AEM-Style Visual In-Context Studio CMS Styling */
+/* STRICT RULE: Zero emojis throughout */
+
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #111827;
+  --bg-surface: #0f172a;
+  --border-color: rgba(148, 163, 184, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --aem-cyan: #00d2ff;
+  --aem-emerald: #10b981;
+  --aem-dark-cyan: #002b3d;
+  --aem-danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------------------------------------------
+   1. AEM TOP STUDIO TOOLBAR
+------------------------------------------------------------- */
+.aem-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #080c14;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  z-index: 1000;
+  user-select: none;
+}
+
+.aem-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.aem-brand-pill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #002b3d;
+  color: var(--aem-cyan);
+  border: 1px solid var(--aem-cyan);
+}
+
+.aem-site-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.aem-mode-toggle {
+  display: flex;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.aem-mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.aem-mode-btn.active {
+  background: #1e293b;
+  color: #fff;
+}
+
+.aem-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.aem-save-status {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.aem-save-status.unsaved {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.aem-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-aem-primary {
+  background: #059669;
+  color: #fff;
+  border: 1px solid #10b981;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-aem-primary:hover {
+  background: #047857;
+}
+
+.btn-aem-secondary {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid #334155;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-aem-secondary:hover {
+  background: #334155;
+}
+
+.btn-aem-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-aem-ghost:hover {
+  color: #fff;
+}
+
+/* -------------------------------------------------------------
+   2. AEM AUTHORING CANVAS (Exact Mirror of Website)
+------------------------------------------------------------- */
+.aem-canvas-wrapper {
+  padding-top: 68px;
+  padding-bottom: 96px;
+  min-height: 100vh;
+}
+
+.aem-canvas {
+  max-width: 896px; /* matches max-w-4xl */
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* -------------------------------------------------------------
+   3. AEM COMPONENT BOUNDING BOXES & BADGES
+------------------------------------------------------------- */
+.aem-component {
+  position: relative;
+  border-radius: 8px;
+  transition: outline 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.25rem;
+}
+
+body:not(.aem-preview) .aem-component:hover {
+  outline: 2px dashed var(--aem-cyan);
+  outline-offset: 6px;
+}
+
+body:not(.aem-preview) .aem-component.aem-selected {
+  outline: 2px solid var(--aem-cyan);
+  outline-offset: 6px;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.25);
+}
+
+.aem-badge {
+  display: none;
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  background: var(--aem-dark-cyan);
+  color: var(--aem-cyan);
+  border: 1px solid var(--aem-cyan);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  z-index: 50;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+body:not(.aem-preview) .aem-component:hover > .aem-badge,
+body:not(.aem-preview) .aem-component.aem-selected > .aem-badge {
+  display: inline-flex;
+}
+
+.aem-drag-handle {
+  cursor: grab;
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.aem-drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Sub-items (individual cards inside sections) */
+.aem-subitem {
+  position: relative;
+  transition: outline 0.15s ease;
+  border-radius: 6px;
+}
+
+body:not(.aem-preview) .aem-subitem:hover {
+  outline: 1.5px dashed var(--aem-emerald);
+  outline-offset: 4px;
+}
+
+body:not(.aem-preview) .aem-subitem.aem-selected {
+  outline: 2px solid var(--aem-emerald);
+  outline-offset: 4px;
+}
+
+/* -------------------------------------------------------------
+   4. INLINE WYSIWYG TEXT EDITING
+------------------------------------------------------------- */
+[contenteditable="true"] {
+  outline: none;
+}
+
+body:not(.aem-preview) [contenteditable="true"]:hover {
+  background: rgba(0, 210, 255, 0.04);
+  border-radius: 3px;
+}
+
+body:not(.aem-preview) [contenteditable="true"]:focus {
+  outline: 2px solid var(--aem-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+  background: rgba(0, 210, 255, 0.08);
+}
+
+/* Preview Mode */
+body.aem-preview .aem-component,
+body.aem-preview .aem-subitem {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body.aem-preview .aem-badge {
+  display: none !important;
+}
+
+body.aem-preview [contenteditable="true"] {
+  cursor: default !important;
+}
+
+/* -------------------------------------------------------------
+   5. AEM FLOATING CONTEXT MENU (Right-Click)
+------------------------------------------------------------- */
+.aem-context-menu {
+  position: fixed;
+  z-index: 9999;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  min-width: 220px;
+  padding: 6px 0;
+  display: none;
+  user-select: none;
+}
+
+.aem-menu-header {
+  padding: 6px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid #1e293b;
+  letter-spacing: 0.05em;
+}
+
+.aem-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.aem-menu-item:hover {
+  background: #1e293b;
+  color: var(--aem-cyan);
+}
+
+.aem-menu-item.danger:hover {
+  background: #450a0a;
+  color: var(--aem-danger);
+}
+
+.aem-menu-divider {
+  height: 1px;
+  background: #1e293b;
+  margin: 4px 0;
+}
+
+/* -------------------------------------------------------------
+   6. AEM PROPERTIES DRAWER (380px Slide-out on Right)
+------------------------------------------------------------- */
+.aem-drawer {
+  position: fixed;
+  top: 52px;
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  background: #0a0f1d;
+  border-left: 1px solid #1e293b;
+  z-index: 2000;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.6);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.aem-drawer.open {
+  transform: translateX(0);
+}
+
+.aem-drawer-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aem-drawer-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.aem-drawer-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.aem-drawer-close:hover {
+  color: #fff;
+  background: #1e293b;
+}
+
+.aem-drawer-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.aem-drawer-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  background: #080c14;
+}
+
+/* Form inputs inside drawer */
+.drawer-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.drawer-form-group label {
+  display: block;
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.05em;
+}
+
+.drawer-form-group input,
+.drawer-form-group textarea,
+.drawer-form-group select {
+  width: 100%;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.drawer-form-group input:focus,
+.drawer-form-group textarea:focus,
+.drawer-form-group select:focus {
+  outline: none;
+  border-color: var(--aem-cyan);
+}
+
+.drawer-form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Image preview card inside drawer */
+.drawer-image-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.drawer-image-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+/* -------------------------------------------------------------
+   7. MODALS (Insert Component & Git Push)
+------------------------------------------------------------- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.modal-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.insert-option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.insert-option-btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.insert-option-btn:hover {
+  background: #2563eb;
+  border-color: #3b82f6;
+}
+
+.insert-option-btn span.type-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: normal;
+}
+
+/* -------------------------------------------------------------
+   8. TOAST NOTIFICATION
+------------------------------------------------------------- */
+.aem-toast {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #059669;
+  color: #fff;
+  border: 1px solid #10b981;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+}

@@ -13,11 +13,18 @@ export default {
           700: '#15803d',
         },
         dark: {
-          bg: '#090d16',
-          surface: '#0f172a',
-          card: '#131d33',
-          border: '#1e293b',
-          muted: '#94a3b8',
+          bg: '#0B0F19',
+          surface: '#111827',
+          card: '#161F33',
+          border: '#1E293B',
+          muted: '#94A3B8',
+        },
+        editorial: {
+          bg: '#F8F9FA',
+          surface: '#FFFFFF',
+          subtle: '#F1F5F9',
+          ink: '#0F172A',
+          border: '#E2E8F0',
         }
       },
       fontFamily: {

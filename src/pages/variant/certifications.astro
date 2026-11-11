@@ -1,0 +1,37 @@
+---
+import VariantLayout from '../../layouts/VariantLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const targetUrl = `${base}/#qualifications`;
+---
+
+<VariantLayout
+  title="Certifications | Doruk Doğan"
+  description="Redirecting to Qualifications on the portfolio homepage."
+>
+  <head slot="head">
+    <meta http-equiv="refresh" content={`0;url=${targetUrl}`} />
+    <link rel="canonical" href={targetUrl} />
+  </head>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center space-y-4">
+    <h1 class="text-2xl font-bold text-slate-900 dark:text-white">
+      Qualifications &amp; Certifications
+    </h1>
+    <p class="text-sm text-slate-600 dark:text-slate-400">
+      All certifications have been consolidated onto the portfolio homepage.
+    </p>
+    <div class="pt-4">
+      <a
+        href={targetUrl}
+        class="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-500 transition-colors"
+      >
+        View Qualifications on Homepage
+      </a>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ targetUrl }}>
+    window.location.replace(targetUrl);
+  </script>
+</VariantLayout>

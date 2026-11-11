@@ -1,0 +1,61 @@
+---
+import cvData from '../../data/cv.json';
+
+const { basics } = cvData;
+---
+
+<section id="greeting" class="py-6 sm:py-8 border-b border-slate-200/60 dark:border-slate-800/60">
+  <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+    
+    <!-- Reserved Portrait Frame (160x160 rounded-2xl with ambient backlight) -->
+    <div class="relative shrink-0 group">
+      <!-- Ambient Backlight Glow -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+      
+      <!-- Frame Container -->
+      <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 overflow-hidden flex items-center justify-center shadow-sm">
+        {basics.avatar ? (
+          <img
+            src={basics.avatar}
+            alt={basics.name}
+            class="w-full h-full object-cover object-center"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+        ) : null}
+        
+        <!-- Clean Minimalist Vector Silhouette Fallback -->
+        <div class="w-full h-full flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800/90" style={basics.avatar ? 'display: none;' : 'display: flex;'}>
+          <svg class="w-16 h-16 sm:w-20 sm:h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span class="text-[10px] font-mono tracking-wider uppercase mt-1 text-slate-400 dark:text-slate-500">Doruk Doğan</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Greeting Copy (Zero Duplication, Zero Emojis) -->
+    <div class="space-y-2 max-w-xl">
+      <div class="inline-flex items-center gap-2 text-xs font-mono text-emerald-700 dark:text-emerald-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>Available for senior mandates</span>
+      </div>
+
+      <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+        Hi, I'm Doruk. Welcome to my portfolio.
+      </h2>
+
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        Senior performance marketing and technical web operations specialist based in Istanbul / Amsterdam. I bridge paid media growth, enterprise CMS architecture, and custom automation software.
+      </p>
+
+      <div class="pt-1 flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+        <span>{basics.location}</span>
+        <span>·</span>
+        <a href="#contact" class="text-slate-900 dark:text-white hover:text-emerald-600 font-semibold underline underline-offset-4">
+          Direct Inquiry
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

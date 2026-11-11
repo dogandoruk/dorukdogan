@@ -1,0 +1,295 @@
+---
+interface Props {
+  theme?: 'dark' | 'editorial';
+}
+
+const { theme = 'dark' } = Astro.props;
+const isEditorial = theme === 'editorial';
+---
+
+<div
+  class={`rounded-2xl border p-6 sm:p-8 transition-all ${
+    isEditorial
+      ? 'bg-white border-slate-200/90 text-slate-900 shadow-sm'
+      : 'bg-white dark:bg-[#111827]/90 border-slate-200 dark:border-[#1E293B] text-slate-900 dark:text-slate-100 shadow-xl shadow-slate-900/5 dark:shadow-black/30'
+  }`}
+>
+  <div class="mb-6">
+    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-mono uppercase tracking-wider mb-3 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>Direct Inquiry</span>
+    </div>
+    <h3 class={`text-xl sm:text-2xl font-bold tracking-tight ${isEditorial ? 'text-slate-900' : 'text-slate-900 dark:text-white'}`}>
+      Initiate a Conversation
+    </h3>
+    <p class={`mt-1.5 text-sm leading-relaxed ${isEditorial ? 'text-slate-600' : 'text-slate-600 dark:text-slate-400'}`}>
+      Available for enterprise growth marketing leadership, technical SEO consulting, and custom AI workflow architecture.
+    </p>
+  </div>
+
+  <form id="contact-form" class="space-y-5" novalidate>
+    <!-- Single Full Name Field -->
+    <div class="contact-field">
+      <label
+        for="contact-name"
+        class={`block text-sm font-semibold mb-0.5 ${isEditorial ? 'text-slate-900' : 'text-slate-900 dark:text-slate-200'}`}
+      >
+        Full Name <span class="text-emerald-600 dark:text-emerald-400" aria-hidden="true">*</span>
+      </label>
+      <span
+        id="contact-name-hint"
+        class={`block text-xs mb-1.5 ${isEditorial ? 'text-slate-500' : 'text-slate-500 dark:text-slate-400'}`}
+      >
+        Enter your full name or organization (minimum 2 characters).
+      </span>
+      <input
+        id="contact-name"
+        type="text"
+        name="name"
+        autocomplete="name"
+        required
+        minlength="2"
+        aria-describedby="contact-name-hint contact-name-error"
+        placeholder="e.g., Alex van der Berg"
+        class={`contact-input w-full rounded-xl border px-3.5 py-2.5 text-base transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500/40 ${
+          isEditorial
+            ? 'bg-[#F8F9FA] border-slate-300 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-600'
+            : 'bg-slate-50 dark:bg-[#0B0F19] border-slate-300 dark:border-slate-700/90 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-emerald-500'
+        }`}
+      />
+      <p
+        id="contact-name-error"
+        class="field-error-msg text-xs text-red-500 mt-1.5 font-medium"
+        role="alert"
+      >
+        Please enter your name (at least 2 characters).
+      </p>
+    </div>
+
+    <!-- Email Field -->
+    <div class="contact-field">
+      <label
+        for="contact-email"
+        class={`block text-sm font-semibold mb-0.5 ${isEditorial ? 'text-slate-900' : 'text-slate-900 dark:text-slate-200'}`}
+      >
+        Work or Direct Email <span class="text-emerald-600 dark:text-emerald-400" aria-hidden="true">*</span>
+      </label>
+      <span
+        id="contact-email-hint"
+        class={`block text-xs mb-1.5 ${isEditorial ? 'text-slate-500' : 'text-slate-500 dark:text-slate-400'}`}
+      >
+        We will only use this address to reply directly to your inquiry.
+      </span>
+      <input
+        id="contact-email"
+        type="email"
+        name="email"
+        inputmode="email"
+        autocomplete="email"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        required
+        aria-describedby="contact-email-hint contact-email-error"
+        placeholder="name@company.com"
+        class={`contact-input w-full rounded-xl border px-3.5 py-2.5 text-base transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500/40 ${
+          isEditorial
+            ? 'bg-[#F8F9FA] border-slate-300 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-600'
+            : 'bg-slate-50 dark:bg-[#0B0F19] border-slate-300 dark:border-slate-700/90 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-emerald-500'
+        }`}
+      />
+      <p
+        id="contact-email-error"
+        class="field-error-msg text-xs text-red-500 mt-1.5 font-medium"
+        role="alert"
+      >
+        Please enter a valid email address (e.g., name@company.com).
+      </p>
+    </div>
+
+    <!-- Project / Role Details Field -->
+    <div class="contact-field">
+      <label
+        for="contact-message"
+        class={`block text-sm font-semibold mb-0.5 ${isEditorial ? 'text-slate-900' : 'text-slate-900 dark:text-slate-200'}`}
+      >
+        Project / Role Details <span class="text-emerald-600 dark:text-emerald-400" aria-hidden="true">*</span>
+      </label>
+      <span
+        id="contact-message-hint"
+        class={`block text-xs mb-1.5 ${isEditorial ? 'text-slate-500' : 'text-slate-500 dark:text-slate-400'}`}
+      >
+        Share scope, role timeline, or technical context (minimum 10 characters).
+      </span>
+      <textarea
+        id="contact-message"
+        name="message"
+        rows="4"
+        required
+        minlength="10"
+        aria-describedby="contact-message-hint contact-message-error"
+        placeholder="Tell me about the role, growth challenge, or custom AI workflow you are building..."
+        class={`contact-input w-full rounded-xl border px-3.5 py-2.5 text-base transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500/40 ${
+          isEditorial
+            ? 'bg-[#F8F9FA] border-slate-300 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-emerald-600'
+            : 'bg-slate-50 dark:bg-[#0B0F19] border-slate-300 dark:border-slate-700/90 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-emerald-500'
+        }`}
+      ></textarea>
+      <p
+        id="contact-message-error"
+        class="field-error-msg text-xs text-red-500 mt-1.5 font-medium"
+        role="alert"
+      >
+        Please include at least 10 characters describing your inquiry or project.
+      </p>
+    </div>
+
+    <!-- Polite Status Banner -->
+    <div
+      id="contact-status-banner"
+      role="status"
+      aria-live="polite"
+      class="hidden rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs sm:text-sm font-medium text-emerald-700 dark:text-emerald-300"
+    ></div>
+
+    <!-- Actions & Fallback Mailto -->
+    <div class="pt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <button
+        id="contact-submit-btn"
+        type="submit"
+        class={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${
+          isEditorial
+            ? 'bg-slate-900 hover:bg-slate-800 text-white'
+            : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950'
+        }`}
+      >
+        <span>Send Inquiry</span>
+        <span aria-hidden="true">→</span>
+      </button>
+
+      <div class={`flex flex-wrap items-center gap-2 text-xs ${isEditorial ? 'text-slate-500' : 'text-slate-500 dark:text-slate-400'}`}>
+        <span>Prefer direct email?</span>
+        <a
+          href="mailto:dorukdogan95@gmail.com"
+          class="font-mono font-semibold text-emerald-600 dark:text-emerald-400 underline underline-offset-2 hover:text-emerald-500"
+        >
+          dorukdogan95@gmail.com
+        </a>
+        <button
+          id="copy-email-btn"
+          type="button"
+          class={`px-2 py-0.5 rounded border text-[11px] font-mono transition-colors ${
+            isEditorial
+              ? 'border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200'
+              : 'border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500/50'
+          }`}
+        >
+          Copy
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const UserInvalidFallback = new WeakMap();
+    const inputs = form.querySelectorAll('.contact-input');
+    const statusBanner = document.getElementById('contact-status-banner');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+
+    if (copyEmailBtn && navigator.clipboard) {
+      copyEmailBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText('dorukdogan95@gmail.com').then(() => {
+          copyEmailBtn.textContent = 'Copied!';
+          setTimeout(() => {
+            copyEmailBtn.textContent = 'Copy';
+          }, 2000);
+        });
+      });
+    }
+
+    const syncFieldValidity = (field) => {
+      const hasInteracted = UserInvalidFallback.get(field) === true;
+      const isValid = field.checkValidity();
+
+      if (hasInteracted && !isValid) {
+        field.classList.add('user-invalid-fallback');
+        field.setAttribute('aria-invalid', 'true');
+      } else {
+        field.classList.remove('user-invalid-fallback');
+        field.setAttribute('aria-invalid', 'false');
+      }
+    };
+
+    inputs.forEach((input) => {
+      input.addEventListener('blur', () => {
+        UserInvalidFallback.set(input, true);
+        syncFieldValidity(input);
+      });
+
+      input.addEventListener('invalid', (e) => {
+        e.preventDefault();
+        UserInvalidFallback.set(input, true);
+        syncFieldValidity(input);
+      });
+
+      input.addEventListener('input', () => {
+        if (UserInvalidFallback.get(input)) {
+          syncFieldValidity(input);
+        } else if (input.checkValidity()) {
+          input.setAttribute('aria-invalid', 'false');
+        }
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      inputs.forEach((input) => {
+        UserInvalidFallback.set(input, true);
+        syncFieldValidity(input);
+      });
+
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector('.contact-input:invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+      }
+
+      const formData = new FormData(form);
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const message = String(formData.get('message') || '').trim();
+
+      if (statusBanner) {
+        statusBanner.textContent =
+          'Opening your email client with your pre-filled inquiry to dorukdogan95@gmail.com...';
+        statusBanner.classList.remove('hidden');
+      }
+
+      const subject = `Portfolio Inquiry from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nInquiry Details:\n${message}`;
+
+      window.location.href =
+        'mailto:dorukdogan95@gmail.com?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' +
+        encodeURIComponent(body);
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+        }
+      }, 3000);
+    });
+  })();
+</script>
