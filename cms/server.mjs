@@ -284,10 +284,8 @@ const server = http.createServer(async (req, res) => {
       const body = await parseBody(req);
       const { message } = JSON.parse(body || '{}');
       const commitMsg = message && message.trim() ? message.trim() : `Content update via Local CMS (${new Date().toISOString().slice(0, 10)})`;
-      const env = { ...process.env, GIT_TERMINAL_PROMPT: '0' };
 
-      // Step 1: Check if there are local uncommitted changes
-      exec('git status --porcelain', { cwd: ROOT_DIR, env }, (statusErr, statusStdout) => {
+      exec('git status --porcelain', { cwd: ROOT_DIR }, (statusErr, statusStdout) => {
         if (statusErr) {
           return sendJson(res, 500, { success: false, error: statusErr.message });
         }
@@ -297,29 +295,27 @@ const server = http.createServer(async (req, res) => {
           ? `git add . && git commit -m "${commitMsg.replace(/"/g, '\\"')}"`
           : 'git status';
 
-        exec(commitCommand, { cwd: ROOT_DIR, env }, (commitErr, commitStdout, commitStderr) => {
+        exec(commitCommand, { cwd: ROOT_DIR }, (commitErr, commitStdout) => {
           if (commitErr && hasChanges) {
             return sendJson(res, 500, {
               success: false,
-              error: commitErr.message,
-              output: commitStderr || commitStdout
+              error: commitErr.message
             });
           }
 
-          // Step 2: Push commits to GitHub origin main
-          exec('git push origin main', { cwd: ROOT_DIR, env }, (pushErr, pushStdout, pushStderr) => {
-            if (pushErr) {
+          // Launch push_to_github.bat in an interactive Windows command window so Git Credential Manager can authenticate seamlessly
+          exec('start "" push_to_github.bat', { cwd: ROOT_DIR }, (spawnErr) => {
+            if (spawnErr) {
               return sendJson(res, 500, {
                 success: false,
-                error: pushErr.message,
-                output: pushStderr || pushStdout
+                error: spawnErr.message
               });
             }
 
             return sendJson(res, 200, {
               success: true,
-              message: 'Changes committed and pushed to GitHub!',
-              output: [commitStdout, pushStdout, pushStderr].filter(Boolean).join('\n')
+              message: 'Changes committed! Opened push_to_github.bat terminal window to push cleanly to GitHub.',
+              output: commitStdout || 'Working tree clean, launching push_to_github.bat...'
             });
           });
         });
