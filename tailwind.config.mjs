@@ -30,6 +30,12 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+      },
+      fontSize: {
+        'xs': ['0.875rem', { lineHeight: '1.25rem' }],     // was 0.75rem (12px) -> now 0.875rem (14px) [+2pt]
+        'sm': ['1rem', { lineHeight: '1.5rem' }],          // was 0.875rem (14px) -> now 1rem (16px) [+2pt]
+        'base': ['1.125rem', { lineHeight: '1.75rem' }],   // was 1rem (16px) -> now 1.125rem (18px) [+2pt]
+        'lg': ['1.25rem', { lineHeight: '1.875rem' }],     // was 1.125rem (18px) -> now 1.25rem (20px) [+2pt]
       }
     },
   },
