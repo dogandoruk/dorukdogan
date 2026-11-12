@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BentoHero from '../components/bento/BentoHero.astro';
 import BentoGreeting from '../components/bento/BentoGreeting.astro';
 import BentoMetrics from '../components/bento/BentoMetrics.astro';
 import BentoCaseStudies from '../components/bento/BentoCaseStudies.astro';
@@ -18,10 +17,7 @@ const { basics } = cvData;
 >
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-4">
     
-    <!-- 1-Sentence High-Impact Hero -->
-    <BentoHero />
-
-    <!-- Standalone Greeting Card with Reserved Portrait Slot -->
+    <!-- Greeting with Reserved Portrait Frame -->
     <BentoGreeting />
 
     <!-- 4 Key Numbers -->
